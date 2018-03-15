@@ -1,0 +1,9 @@
+C:\Users\SpreedBlood\source\repos\Alore\Alore.API\bin\Debug\netcoreapp2.0\Alore.API.deps.json
+C:\Users\SpreedBlood\source\repos\Alore\Alore.API\bin\Debug\netcoreapp2.0\Alore.API.dll
+C:\Users\SpreedBlood\source\repos\Alore\Alore.API\obj\Debug\netcoreapp2.0\Alore.API.csproj.CoreCompileInputs.cache
+C:\Users\SpreedBlood\source\repos\Alore\Alore.API\obj\Debug\netcoreapp2.0\Alore.API.AssemblyInfoInputs.cache
+C:\Users\SpreedBlood\source\repos\Alore\Alore.API\obj\Debug\netcoreapp2.0\Alore.API.AssemblyInfo.cs
+C:\Users\SpreedBlood\source\repos\Alore\Alore.API\bin\Debug\netcoreapp2.0\Alore.API.pdb
+C:\Users\SpreedBlood\source\repos\Alore\Alore.API\obj\Debug\netcoreapp2.0\Alore.API.csprojResolveAssemblyReference.cache
+C:\Users\SpreedBlood\source\repos\Alore\Alore.API\obj\Debug\netcoreapp2.0\Alore.API.dll
+C:\Users\SpreedBlood\source\repos\Alore\Alore.API\obj\Debug\netcoreapp2.0\Alore.API.pdb
