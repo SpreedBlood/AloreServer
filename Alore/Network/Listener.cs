@@ -1,13 +1,9 @@
 ﻿namespace Alore.Network
 {
     using System;
-    using System.Collections.Generic;
     using System.Net;
     using System.Threading.Tasks;
     using API;
-    using API.Network;
-    using API.Network.Clients;
-    using API.Network.Packets;
     using Codec;
     using DotNetty.Buffers;
     using DotNetty.Transport.Bootstrapping;
@@ -20,7 +16,7 @@
         private IEventLoopGroup _bossGroup;
 
         public async Task Listen(int port, ControllerContext gameContext,
-            Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>> events)
+            IEventProvider eventProvider)
         {
             _workerGroup = new MultithreadEventLoopGroup(10);
             _bossGroup = new MultithreadEventLoopGroup(1);
@@ -32,7 +28,7 @@
                     channel.Pipeline
                         .AddLast("Encoder", new Encoder())
                         .AddLast("Decoder", new Decoder())
-                        .AddLast("ClientHandler", new Handler(gameContext, events))
+                        .AddLast("ClientHandler", new Handler(gameContext, eventProvider))
                 ))
                 .ChildOption(ChannelOption.TcpNodelay, true)
                 .ChildOption(ChannelOption.SoKeepalive, true)

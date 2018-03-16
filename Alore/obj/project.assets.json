@@ -6061,11 +6061,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\SpreedBlood\\source\\repos\\Alore\\Alore\\Alore.csproj",
+      "projectUniqueName": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore\\Alore.csproj",
       "projectName": "Alore",
-      "projectPath": "C:\\Users\\SpreedBlood\\source\\repos\\Alore\\Alore\\Alore.csproj",
+      "projectPath": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore\\Alore.csproj",
       "packagesPath": "C:\\Users\\SpreedBlood\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SpreedBlood\\source\\repos\\Alore\\Alore\\obj\\",
+      "outputPath": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6084,8 +6084,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\SpreedBlood\\source\\repos\\Alore\\Alore.API\\Alore.API.csproj": {
-              "projectPath": "C:\\Users\\SpreedBlood\\source\\repos\\Alore\\Alore.API\\Alore.API.csproj"
+            "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore.API\\Alore.API.csproj": {
+              "projectPath": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore.API\\Alore.API.csproj"
             }
           }
         }

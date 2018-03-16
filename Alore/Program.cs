@@ -7,6 +7,8 @@
     using API.Network.Clients;
     using API.Network.Packets;
     using API.Sql.Test;
+    using Handshake;
+    using Messenger;
     using Network;
     using Player;
 
@@ -14,16 +16,31 @@
     {
         public static async Task Main()
         {
-            new SqlTest().TestSql();
+            //new SqlTest().TestSql();
 
-            Console.ReadKey();
-            Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>> events = new Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>>();
-
+            IEventProvider eventProvider = new EventProvider();
             ControllerContext controllerContext = new ControllerContext();
-            new PlayerService(events).Initialize(controllerContext);
 
-            await new Listener().Listen(30000, controllerContext, events);
+            List<IService> services = new List<IService>(2)
+            {
+                new PlayerService(),
+                new MessengerService(),
+                new HandshakeService()
+            };
+
+            foreach (IService service in services)
+            {
+                service.Initialize(controllerContext);
+                service.AddEvents(eventProvider);
+            }
+
+            await new Listener().Listen(30000, controllerContext, eventProvider);
             Console.ReadKey();
         }
+    }
+
+    internal class EventProvider : IEventProvider
+    {
+        public Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>> Events { get; } = new Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>>();
     }
 }

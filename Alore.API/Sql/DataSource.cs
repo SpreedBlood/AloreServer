@@ -11,6 +11,7 @@
     public abstract class DataSource<TEntity>
         where TEntity : new()
     {
+
         private readonly PropertyInfo[] _propertyInfos;
         private readonly Dictionary<string, string> _columnToAttribute;
         private readonly string _tableName;
@@ -82,7 +83,7 @@
                         {
                             if (_columnToAttribute.TryGetValue(reader.GetName(i), out string property))
                             {
-                                tEntity.
+                                //tEntity.
                             }
                         }
                     }

@@ -4282,11 +4282,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\SpreedBlood\\source\\repos\\Alore\\Alore.API\\Alore.API.csproj",
+      "projectUniqueName": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore.API\\Alore.API.csproj",
       "projectName": "Alore.API",
-      "projectPath": "C:\\Users\\SpreedBlood\\source\\repos\\Alore\\Alore.API\\Alore.API.csproj",
+      "projectPath": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore.API\\Alore.API.csproj",
       "packagesPath": "C:\\Users\\SpreedBlood\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SpreedBlood\\source\\repos\\Alore\\Alore.API\\obj\\",
+      "outputPath": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

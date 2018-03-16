@@ -17,10 +17,10 @@
         private readonly Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>> _events;
         private readonly Dictionary<IChannelId, ISession> _sessions;
 
-        internal Handler(ControllerContext gameContext, Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>> events)
+        internal Handler(ControllerContext gameContext, IEventProvider eventProvider)
         {
             _controllerContext = gameContext;
-            _events = events;
+            _events = eventProvider.Events;
 
             _sessions = new Dictionary<IChannelId, ISession>();
         }

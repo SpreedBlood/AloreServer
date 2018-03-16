@@ -11,3 +11,16 @@ C:\Users\SpreedBlood\source\repos\Alore\Alore\obj\Debug\netcoreapp2.0\Alore.dll
 C:\Users\SpreedBlood\source\repos\Alore\Alore\obj\Debug\netcoreapp2.0\Alore.pdb
 C:\Users\SpreedBlood\source\repos\Alore\Alore\bin\Debug\netcoreapp2.0\Alore.API.dll
 C:\Users\SpreedBlood\source\repos\Alore\Alore\bin\Debug\netcoreapp2.0\Alore.API.pdb
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\obj\Debug\netcoreapp2.0\Alore.csprojResolveAssemblyReference.cache
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\obj\Debug\netcoreapp2.0\Alore.csproj.CoreCompileInputs.cache
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\obj\Debug\netcoreapp2.0\Alore.AssemblyInfoInputs.cache
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\obj\Debug\netcoreapp2.0\Alore.AssemblyInfo.cs
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\obj\Debug\netcoreapp2.0\Alore.dll
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\obj\Debug\netcoreapp2.0\Alore.pdb
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\bin\Debug\netcoreapp2.0\Alore.deps.json
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\bin\Debug\netcoreapp2.0\Alore.runtimeconfig.json
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\bin\Debug\netcoreapp2.0\Alore.runtimeconfig.dev.json
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\bin\Debug\netcoreapp2.0\Alore.dll
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\bin\Debug\netcoreapp2.0\Alore.pdb
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\bin\Debug\netcoreapp2.0\Alore.API.dll
+C:\Users\SpreedBlood\Documents\GitHub\AloreServer\Alore\bin\Debug\netcoreapp2.0\Alore.API.pdb

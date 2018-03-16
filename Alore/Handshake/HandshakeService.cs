@@ -8,15 +8,15 @@
     using API.Network.Packets;
     using Packets.Incoming;
 
-    public class HandshakeService : AbstractService
+    public class HandshakeService : IService
     {
-        public HandshakeService(Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>> events) : base(events)
+        public void Initialize(IControllerContext context)
         {
         }
 
-        public override void Initialize(IControllerContext context)
+        public void AddEvents(IEventProvider eventProvider)
         {
-            Events.Add(3465, UniqueIdMessageEvent.Execute);
+            eventProvider.Events.Add(3465, UniqueIdMessageEvent.Execute);
         }
     }
 }
