@@ -1,5 +1,6 @@
 ﻿namespace Alore
 {
+    using Alore.API.Navigator;
     using API;
     using API.Messenger;
     using API.Player;
@@ -9,5 +10,7 @@
         public IMessengerController MessengerController { get; set; }
 
         public IPlayerController PlayerController { get; set; }
+
+        public INavigatorController NavigatorController { get; set; }
     }
 }

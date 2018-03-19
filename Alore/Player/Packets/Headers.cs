@@ -1,12 +1,12 @@
 ﻿namespace Alore.Player.Packets
 {
-    public class Headers
+    internal static class Headers
     {
-        public const short AuthenticationOkMessageComposer = 3412;
-        public const short UserObjectMessageComposer = 3862;
-        public const short UserPerksMessageComposer = 1105;
-        public const short CreditBalanceMessageComposer = 1232;
-        public const short ActivityPointsMessageComposer = 2380;
-        public const short ScrSendUserInfoMessageComposer = 2984;
+        internal const short AuthenticationOkMessageComposer = 3412;
+        internal const short UserObjectMessageComposer = 3862;
+        internal const short UserPerksMessageComposer = 1105;
+        internal const short CreditBalanceMessageComposer = 1232;
+        internal const short ActivityPointsMessageComposer = 2380;
+        internal const short ScrSendUserInfoMessageComposer = 2984;
     }
 }

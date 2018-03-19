@@ -19,5 +19,14 @@
         /// <param name="sso">The single sign on ticket associated with the player.</param>
         /// <returns>The player upon task completion</returns>
         Task<IPlayer> GetPlayerBySsoAsync(string sso);
+
+        /// <summary>
+        /// Get the player settings by player id.
+        /// </summary>
+        /// <param name="id">the players id.</param>
+        /// <returns>The player settings upon task completion.</returns>
+        Task<IPlayerSettings> GetPlayerSettingsByIdAsync(uint id);
+
+        Task AddPlayerSettingsAsync(uint id);
     }
 }

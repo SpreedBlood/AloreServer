@@ -7,7 +7,7 @@
     {
         public IByteBuffer ByteBuffer { get; }
 
-        protected ServerPacket(short header)
+        public ServerPacket(short header)
         {
             ByteBuffer = Unpooled.Buffer(6);
             ByteBuffer.WriteInt(-1);

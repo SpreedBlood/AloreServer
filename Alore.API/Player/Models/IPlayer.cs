@@ -23,6 +23,11 @@
         int Diamonds { get; set; }
 
         /// <summary>
+        /// The players rank.
+        /// </summary>
+        int Rank { get; set; }
+
+        /// <summary>
         /// The username associated with the player.
         /// </summary>
         string Username { get; set; }

@@ -9,6 +9,12 @@
             TestDao testDao = new TestDao();
             return await testDao.GetModelById(2);
         }
+
+        public async Task TestInsert()
+        {
+            TestDao testDao = new TestDao();
+            await testDao.TestInsert();
+        }
     }
 
     public class TestDao : AloreDao
@@ -29,6 +35,14 @@
             });
 
             return testModel;
+        }
+
+        public async Task TestInsert()
+        {
+            await CreateTransaction(async transaction =>
+            {
+                await Insert(transaction, "INSERT INTO players_test(id, username) VALUES(16, 'haha');");
+            });
         }
     }
 

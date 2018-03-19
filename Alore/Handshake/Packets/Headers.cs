@@ -1,7 +1,7 @@
 ﻿namespace Alore.Handshake.Packets
 {
-    public class Headers
+    internal static class Headers
     {
-        public const short SetUniqueIdComposer = 547;
+        internal const short SetUniqueIdComposer = 547;
     }
 }

@@ -4,10 +4,10 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Threading.Tasks;
+    using Alore.Navigator;
     using API;
     using API.Network.Clients;
     using API.Network.Packets;
-    using API.Player.Models;
     using API.Sql.Test;
     using Handshake;
     using Messenger;
@@ -27,7 +27,8 @@
             {
                 new PlayerService(),
                 new MessengerService(),
-                new HandshakeService()
+                new HandshakeService(),
+                new NavigatorService()
             };
 
             foreach (IService service in services)

@@ -31,6 +31,7 @@
                 using (MySqlTransaction mysqlTransaction = await connection.BeginTransactionAsync())
                 {
                     transaction(mysqlTransaction);
+                    mysqlTransaction.Commit();
                 }
 
                 await connection.CloseAsync();
@@ -117,12 +118,9 @@
 
         private static void AddParameters(MySqlCommand command, params object[] parameters)
         {
-            var i = 0;
-
-            foreach (var obj in parameters)
+            for (int i = 0; i < parameters.Length; i++)
             {
-                command.Parameters.AddWithValue($"@{i}", obj);
-                i++;
+                command.Parameters.AddWithValue($"@{i}", parameters[i]);
             }
         }
     }

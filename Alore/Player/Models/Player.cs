@@ -17,6 +17,9 @@
         [AloreColumn("diamonds")]
         public int Diamonds { get; set; }
 
+        [AloreColumn("rank")]
+        public int Rank { get; set; }
+
         [AloreColumn("username")]
         public string Username { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿namespace Alore.Player.Packets.Incoming
 {
+    using System;
     using System.Threading.Tasks;
     using API;
     using API.Network.Clients;
@@ -16,10 +17,22 @@
         {
             string ssoTicket = clientPacket.ReadString();
             IPlayer player = await controllerContext.PlayerController.GetPlayerBySsoAsync(ssoTicket);
-            
             if (player != null)
             {
                 session.Player = player;
+                IPlayerSettings playerSettings = await controllerContext.PlayerController.GetPlayerSettingsByIdAsync(player.Id);
+
+                //TODO: Check if player settings exist, if not then insert.
+                if (playerSettings != null)
+                {
+                    session.PlayerSettings = playerSettings;
+                }
+                else
+                {
+                    await controllerContext.PlayerController.AddPlayerSettingsAsync(player.Id);
+                    session.PlayerSettings = await controllerContext.PlayerController.GetPlayerSettingsByIdAsync(player.Id);
+                }
+
                 await session.WriteAndFlushAsync(new AuthenticationOkComposer());
             }
         }

@@ -8,11 +8,11 @@
     {
         private readonly PlayerDao _playerDao;
         private readonly Dictionary<uint, Player> _players;
-        
+
         public PlayerRepostiory(PlayerDao playerDao)
         {
             _playerDao = playerDao;
-            
+
             _players = new Dictionary<uint, Player>();
         }
 
@@ -22,11 +22,17 @@
 
             player = await _playerDao.GetPlayerByIdAsync(id);
             _players.Add(player.Id, player);
-            
+
             return player;
         }
 
         public async Task<Player> GetPlayerBySso(string sso) =>
             await _playerDao.GetPlayerBySsoAsync(sso);
+
+        public async Task<PlayerSettings> GetPlayerSettingsById(uint id) =>
+            await _playerDao.GetPlayerSettingsByIdAsync(id);
+
+        public async Task CreatePlayerSettings(uint id) =>
+            await _playerDao.CreatePlayerSettings(id);
     }
 }

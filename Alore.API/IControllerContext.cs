@@ -1,5 +1,6 @@
 ﻿namespace Alore.API
 {
+    using Alore.API.Navigator;
     using Messenger;
     using Player;
 
@@ -18,5 +19,10 @@
         /// Get the messenger controller.
         /// </summary>
         IMessengerController MessengerController { get; set; }
+
+        /// <summary>
+        /// The navigator controller.
+        /// </summary>
+        INavigatorController NavigatorController { get; set; }
     }
 }

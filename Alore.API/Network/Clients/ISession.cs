@@ -14,6 +14,12 @@
         IPlayer Player { get; set; }
 
         /// <summary>
+        /// The player settings associated with the current session.
+        /// The player settings are set after sso ticket.
+        /// </summary>
+        IPlayerSettings PlayerSettings { get; set; }
+
+        /// <summary>
         /// The unique id from where the session is connected.
         /// </summary>
         string UniqueId { get; set; }
