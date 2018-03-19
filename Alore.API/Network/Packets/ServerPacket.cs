@@ -20,6 +20,9 @@
         protected void WriteInt(int i) =>
             ByteBuffer.WriteInt(i);
 
+        protected void WriteInt(uint i) =>
+            ByteBuffer.WriteInt((int)i);
+
         protected void WriteShort(short s) =>
             ByteBuffer.WriteShort(s);
 

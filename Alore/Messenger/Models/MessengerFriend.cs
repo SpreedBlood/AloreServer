@@ -1,9 +1,11 @@
 ﻿namespace Alore.Messenger.Models
 {
     using API.Messenger.Models;
+    using API.Sql;
 
-    public class MessengerFriend : IMessengerFriend
+    public class MessengerFriend : AloreModel, IMessengerFriend
     {
+        //TODO:
         public int FriendId { get; set; }
 
         public int LastOnline { get; set; }

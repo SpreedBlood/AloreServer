@@ -11,7 +11,7 @@
         /// </summary>
         /// <param name="id">The unique id from the player.</param>
         /// <returns>The player upon task completion</returns>
-        Task<IPlayer> GetPlayerByIdAsync(int id);
+        Task<IPlayer> GetPlayerByIdAsync(uint id);
 
         /// <summary>
         /// Fetch the player model from the database.

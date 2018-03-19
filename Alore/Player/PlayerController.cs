@@ -13,7 +13,7 @@
             _playerRepostiory = playerRepostiory;
         }
 
-        public async Task<IPlayer> GetPlayerByIdAsync(int id) =>
+        public async Task<IPlayer> GetPlayerByIdAsync(uint id) =>
             await _playerRepostiory.GetPlayerById(id);
 
         public async Task<IPlayer> GetPlayerBySsoAsync(string sso) =>

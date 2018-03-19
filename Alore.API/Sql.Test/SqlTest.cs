@@ -4,25 +4,36 @@
 
     public class SqlTest
     {
-        public async void TestSql()
+        public async Task<TestModel> TestSql()
         {
-            TestSource testSource = new TestSource();
-            TestModel testModel = await testSource.TestPlayerById(4);
+            TestDao testDao = new TestDao();
+            return await testDao.GetModelById(2);
         }
     }
 
-    internal class TestSource : DataSource<TestModel>
+    public class TestDao : AloreDao
     {
-        public async Task<TestModel> TestPlayerById(int id) =>
-            await GetEntityByValue(id, "id");
+        public async Task<TestModel> GetModelById(int id)
+        {
+            TestModel testModel = null;
+            await CreateTransaction(async transaction =>
+            {
+                await Select(transaction, async reader =>
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        testModel = new TestModel();
+                        testModel.SetPropertyValues(reader);
+                    }
+                }, "SELECT * FROM players_test WHERE id = @0", id);
+            });
+
+            return testModel;
+        }
     }
 
-    [AloreTable("players_test")]
-    internal class TestModel
+    public class TestModel : AloreModel
     {
-        [AloreColumn("id")]
-        public int Id { get; set; }
-
         [AloreColumn("username")]
         public string Username { get; set; }
     }

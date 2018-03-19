@@ -4,11 +4,11 @@
 
     public class AloreColumnAttribute : Attribute
     {
-        public string Column { get; }
+        public string ColumnName { get; }
 
         public AloreColumnAttribute(string columnName)
         {
-            Column = columnName;
+            ColumnName = columnName;
         }
     }
 }

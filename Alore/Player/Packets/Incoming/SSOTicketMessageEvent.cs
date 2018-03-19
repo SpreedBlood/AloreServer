@@ -16,6 +16,7 @@
         {
             string ssoTicket = clientPacket.ReadString();
             IPlayer player = await controllerContext.PlayerController.GetPlayerBySsoAsync(ssoTicket);
+            
             if (player != null)
             {
                 session.Player = player;

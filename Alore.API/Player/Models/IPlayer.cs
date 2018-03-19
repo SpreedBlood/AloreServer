@@ -5,7 +5,7 @@
         /// <summary>
         /// The unique Id associated with the player.
         /// </summary>
-        int Id { get; set; }
+        uint Id { get; set; }
 
         /// <summary>
         /// Get the players current credits.

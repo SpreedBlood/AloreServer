@@ -2,11 +2,11 @@
 {
     internal class MessengerRepository
     {
-        private readonly MessengerContext _messengerContext;
+        private readonly MessengerDao _messengerDao;
 
-        internal MessengerRepository(MessengerContext messengerContext)
+        internal MessengerRepository(MessengerDao messengerDao)
         {
-            _messengerContext = messengerContext;
+            _messengerDao = messengerDao;
         }
 
     }

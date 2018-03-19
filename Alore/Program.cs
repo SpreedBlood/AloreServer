@@ -2,10 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Threading.Tasks;
     using API;
     using API.Network.Clients;
     using API.Network.Packets;
+    using API.Player.Models;
     using API.Sql.Test;
     using Handshake;
     using Messenger;
@@ -16,12 +18,12 @@
     {
         public static async Task Main()
         {
-            //new SqlTest().TestSql();
+            //await TestAloreSql();
 
             IEventProvider eventProvider = new EventProvider();
             ControllerContext controllerContext = new ControllerContext();
 
-            List<IService> services = new List<IService>(2)
+            List<IService> services = new List<IService>
             {
                 new PlayerService(),
                 new MessengerService(),
@@ -36,6 +38,19 @@
 
             await new Listener().Listen(30000, controllerContext, eventProvider);
             Console.ReadKey();
+        }
+
+        private static async Task TestAloreSql()
+        {
+            SqlTest testSql = new SqlTest();
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            Console.WriteLine(stopWatch.Elapsed.TotalMilliseconds);
+            TestModel testModel = await testSql.TestSql();
+            Console.WriteLine(stopWatch.Elapsed.TotalMilliseconds);
+            stopWatch.Stop();
+
+            Console.WriteLine("Alore MySQL benchmark done!");
         }
     }
 

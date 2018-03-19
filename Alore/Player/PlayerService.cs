@@ -7,7 +7,7 @@
     {
         public void Initialize(IControllerContext context)
         {
-            context.PlayerController = new PlayerController(new PlayerRepostiory(new PlayerContext()));
+            context.PlayerController = new PlayerController(new PlayerRepostiory(new PlayerDao()));
         }
 
         public void AddEvents(IEventProvider eventProvider)
