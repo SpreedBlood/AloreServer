@@ -29,5 +29,7 @@
         public async Task WriteAndFlushAsync(ServerPacket serverPacket) => await _ctx.WriteAndFlushAsync(serverPacket);
 
         public async Task WriteAsync(ServerPacket serverPacket) => await _ctx.WriteAsync(serverPacket);
+
+        public void Flush() => _ctx.Flush();
     }
 }

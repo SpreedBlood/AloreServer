@@ -11,5 +11,11 @@ namespace Alore.API.Navigator
         /// </summary>
         /// <returns>Return the list with navigator categories upon task completion.</returns>
         Task<List<INavigatorCategory>> GetNavigatorCategoriesAsync();
+
+        /// <summary>
+        /// Get the promoted navigator categories asynchronously.
+        /// </summary>
+        /// <returns>Return the list with promoted navigator categories upon task completion.</returns>
+        Task<List<INavigatorCategory>> GetNavigatorPromoterCategoriesAsync();
     }
 }

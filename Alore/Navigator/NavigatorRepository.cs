@@ -1,7 +1,6 @@
 ﻿namespace Alore.Navigator
 {
     using Alore.API.Navigator.Models;
-    using Alore.Navigator.Models;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -9,6 +8,7 @@
     {
         private readonly NavigatorDao _navigatorDao;
         private List<INavigatorCategory> _categories;
+        private List<INavigatorCategory> _promotionCategories;
 
         internal NavigatorRepository(NavigatorDao navigatorDao)
         {
@@ -21,6 +21,14 @@
 
             _categories = await _navigatorDao.GetNavigatorCategoriesAsync();
             return _categories;
+        }
+
+        internal async Task<List<INavigatorCategory>> GetPromotionNavigatorCategoriesAsync()
+        {
+            if (_promotionCategories != null) return _promotionCategories;
+
+            _promotionCategories = await _navigatorDao.GetPromotionCategoriesAsync();
+            return _promotionCategories;
         }
     }
 }

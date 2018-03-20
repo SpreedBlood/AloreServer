@@ -34,6 +34,15 @@
                 }
 
                 await session.WriteAndFlushAsync(new AuthenticationOkComposer());
+                await session.WriteAndFlushAsync(new HomeRoomComposer());
+                await session.WriteAndFlushAsync(new FavouriteRoomsComposer());
+                await session.WriteAndFlushAsync(new FigureSetIdsComposer());
+                await session.WriteAndFlushAsync(new UserRightsComposer(session.Player.Rank));
+                await session.WriteAndFlushAsync(new AvailabilityStatusComposer());
+                await session.WriteAndFlushAsync(new BuildersClubMembershipComposer());
+                await session.WriteAndFlushAsync(new CfhTopicsInitComposer());
+                await session.WriteAndFlushAsync(new BadgeDefinitionsComposer());
+                await session.WriteAndFlushAsync(new PlayerSettingsComposer());
             }
         }
     }

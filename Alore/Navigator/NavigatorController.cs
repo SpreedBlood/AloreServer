@@ -16,5 +16,8 @@
 
         public async Task<List<INavigatorCategory>> GetNavigatorCategoriesAsync() =>
             await _navigatorRepository.GetNavigatorCategoriesAsync();
+
+        public async Task<List<INavigatorCategory>> GetNavigatorPromoterCategoriesAsync() =>
+            await _navigatorRepository.GetPromotionNavigatorCategoriesAsync();
     }
 }

@@ -37,5 +37,10 @@
         /// <param name="msg"></param>
         /// <returns>Task completion.</returns>
         Task WriteAsync(ServerPacket msg);
+
+        /// <summary>
+        /// Flush the packets.
+        /// </summary>
+        void Flush();
     }
 }

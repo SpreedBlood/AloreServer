@@ -9,6 +9,7 @@
         {
             eventProvider.Events.Add(2142, InitializeNewNavigatorMessageEvent.Execute);
             eventProvider.Events.Add(3976, GetUserFlatCatsMessageEvent.Execute);
+            eventProvider.Events.Add(708, GetNavigatorFlatsMessageEvent.Execute);
         }
 
         public void Initialize(IControllerContext context)
