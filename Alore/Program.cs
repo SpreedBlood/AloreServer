@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Threading.Tasks;
+    using Alore.Landing;
     using Alore.Navigator;
     using API;
     using API.Network.Clients;
@@ -28,7 +29,8 @@
                 new PlayerService(),
                 new MessengerService(),
                 new HandshakeService(),
-                new NavigatorService()
+                new NavigatorService(),
+                new LandingService()
             };
 
             foreach (IService service in services)

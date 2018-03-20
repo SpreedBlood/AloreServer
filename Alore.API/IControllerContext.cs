@@ -1,5 +1,6 @@
 ﻿namespace Alore.API
 {
+    using Alore.API.Landing;
     using Alore.API.Navigator;
     using Messenger;
     using Player;
@@ -24,5 +25,10 @@
         /// The navigator controller.
         /// </summary>
         INavigatorController NavigatorController { get; set; }
+
+        /// <summary>
+        /// The landing view manager controller.
+        /// </summary>
+        ILandingController LandingController { get; set; }
     }
 }
