@@ -19,6 +19,8 @@
 
         public IPlayerSettings PlayerSettings { get; set; }
 
+        public IPlayerStats PlayerStats { get; set; }
+
         public string UniqueId { get; set; }
 
         public async void Dispose()

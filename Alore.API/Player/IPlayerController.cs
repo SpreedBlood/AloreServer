@@ -27,6 +27,25 @@
         /// <returns>The player settings upon task completion.</returns>
         Task<IPlayerSettings> GetPlayerSettingsByIdAsync(uint id);
 
+        /// <summary>
+        /// Create the player settings column for the player.
+        /// </summary>
+        /// <param name="id">The players id</param>
+        /// <returns>The task upon completion</returns>
         Task AddPlayerSettingsAsync(uint id);
+
+        /// <summary>
+        /// Create the player stats column for the player.
+        /// </summary>
+        /// <param name="id">The players id</param>
+        /// <returns>The task upon completion</returns>
+        Task AddPlayerStatsAsync(uint id);
+
+        /// <summary>
+        /// Fetch the player stats data.
+        /// </summary>
+        /// <param name="id">The players id.</param>
+        /// <returns>The player stats upon completion</returns>
+        Task<IPlayerStats> GetPlayerStatsByIdAsync(uint id);
     }
 }

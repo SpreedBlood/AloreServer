@@ -16,23 +16,29 @@
             _players = new Dictionary<uint, Player>();
         }
 
-        public async Task<Player> GetPlayerById(uint id)
+        internal async Task<Player> GetPlayerById(uint id)
         {
             if (_players.TryGetValue(id, out Player player)) return player;
 
-            player = await _playerDao.GetPlayerByIdAsync(id);
+            player = await _playerDao.GetPlayerById(id);
             _players.Add(player.Id, player);
 
             return player;
         }
 
-        public async Task<Player> GetPlayerBySso(string sso) =>
-            await _playerDao.GetPlayerBySsoAsync(sso);
+        internal async Task<Player> GetPlayerBySso(string sso) =>
+            await _playerDao.GetPlayerBySso(sso);
 
-        public async Task<PlayerSettings> GetPlayerSettingsById(uint id) =>
-            await _playerDao.GetPlayerSettingsByIdAsync(id);
+        internal async Task<PlayerSettings> GetPlayerSettingsById(uint id) =>
+            await _playerDao.GetPlayerSettingsById(id);
 
-        public async Task CreatePlayerSettings(uint id) =>
+        internal async Task CreatePlayerSettings(uint id) =>
             await _playerDao.CreatePlayerSettings(id);
+
+        internal async Task<PlayerStats> GetPlayerStatsById(uint id) =>
+             await _playerDao.GetPlayerStatsById(id);
+
+        internal async Task CreatePlayerStats(uint id) =>
+            await _playerDao.CreatePlayerStats(id);
     }
 }

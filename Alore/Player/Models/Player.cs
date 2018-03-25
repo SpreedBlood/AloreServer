@@ -3,7 +3,7 @@
     using API.Player.Models;
     using API.Sql;
 
-    public class Player : AloreModel, IPlayer
+    internal class Player : AloreModel, IPlayer
     {
         [AloreColumn("id")]
         public uint Id { get; set; }

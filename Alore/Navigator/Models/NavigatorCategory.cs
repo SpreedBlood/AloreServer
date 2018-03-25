@@ -3,7 +3,7 @@
     using Alore.API.Navigator.Models;
     using Alore.API.Sql;
 
-    public class NavigatorCategory : AloreModel, INavigatorCategory
+    internal class NavigatorCategory : AloreModel, INavigatorCategory
     {
         [AloreColumn("id")]
         public uint Id { get; set; }

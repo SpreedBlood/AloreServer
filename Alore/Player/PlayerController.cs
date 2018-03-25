@@ -16,6 +16,9 @@
         public async Task AddPlayerSettingsAsync(uint id) =>
             await _playerRepostiory.CreatePlayerSettings(id);
 
+        public async Task AddPlayerStatsAsync(uint id) =>
+            await _playerRepostiory.CreatePlayerStats(id);
+
         public async Task<IPlayer> GetPlayerByIdAsync(uint id) =>
             await _playerRepostiory.GetPlayerById(id);
 
@@ -24,5 +27,8 @@
 
         public async Task<IPlayerSettings> GetPlayerSettingsByIdAsync(uint id) =>
             await _playerRepostiory.GetPlayerSettingsById(id);
+
+        public async Task<IPlayerStats> GetPlayerStatsByIdAsync(uint id) =>
+            await _playerRepostiory.GetPlayerStatsById(id);
     }
 }

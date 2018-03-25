@@ -3,7 +3,7 @@
     using Alore.API.Player.Models;
     using Alore.API.Sql;
 
-    public class PlayerSettings : AloreModel, IPlayerSettings
+    internal class PlayerSettings : AloreModel, IPlayerSettings
     {
         [AloreColumn("navi_x")]
         public int NaviX { get; set; }

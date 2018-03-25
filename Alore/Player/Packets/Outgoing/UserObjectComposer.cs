@@ -5,7 +5,7 @@
 
     public class UserObjectComposer : ServerPacket
     {
-        public UserObjectComposer(IPlayer player)
+        public UserObjectComposer(IPlayer player, IPlayerStats playerStats)
             : base(Headers.UserObjectMessageComposer)
         {
             WriteInt(player.Id);
@@ -15,9 +15,9 @@
             WriteString(player.Motto);
             WriteString(""); //TODO: Find out what this is.
             WriteBoolean(false); //TODO:
-            WriteInt(10); //TODO: Respect.
-            WriteInt(10); //TODO: Daily respect.
-            WriteInt(10); //TODO: Daily pet points.
+            WriteInt(playerStats.Respect);
+            WriteInt(playerStats.DailyRespect);
+            WriteInt(playerStats.DailyPetPoints);
             WriteBoolean(false); //Friends stream?
             WriteString("Last online...");
             WriteBoolean(true); //Can change name.

@@ -1,7 +1,6 @@
 ﻿namespace Alore.Navigator
 {
     using Alore.API.Navigator.Models;
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 

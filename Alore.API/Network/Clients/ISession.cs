@@ -20,6 +20,12 @@
         IPlayerSettings PlayerSettings { get; set; }
 
         /// <summary>
+        /// The player stats associated with the current session.
+        /// The lpayer stats are set after the info retrieve.
+        /// </summary>
+        IPlayerStats PlayerStats { get; set; }
+
+        /// <summary>
         /// The unique id from where the session is connected.
         /// </summary>
         string UniqueId { get; set; }

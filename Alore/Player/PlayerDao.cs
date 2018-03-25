@@ -6,7 +6,7 @@
 
     public class PlayerDao : AloreDao
     {
-        public async Task<Player> GetPlayerByIdAsync(uint id)
+        internal async Task<Player> GetPlayerById(uint id)
         {
             Player player = null;
             await CreateTransaction(async transaction =>
@@ -23,7 +23,7 @@
             return player;
         }
 
-        public async Task<Player> GetPlayerBySsoAsync(string sso)
+        internal async Task<Player> GetPlayerBySso(string sso)
         {
             Player player = null;
             await CreateTransaction(async transaction =>
@@ -40,7 +40,7 @@
             return player;
         }
 
-        public async Task<PlayerSettings> GetPlayerSettingsByIdAsync(uint id)
+        internal async Task<PlayerSettings> GetPlayerSettingsById(uint id)
         {
             PlayerSettings playerSettings = null;
             await CreateTransaction(async transaction =>
@@ -58,11 +58,37 @@
             return playerSettings;
         }
 
-        public async Task CreatePlayerSettings(uint id)
+        internal async Task CreatePlayerSettings(uint id)
         {
             await CreateTransaction(async transaction =>
             {
                 await Insert(transaction, "INSERT INTO player_settings(player_id) VALUES(@0)", id);
+            });
+        }
+
+        internal async Task<PlayerStats> GetPlayerStatsById(uint id)
+        {
+            PlayerStats playerStats = null;
+            await CreateTransaction(async transaction =>
+            {
+                await Select(transaction, async reader =>
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        playerStats = new PlayerStats();
+                        playerStats.SetPropertyValues(reader);
+                    }
+                }, "SELECT respect, daily_respect, daily_pet_points FROM player_stats WHERE player_id = @0 LIMIT 1;", id);
+            });
+
+            return playerStats;
+        }
+
+        internal async Task CreatePlayerStats(uint id)
+        {
+            await CreateTransaction(async transaction =>
+            {
+                await Insert(transaction, "INSERT INTO player_stats(player_id) VALUES(@0)", id);
             });
         }
     }

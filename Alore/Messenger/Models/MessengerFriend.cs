@@ -3,7 +3,7 @@
     using API.Messenger.Models;
     using API.Sql;
 
-    public class MessengerFriend : AloreModel, IMessengerFriend
+    internal class MessengerFriend : AloreModel, IMessengerFriend
     {
         //TODO:
         public int FriendId { get; set; }

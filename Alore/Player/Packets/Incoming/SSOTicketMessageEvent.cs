@@ -22,7 +22,6 @@
                 session.Player = player;
                 IPlayerSettings playerSettings = await controllerContext.PlayerController.GetPlayerSettingsByIdAsync(player.Id);
 
-                //TODO: Check if player settings exist, if not then insert.
                 if (playerSettings != null)
                 {
                     session.PlayerSettings = playerSettings;

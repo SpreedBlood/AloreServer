@@ -3,7 +3,7 @@
     using Alore.API.Landing.Models;
     using Alore.API.Sql;
 
-    public class HallOfFamer : AloreModel, IHallOfFamer
+    internal class HallOfFamer : AloreModel, IHallOfFamer
     {
         [AloreColumn("id")]
         public uint Id { get; set; }
