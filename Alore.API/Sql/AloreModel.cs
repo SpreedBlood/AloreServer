@@ -25,12 +25,22 @@
             }
         }
 
+        /// <summary>
+        /// Assigne the values from database to the model.
+        /// </summary>
+        /// <param name="reader">the db columns.</param>
         public void SetPropertyValues(DbDataReader reader)
         {
             for (int i = reader.FieldCount - 1; i >= 0; i--)
             {
                 if (_dbNameToProperty.TryGetValue(reader.GetName(i), out PropertyInfo property))
                 {
+                    if (property.PropertyType.IsEnum)
+                    {
+                        property.SetValue(this, Enum.Parse(property.PropertyType, reader.GetValue(i).ToString()), null);
+                        continue;
+                    }
+
                     property.SetValue(this, reader.GetValue(i), null);
                 }
             }

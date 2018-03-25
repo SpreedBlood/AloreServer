@@ -27,7 +27,7 @@
         /// <summary>
         /// Write the outgoing packet to the executor and flush the messages.
         /// </summary>
-        /// <param name="msg"></param>
+        /// <param name="msg">The packet to write.</param>
         /// <returns>Task completion.</returns>
         Task WriteAndFlushAsync(ServerPacket msg);
 

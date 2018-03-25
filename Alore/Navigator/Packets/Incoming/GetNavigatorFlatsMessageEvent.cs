@@ -13,7 +13,7 @@
             IClientPacket clientPacket,
             IControllerContext controllerContext)
         {
-            await session.WriteAndFlushAsync(new NavigatorFlatCatsComposer(await controllerContext.NavigatorController.GetNavigatorPromoterCategoriesAsync(), session.Player.Rank));
+            await session.WriteAndFlushAsync(new NavigatorFlatCatsComposer(await controllerContext.NavigatorController.GetEventCategoriesAsync(), session.Player.Rank));
         }
     }
 }

@@ -17,6 +17,8 @@
 
     class Program
     {
+        private static Listener _listener;
+
         public static async Task Main()
         {
             //await TestAloreSql();
@@ -39,8 +41,16 @@
                 service.AddEvents(eventProvider);
             }
 
-            await new Listener().Listen(30000, controllerContext, eventProvider);
-            Console.ReadKey();
+            _listener = new Listener();
+            await _listener.Listen(30000, controllerContext, eventProvider);
+
+            while (true)
+            {
+                if (Console.ReadKey(false).Key == ConsoleKey.Enter)
+                {
+                    await DisposeAsync();
+                }
+            }
         }
 
         private static async Task TestAloreSql()
@@ -54,6 +64,14 @@
             stopWatch.Stop();
 
             Console.WriteLine("Alore MySQL benchmark done!");
+        }
+
+        private static async Task DisposeAsync()
+        {
+            await _listener.DisposeAsync();
+
+            Console.WriteLine("Finished!");
+            Environment.Exit(0);
         }
     }
 

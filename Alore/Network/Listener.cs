@@ -1,6 +1,5 @@
 ﻿namespace Alore.Network
 {
-    using System;
     using System.Net;
     using System.Threading.Tasks;
     using API;
@@ -10,7 +9,7 @@
     using DotNetty.Transport.Channels;
     using DotNetty.Transport.Channels.Sockets;
 
-    public class Listener : IDisposable
+    public class Listener
     {
         private IEventLoopGroup _workerGroup;
         private IEventLoopGroup _bossGroup;
@@ -48,7 +47,7 @@
             }
         }
 
-        public async void Dispose()
+        public async Task DisposeAsync()
         {
             await _workerGroup.ShutdownGracefullyAsync();
             await _bossGroup.ShutdownGracefullyAsync();

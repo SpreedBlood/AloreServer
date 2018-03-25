@@ -17,7 +17,7 @@
                 UserID = "root",
                 Server = "localhost",
                 Database = "alore",
-                Port = 3307,
+                Port = 3306,
                 Password = ""
             };
             _connectionString = stringBuilder.ToString();

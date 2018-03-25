@@ -16,5 +16,20 @@
         /// The public name for the navigator category.
         /// </summary>
         string PublicName { get; set; }
+
+        /// <summary>
+        /// The identifier of the navigator category.
+        /// </summary>
+        string Identifier { get; set; }
+
+        /// <summary>
+        /// The category which is used to filter the categories
+        /// </summary>
+        string Category { get; set; }
+
+        /// <summary>
+        /// The category type this particular category is.
+        /// </summary>
+        CategoryType CategoryType { get; set; }
     }
 }

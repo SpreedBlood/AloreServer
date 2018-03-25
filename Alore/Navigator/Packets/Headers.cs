@@ -8,5 +8,6 @@
         internal const short NavigatorMetaDataParserMessageComposer = 2279;
         internal const short UserFlatCatsMessageComposer = 1084;
         internal const short NavigatorFlatCatsMessageComposer = 3910;
+        internal const short NavigatorSearchResultSetMessageComposer = 1388;
     }
 }

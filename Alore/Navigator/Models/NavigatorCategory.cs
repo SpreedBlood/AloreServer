@@ -13,5 +13,14 @@
 
         [AloreColumn("public_name")]
         public string PublicName { get; set; }
+
+        [AloreColumn("identifier")]
+        public string Identifier { get; set; }
+
+        [AloreColumn("category")]
+        public string Category { get; set; }
+
+        [AloreColumn("category_type")]
+        public CategoryType CategoryType { get; set; }
     }
 }
