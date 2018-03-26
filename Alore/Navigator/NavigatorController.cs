@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    public class NavigatorController : INavigatorController
+    internal class NavigatorController : INavigatorController
     {
         private readonly NavigatorRepository _navigatorRepository;
 

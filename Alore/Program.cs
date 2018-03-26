@@ -6,6 +6,7 @@
     using System.Threading.Tasks;
     using Alore.Landing;
     using Alore.Navigator;
+    using Alore.Room;
     using API;
     using API.Network.Clients;
     using API.Network.Packets;
@@ -32,7 +33,8 @@
                 new MessengerService(),
                 new HandshakeService(),
                 new NavigatorService(),
-                new LandingService()
+                new LandingService(),
+                new RoomService()
             };
 
             foreach (IService service in services)

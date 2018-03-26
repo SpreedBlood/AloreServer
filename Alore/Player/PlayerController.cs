@@ -4,11 +4,11 @@
     using API.Player;
     using API.Player.Models;
 
-    public class PlayerController : IPlayerController
+    internal class PlayerController : IPlayerController
     {
         private readonly PlayerRepostiory _playerRepostiory;
 
-        public PlayerController(PlayerRepostiory playerRepostiory)
+        internal PlayerController(PlayerRepostiory playerRepostiory)
         {
             _playerRepostiory = playerRepostiory;
         }

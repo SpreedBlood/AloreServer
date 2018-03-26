@@ -3,7 +3,7 @@
     using Alore.API;
     using Alore.Navigator.Packets.Incoming;
 
-    public class NavigatorService : IService
+    internal class NavigatorService : IService
     {
         public void AddEvents(IEventProvider eventProvider)
         {

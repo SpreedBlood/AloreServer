@@ -3,7 +3,7 @@
     using Alore.Messenger.Packets.Incoming;
     using API;
 
-    public class MessengerService : IService
+    internal class MessengerService : IService
     {
         public void Initialize(IControllerContext context)
         {

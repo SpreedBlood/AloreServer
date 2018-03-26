@@ -3,7 +3,7 @@
     using API;
     using Packets.Incoming;
 
-    public class PlayerService : IService
+    internal class PlayerService : IService
     {
         public void Initialize(IControllerContext context)
         {

@@ -2,6 +2,7 @@
 {
     using Alore.API.Landing;
     using Alore.API.Navigator;
+    using Alore.API.Room;
     using Messenger;
     using Player;
 
@@ -30,5 +31,10 @@
         /// The landing view manager controller.
         /// </summary>
         ILandingController LandingController { get; set; }
+
+        /// <summary>
+        /// The room controller.
+        /// </summary>
+        IRoomController RoomController { get; set; }
     }
 }

@@ -1,14 +1,9 @@
 ﻿namespace Alore.Handshake
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using API;
-    using API.Network.Clients;
-    using API.Network.Packets;
     using Packets.Incoming;
 
-    public class HandshakeService : IService
+    internal class HandshakeService : IService
     {
         public void Initialize(IControllerContext context)
         {

@@ -3,7 +3,7 @@
     using Alore.API;
     using Alore.Landing.Packets.Incoming;
 
-    public class LandingService : IService
+    internal class LandingService : IService
     {
         public void AddEvents(IEventProvider eventProvider)
         {

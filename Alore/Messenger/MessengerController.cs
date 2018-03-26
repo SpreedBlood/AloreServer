@@ -2,7 +2,7 @@
 {
     using API.Messenger;
 
-    public class MessengerController : IMessengerController
+    internal class MessengerController : IMessengerController
     {
     }
 }
