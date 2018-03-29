@@ -1,19 +1,15 @@
-﻿namespace Alore
+﻿using Alore.Helpers;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
+namespace Alore
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.Threading.Tasks;
     using API;
-    using API.Network;
     using API.Sql.Test;
-    using Handshake;
-    using Landing;
-    using Messenger;
-    using Navigator;
     using Network;
-    using Player;
-    using Room;
 
     public static class Program
     {
@@ -23,31 +19,22 @@
         {
             //await TestAloreSql();
 
-            IEventProvider eventProvider = new EventProvider();
-            IControllerContext controllerContext = new ControllerContext();
+            // TODO: construct the Program class instead of having things staticly.
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddLogging(builder => builder.AddConsole());
+            
+            ControllerDiHelper.ConfigureServices(serviceCollection);
+            ClientPacketDiHelper.ConfigureServices(serviceCollection);
+            
+            serviceCollection.AddSingleton<IEventProvider, EventProvider>();
 
-            List<IService> services = new List<IService>
-            {
-                new PlayerService(),
-                new MessengerService(),
-                new HandshakeService(),
-                new NavigatorService(),
-                new LandingService(),
-                new RoomService()
-            };
+            serviceCollection.AddScoped<Listener>();
 
-            foreach (IService service in services)
-            {
-                service.Initialize(controllerContext);
-            }
+            var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            foreach (IService service in services)
-            {
-                service.AddEvents(eventProvider, controllerContext);
-            }
-
-            _listener = new Listener();
-            await _listener.Listen(30000, controllerContext, eventProvider);
+            _listener = serviceProvider.GetService<Listener>();
+            
+            await _listener.Listen(30000);
 
             while (true)
             {
@@ -79,10 +66,5 @@
             Console.WriteLine("Finished!");
             Environment.Exit(0);
         }
-    }
-
-    internal class EventProvider : IEventProvider
-    {
-        public Dictionary<short, IAsyncPacket> Events { get; } = new Dictionary<short, IAsyncPacket>();
     }
 }

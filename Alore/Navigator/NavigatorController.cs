@@ -9,9 +9,10 @@
     {
         private readonly NavigatorRepository _navigatorRepository;
 
-        internal NavigatorController(NavigatorRepository navigatorRepository)
+        public NavigatorController()
         {
-            _navigatorRepository = navigatorRepository;
+            // TODO: See PlayerController comment
+            _navigatorRepository = new NavigatorRepository(new NavigatorDao());
         }
 
         public async Task<List<INavigatorCategory>> GetNavigatorCategoriesAsync() =>

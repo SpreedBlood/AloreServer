@@ -11,9 +11,11 @@
 
     internal class GetNavigatorFlatsMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 708;
+
         private readonly INavigatorController _navigatorController;
 
-        internal GetNavigatorFlatsMessageEvent(INavigatorController navigatorController)
+        public GetNavigatorFlatsMessageEvent(INavigatorController navigatorController)
         {
             _navigatorController = navigatorController;
         }

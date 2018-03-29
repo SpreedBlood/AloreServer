@@ -8,6 +8,8 @@
 
     internal class InitializeNewNavigatorMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 2142;
+
         public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket)

@@ -1,4 +1,6 @@
-﻿namespace Alore.Network
+﻿using Microsoft.Extensions.Logging;
+
+namespace Alore.Network
 {
     using System.Net;
     using System.Threading.Tasks;
@@ -9,13 +11,22 @@
     using DotNetty.Transport.Channels;
     using DotNetty.Transport.Channels.Sockets;
 
+    // TODO: Add something as a interface?
     public class Listener
     {
         private IEventLoopGroup _workerGroup;
         private IEventLoopGroup _bossGroup;
 
-        public async Task Listen(int port, IControllerContext gameContext,
-            IEventProvider eventProvider)
+        private readonly ILogger<Listener> _logger;
+        private readonly IEventProvider _eventProvider;
+
+        public Listener(ILogger<Listener> logger, IEventProvider eventProvider)
+        {
+            _logger = logger;
+            _eventProvider = eventProvider;
+        }
+
+        public async Task Listen(int port)
         {
             _workerGroup = new MultithreadEventLoopGroup(10);
             _bossGroup = new MultithreadEventLoopGroup(1);
@@ -27,7 +38,7 @@
                     channel.Pipeline
                         .AddLast("Encoder", new Encoder())
                         .AddLast("Decoder", new Decoder())
-                        .AddLast("ClientHandler", new Handler(eventProvider))
+                        .AddLast("ClientHandler", new Handler(_eventProvider))
                 ))
                 .ChildOption(ChannelOption.TcpNodelay, true)
                 .ChildOption(ChannelOption.SoKeepalive, true)
@@ -39,11 +50,11 @@
             IChannel serverChannl = await bootstrap.BindAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), port));
             if (serverChannl.Active)
             {
-                Logger<Listener>.Info($"Listening on port: {port}");
+                _logger.LogInformation($"Listening on port: {port}");
             }
             else
             {
-                Logger<Listener>.Error($"Failed to listen on port: {port}");
+                _logger.LogError($"Failed to listen on port: {port}");
             }
         }
 

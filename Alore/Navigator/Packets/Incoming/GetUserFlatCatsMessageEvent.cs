@@ -11,9 +11,11 @@
 
     internal class GetUserFlatCatsMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 3976;
+
         private readonly INavigatorController _navigatorController;
         
-        internal GetUserFlatCatsMessageEvent(INavigatorController navigatorController)
+        public GetUserFlatCatsMessageEvent(INavigatorController navigatorController)
         {
             _navigatorController = navigatorController;
         }

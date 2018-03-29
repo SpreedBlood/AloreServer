@@ -10,9 +10,11 @@
 
     internal class InfoRetrieveMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 3092;
+
         private readonly IPlayerController _playerController;
 
-        internal InfoRetrieveMessageEvent(IPlayerController playerController)
+        public InfoRetrieveMessageEvent(IPlayerController playerController)
         {
             _playerController = playerController;
         }

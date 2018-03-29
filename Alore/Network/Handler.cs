@@ -9,14 +9,15 @@
     using DotNetty.Transport.Channels;
     using Packets;
 
+    // TODO: Add interface?
     public class Handler : SimpleChannelInboundHandler<ClientPacket>
     {
-        private readonly Dictionary<short, IAsyncPacket> _events;
+        private readonly IEventProvider _eventProvider;
         private readonly Dictionary<IChannelId, ISession> _sessions;
 
-        internal Handler(IEventProvider eventProvider)
+        public Handler(IEventProvider eventProvider)
         {
-            _events = eventProvider.Events;
+            _eventProvider = eventProvider;
 
             _sessions = new Dictionary<IChannelId, ISession>();
         }
@@ -35,15 +36,7 @@
         {
             if (_sessions.TryGetValue(ctx.Channel.Id, out ISession session))
             {
-                if (_events.TryGetValue(msg.Header, out IAsyncPacket packet))
-                {
-                    await packet.HandleAsync(session, msg);
-                    Console.WriteLine($"Handled packet: {msg.Header} : {packet.GetType().Name}");
-                }
-                else
-                {
-                    Console.WriteLine($"Unkown event: {msg.Header}");
-                }
+                await _eventProvider.TriggerEvent(session, msg);
             }
         }
     }

@@ -8,6 +8,8 @@
 
     internal class ScrGetUserInfoMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 3796;
+
         public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket)

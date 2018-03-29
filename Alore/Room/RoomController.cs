@@ -6,9 +6,9 @@
     {
         private readonly RoomRepository _roomRepository;
 
-        internal RoomController(RoomRepository roomRepository)
+        public RoomController()
         {
-            _roomRepository = roomRepository;
+            _roomRepository = new RoomRepository(new RoomDao());
         }
     }
 }
