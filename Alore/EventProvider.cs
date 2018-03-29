@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Alore.API;
 using Alore.API.Network;
 using Alore.API.Network.Clients;
@@ -21,12 +22,12 @@ namespace Alore
             _events = events.ToDictionary(x => x.Header, x => x);
         }
 
-        public void TriggerEvent(ISession session, IClientPacket clientPacket)
+        public async Task TriggerEvent(ISession session, IClientPacket clientPacket)
         {
             if (_events.TryGetValue(clientPacket.Header, out var eventHandler))
             {
                 _logger.LogDebug($"Executing {eventHandler.GetType().Name} for header: {clientPacket.Header}.");
-                eventHandler.HandleAsync(session, clientPacket);
+                await eventHandler.HandleAsync(session, clientPacket);
             }
             else
             {

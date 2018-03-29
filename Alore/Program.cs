@@ -11,13 +11,7 @@ namespace Alore
     using System.Threading.Tasks;
     using API;
     using API.Sql.Test;
-    using Handshake;
-    using Landing;
-    using Messenger;
-    using Navigator;
     using Network;
-    using Player;
-    using Room;
 
     public static class Program
     {
@@ -27,6 +21,7 @@ namespace Alore
         {
             //await TestAloreSql();
 
+            // TODO: construct the Program class instead of having things staticly.
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddLogging();
 
@@ -35,32 +30,13 @@ namespace Alore
             
             serviceCollection.AddSingleton<IEventProvider, EventProvider>();
 
-            var sp = serviceCollection.BuildServiceProvider();
+            serviceCollection.AddScoped<Listener>();
 
-            var test = sp.GetService<IEventProvider>();
-            var ddd = true;
-            /*List<IService> services = new List<IService>
-            {
-                new PlayerService(),
-                new MessengerService(),
-                new HandshakeService(),
-                new NavigatorService(),
-                new LandingService(),
-                new RoomService()
-            };
+            var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            foreach (IService service in services)
-            {
-                service.Initialize(controllerContext);
-            }
-
-            foreach (IService service in services)
-            {
-                service.AddEvents(eventProvider, controllerContext);
-            }
-
-            _listener = new Listener();
-            await _listener.Listen(30000, controllerContext, eventProvider);
+            _listener = serviceProvider.GetService<Listener>();
+            
+            await _listener.Listen(30000);
 
             while (true)
             {
@@ -68,7 +44,7 @@ namespace Alore
                 {
                     await DisposeAsync();
                 }
-            }*/
+            }
             // ReSharper disable once FunctionNeverReturns
         }
 

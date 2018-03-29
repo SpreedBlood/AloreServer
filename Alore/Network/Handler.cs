@@ -9,12 +9,13 @@
     using DotNetty.Transport.Channels;
     using Packets;
 
+    // TODO: Add interface?
     public class Handler : SimpleChannelInboundHandler<ClientPacket>
     {
         private readonly IEventProvider _eventProvider;
         private readonly Dictionary<IChannelId, ISession> _sessions;
 
-        internal Handler(IEventProvider eventProvider)
+        public Handler(IEventProvider eventProvider)
         {
             _eventProvider = eventProvider;
 
@@ -35,7 +36,7 @@
         {
             if (_sessions.TryGetValue(ctx.Channel.Id, out ISession session))
             {
-                _eventProvider.TriggerEvent(session, msg);
+                await _eventProvider.TriggerEvent(session, msg);
             }
         }
     }

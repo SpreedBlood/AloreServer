@@ -9,13 +9,20 @@
     using DotNetty.Transport.Channels;
     using DotNetty.Transport.Channels.Sockets;
 
+    // TODO: Add something as a interface?
     public class Listener
     {
         private IEventLoopGroup _workerGroup;
         private IEventLoopGroup _bossGroup;
 
-        /*public async Task Listen(int port, IControllerContext gameContext,
-            IEventProvider eventProvider)
+        private readonly IEventProvider _eventProvider;
+
+        public Listener(IEventProvider eventProvider)
+        {
+            _eventProvider = eventProvider;
+        }
+
+        public async Task Listen(int port)
         {
             _workerGroup = new MultithreadEventLoopGroup(10);
             _bossGroup = new MultithreadEventLoopGroup(1);
@@ -27,7 +34,7 @@
                     channel.Pipeline
                         .AddLast("Encoder", new Encoder())
                         .AddLast("Decoder", new Decoder())
-                        .AddLast("ClientHandler", new Handler(eventProvider))
+                        .AddLast("ClientHandler", new Handler(_eventProvider))
                 ))
                 .ChildOption(ChannelOption.TcpNodelay, true)
                 .ChildOption(ChannelOption.SoKeepalive, true)
@@ -39,13 +46,14 @@
             IChannel serverChannl = await bootstrap.BindAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), port));
             if (serverChannl.Active)
             {
+                // TODO: Use injecable logger (see EventProvider).
                 Logger<Listener>.Info($"Listening on port: {port}");
             }
             else
             {
                 Logger<Listener>.Error($"Failed to listen on port: {port}");
             }
-        }*/
+        }
 
         public async Task DisposeAsync()
         {
