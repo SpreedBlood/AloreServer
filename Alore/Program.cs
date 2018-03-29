@@ -1,12 +1,10 @@
 ﻿using Alore.Helpers;
-using Alore.Network.Packets;
-using DotNetty.Buffers;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Alore
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.Threading.Tasks;
     using API;
@@ -23,8 +21,8 @@ namespace Alore
 
             // TODO: construct the Program class instead of having things staticly.
             var serviceCollection = new ServiceCollection();
-            serviceCollection.AddLogging();
-
+            serviceCollection.AddLogging(builder => builder.AddConsole());
+            
             ControllerDiHelper.ConfigureServices(serviceCollection);
             ClientPacketDiHelper.ConfigureServices(serviceCollection);
             

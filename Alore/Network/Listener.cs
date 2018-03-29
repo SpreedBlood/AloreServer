@@ -1,4 +1,6 @@
-﻿namespace Alore.Network
+﻿using Microsoft.Extensions.Logging;
+
+namespace Alore.Network
 {
     using System.Net;
     using System.Threading.Tasks;
@@ -15,10 +17,12 @@
         private IEventLoopGroup _workerGroup;
         private IEventLoopGroup _bossGroup;
 
+        private readonly ILogger<Listener> _logger;
         private readonly IEventProvider _eventProvider;
 
-        public Listener(IEventProvider eventProvider)
+        public Listener(ILogger<Listener> logger, IEventProvider eventProvider)
         {
+            _logger = logger;
             _eventProvider = eventProvider;
         }
 
@@ -46,12 +50,11 @@
             IChannel serverChannl = await bootstrap.BindAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), port));
             if (serverChannl.Active)
             {
-                // TODO: Use injecable logger (see EventProvider).
-                Logger<Listener>.Info($"Listening on port: {port}");
+                _logger.LogInformation($"Listening on port: {port}");
             }
             else
             {
-                Logger<Listener>.Error($"Failed to listen on port: {port}");
+                _logger.LogError($"Failed to listen on port: {port}");
             }
         }
 

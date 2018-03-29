@@ -12,6 +12,8 @@
     <PackageReference Include="DotNetty.Handlers" Version="0.4.7" />
     <PackageReference Include="DotNetty.Transport" Version="0.4.7" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alore.API\Alore.API.csproj" />
