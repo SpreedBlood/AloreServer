@@ -2,25 +2,31 @@
 {
     using System.Threading.Tasks;
     using API.Player.Models;
-    using API;
     using API.Network;
     using API.Network.Clients;
     using API.Network.Packets;
+    using API.Player;
     using Outgoing;
 
     internal class InfoRetrieveMessageEvent : IAsyncPacket
     {
+        private readonly IPlayerController _playerController;
+
+        internal InfoRetrieveMessageEvent(IPlayerController playerController)
+        {
+            _playerController = playerController;
+        }
+
         public async Task HandleAsync(
             ISession session,
-            IClientPacket clientPacket,
-            IControllerContext controllerContext)
+            IClientPacket clientPacket)
         {
             IPlayerStats playerStats =
-                await controllerContext.PlayerController.GetPlayerStatsByIdAsync(session.Player.Id);
+                await _playerController.GetPlayerStatsByIdAsync(session.Player.Id);
             if (playerStats == null)
             {
-                await controllerContext.PlayerController.AddPlayerStatsAsync(session.Player.Id);
-                playerStats = await controllerContext.PlayerController.GetPlayerStatsByIdAsync(session.Player.Id);
+                await _playerController.AddPlayerStatsAsync(session.Player.Id);
+                playerStats = await _playerController.GetPlayerStatsByIdAsync(session.Player.Id);
             }
 
             session.PlayerStats = playerStats;

@@ -1,10 +1,10 @@
 ﻿namespace Alore.Room
 {
-    using Alore.API;
+    using API;
 
     internal class RoomService : IService
     {
-        public void AddEvents(IEventProvider eventProvider)
+        public void AddEvents(IEventProvider eventProvider, IControllerContext context)
         {
         }
 

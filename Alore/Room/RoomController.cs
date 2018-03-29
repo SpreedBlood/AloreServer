@@ -1,6 +1,6 @@
 ﻿namespace Alore.Room
 {
-    using Alore.API.Room;
+    using API.Room;
 
     internal class RoomController : IRoomController
     {

@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f4e9f55-f5bb-4b1b-8f3c-3c82f2f7f2e6" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Alore.API/Network/IAsyncPacket.cs" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Alore/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.Alore/.idea/contentModel.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Alore/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.Alore/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Alore/riderModule.iml" afterPath="$PROJECT_DIR$/.idea/.idea.Alore/riderModule.iml" />
-      <change beforePath="$PROJECT_DIR$/Alore.API/Alore.API.csproj" afterPath="$PROJECT_DIR$/Alore.API/Alore.API.csproj" />
-      <change beforePath="$PROJECT_DIR$/Alore.API/IEventProvider.cs" afterPath="$PROJECT_DIR$/Alore.API/IEventProvider.cs" />
+      <change beforePath="$PROJECT_DIR$/Alore.API/IService.cs" afterPath="$PROJECT_DIR$/Alore.API/IService.cs" />
+      <change beforePath="$PROJECT_DIR$/Alore.API/Network/IAsyncPacket.cs" afterPath="$PROJECT_DIR$/Alore.API/Network/IAsyncPacket.cs" />
+      <change beforePath="$PROJECT_DIR$/Alore.API/Room/Models/IRoom.cs" afterPath="$PROJECT_DIR$/Alore.API/Room/Models/IRoom.cs" />
       <change beforePath="$PROJECT_DIR$/Alore.API/bin/Debug/netcoreapp2.0/Alore.API.dll" afterPath="$PROJECT_DIR$/Alore.API/bin/Debug/netcoreapp2.0/Alore.API.dll" />
       <change beforePath="$PROJECT_DIR$/Alore.API/bin/Debug/netcoreapp2.0/Alore.API.pdb" afterPath="$PROJECT_DIR$/Alore.API/bin/Debug/netcoreapp2.0/Alore.API.pdb" />
       <change beforePath="$PROJECT_DIR$/Alore.API/obj/Debug/netcoreapp2.0/Alore.API.csproj.CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/Alore.API/obj/Debug/netcoreapp2.0/Alore.API.csproj.CoreCompileInputs.cache" />
       <change beforePath="$PROJECT_DIR$/Alore.API/obj/Debug/netcoreapp2.0/Alore.API.dll" afterPath="$PROJECT_DIR$/Alore.API/obj/Debug/netcoreapp2.0/Alore.API.dll" />
       <change beforePath="$PROJECT_DIR$/Alore.API/obj/Debug/netcoreapp2.0/Alore.API.pdb" afterPath="$PROJECT_DIR$/Alore.API/obj/Debug/netcoreapp2.0/Alore.API.pdb" />
-      <change beforePath="$PROJECT_DIR$/Alore/Alore.csproj" afterPath="$PROJECT_DIR$/Alore/Alore.csproj" />
-      <change beforePath="$PROJECT_DIR$/Alore/ControllerContext.cs" afterPath="$PROJECT_DIR$/Alore/ControllerContext.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Handshake/HandshakeService.cs" afterPath="$PROJECT_DIR$/Alore/Handshake/HandshakeService.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Handshake/Packets/Incoming/UniqueIdMessageEvent.cs" afterPath="$PROJECT_DIR$/Alore/Handshake/Packets/Incoming/UniqueIdMessageEvent.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Landing/LandingService.cs" afterPath="$PROJECT_DIR$/Alore/Landing/LandingService.cs" />
@@ -27,19 +23,23 @@
       <change beforePath="$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/InitializeNewNavigatorMessageEvent.cs" afterPath="$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/InitializeNewNavigatorMessageEvent.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/NavigatorSearchMessageEvent.cs" afterPath="$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/NavigatorSearchMessageEvent.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Network/Handler.cs" afterPath="$PROJECT_DIR$/Alore/Network/Handler.cs" />
+      <change beforePath="$PROJECT_DIR$/Alore/Network/Listener.cs" afterPath="$PROJECT_DIR$/Alore/Network/Listener.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Player/Packets/Incoming/GetCreditsInfoMessageEvent.cs" afterPath="$PROJECT_DIR$/Alore/Player/Packets/Incoming/GetCreditsInfoMessageEvent.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Player/Packets/Incoming/InfoRetrieveMessageEvent.cs" afterPath="$PROJECT_DIR$/Alore/Player/Packets/Incoming/InfoRetrieveMessageEvent.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Player/Packets/Incoming/SSOTicketMessageEvent.cs" afterPath="$PROJECT_DIR$/Alore/Player/Packets/Incoming/SSOTicketMessageEvent.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Player/Packets/Incoming/ScrGetUserInfoMessageEvent.cs" afterPath="$PROJECT_DIR$/Alore/Player/Packets/Incoming/ScrGetUserInfoMessageEvent.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Player/PlayerService.cs" afterPath="$PROJECT_DIR$/Alore/Player/PlayerService.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/Program.cs" afterPath="$PROJECT_DIR$/Alore/Program.cs" />
+      <change beforePath="$PROJECT_DIR$/Alore/Room/Models/Room.cs" afterPath="$PROJECT_DIR$/Alore/Room/Models/Room.cs" />
+      <change beforePath="$PROJECT_DIR$/Alore/Room/RoomController.cs" afterPath="$PROJECT_DIR$/Alore/Room/RoomController.cs" />
+      <change beforePath="$PROJECT_DIR$/Alore/Room/RoomDao.cs" afterPath="$PROJECT_DIR$/Alore/Room/RoomDao.cs" />
+      <change beforePath="$PROJECT_DIR$/Alore/Room/RoomService.cs" afterPath="$PROJECT_DIR$/Alore/Room/RoomService.cs" />
       <change beforePath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.API.dll" afterPath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.API.dll" />
       <change beforePath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.API.pdb" afterPath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.API.pdb" />
       <change beforePath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.dll" afterPath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.dll" />
       <change beforePath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.pdb" afterPath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.pdb" />
-      <change beforePath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.runtimeconfig.dev.json" afterPath="$PROJECT_DIR$/Alore/bin/Debug/netcoreapp2.0/Alore.runtimeconfig.dev.json" />
-      <change beforePath="$PROJECT_DIR$/Alore/obj/Alore.csproj.nuget.g.props" afterPath="$PROJECT_DIR$/Alore/obj/Alore.csproj.nuget.g.props" />
-      <change beforePath="$PROJECT_DIR$/Alore/obj/Debug/netcoreapp2.0/Alore.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/Alore/obj/Debug/netcoreapp2.0/Alore.csprojResolveAssemblyReference.cache" />
+      <change beforePath="$PROJECT_DIR$/Alore/obj/Alore.csproj.nuget.cache" afterPath="$PROJECT_DIR$/Alore/obj/Alore.csproj.nuget.cache" />
+      <change beforePath="$PROJECT_DIR$/Alore/obj/Debug/netcoreapp2.0/Alore.csproj.CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/Alore/obj/Debug/netcoreapp2.0/Alore.csproj.CoreCompileInputs.cache" />
       <change beforePath="$PROJECT_DIR$/Alore/obj/Debug/netcoreapp2.0/Alore.dll" afterPath="$PROJECT_DIR$/Alore/obj/Debug/netcoreapp2.0/Alore.dll" />
       <change beforePath="$PROJECT_DIR$/Alore/obj/Debug/netcoreapp2.0/Alore.pdb" afterPath="$PROJECT_DIR$/Alore/obj/Debug/netcoreapp2.0/Alore.pdb" />
       <change beforePath="$PROJECT_DIR$/Alore/obj/project.assets.json" afterPath="$PROJECT_DIR$/Alore/obj/project.assets.json" />
@@ -64,36 +64,7 @@
     <favorites_list name="Alore" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Room.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Alore/Room/Models/Room.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-              <folding>
-                <marker date="1522322008032" expanded="true" signature="27:203" ph="{...}" />
-                <marker date="1522322008032" expanded="true" signature="40:75" ph="..." />
-                <marker date="1522322008032" expanded="true" signature="124:201" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IRoom.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Alore.API/Room/Models/IRoom.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-              <folding>
-                <marker date="1522322023789" expanded="true" signature="31:182" ph="{...}" />
-                <marker date="1522322023789" expanded="true" signature="60:180" ph="{...}" />
-                <marker date="1522322023789" expanded="true" signature="75:144" ph="/// The rooms unique id. ... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -105,6 +76,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Alore.API/IService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore.API/Network/IAsyncPacket.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore.API/IControllerContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore.API/IEventProvider.cs" root0="FORCE_HIGHLIGHTING" />
@@ -116,6 +88,7 @@
     <setting file="file://$PROJECT_DIR$/Alore/Messenger/MessengerRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Network/Handler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Messenger/Models/MessengerFriend.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Alore/Network/Listener.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Player/Models/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/SSOTicketMessageEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Player/PlayerRepository.cs" root0="FORCE_HIGHLIGHTING" />
@@ -130,6 +103,10 @@
     <setting file="file://$PROJECT_DIR$/Alore.API/Room/Models/IRoom.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Messenger/Packets/Incoming/MessengerInitMessageEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Navigator/NavigatorService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Alore/Room/RoomService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Alore/Room/RoomController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Alore/Room/RoomDao.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Alore/Room/RoomRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Navigator/Models/NavigatorCategory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/InfoRetrieveMessageEvent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -152,28 +129,33 @@
         <option value="$PROJECT_DIR$/Alore/ControllerContext.cs" />
         <option value="$PROJECT_DIR$/Alore.API/Task/IAsyncRunnable.cs" />
         <option value="$PROJECT_DIR$/Alore.API/Task/IAsyncPacket.cs" />
-        <option value="$PROJECT_DIR$/Alore/Handshake/HandshakeService.cs" />
-        <option value="$PROJECT_DIR$/Alore/Handshake/Packets/Incoming/UniqueIdMessageEvent.cs" />
+        <option value="$PROJECT_DIR$/Alore.API/IEventProvider.cs" />
+        <option value="$PROJECT_DIR$/Alore/Room/Models/Room.cs" />
+        <option value="$PROJECT_DIR$/Alore.API/Room/Models/IRoom.cs" />
+        <option value="$PROJECT_DIR$/Alore/Room/RoomDao.cs" />
+        <option value="$PROJECT_DIR$/Alore/Room/RoomController.cs" />
+        <option value="$PROJECT_DIR$/Alore.API/Network/IAsyncPacket.cs" />
+        <option value="$PROJECT_DIR$/Alore/Player/Packets/Incoming/ScrGetUserInfoMessageEvent.cs" />
         <option value="$PROJECT_DIR$/Alore/Player/Packets/Incoming/SSOTicketMessageEvent.cs" />
-        <option value="$PROJECT_DIR$/Alore/Messenger/Packets/Incoming/MessengerInitMessageEvent.cs" />
+        <option value="$PROJECT_DIR$/Alore/Player/Packets/Incoming/InfoRetrieveMessageEvent.cs" />
+        <option value="$PROJECT_DIR$/Alore/Player/Packets/Incoming/GetCreditsInfoMessageEvent.cs" />
+        <option value="$PROJECT_DIR$/Alore/Network/Handler.cs" />
         <option value="$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/GetNavigatorFlatsMessageEvent.cs" />
         <option value="$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/GetUserFlatCatsMessageEvent.cs" />
         <option value="$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/InitializeNewNavigatorMessageEvent.cs" />
         <option value="$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/NavigatorSearchMessageEvent.cs" />
-        <option value="$PROJECT_DIR$/Alore/Player/Packets/Incoming/GetCreditsInfoMessageEvent.cs" />
-        <option value="$PROJECT_DIR$/Alore/Player/Packets/Incoming/InfoRetrieveMessageEvent.cs" />
-        <option value="$PROJECT_DIR$/Alore/Player/Packets/Incoming/ScrGetUserInfoMessageEvent.cs" />
-        <option value="$PROJECT_DIR$/Alore.API/Network/IAsyncPacket.cs" />
-        <option value="$PROJECT_DIR$/Alore.API/IEventProvider.cs" />
-        <option value="$PROJECT_DIR$/Alore/Program.cs" />
-        <option value="$PROJECT_DIR$/Alore/Landing/LandingService.cs" />
+        <option value="$PROJECT_DIR$/Alore/Messenger/Packets/Incoming/MessengerInitMessageEvent.cs" />
         <option value="$PROJECT_DIR$/Alore/Landing/Packets/Incoming/LandingLoadWidgetMessageEvent.cs" />
+        <option value="$PROJECT_DIR$/Alore/Handshake/Packets/Incoming/UniqueIdMessageEvent.cs" />
+        <option value="$PROJECT_DIR$/Alore/Network/Listener.cs" />
+        <option value="$PROJECT_DIR$/Alore.API/IService.cs" />
+        <option value="$PROJECT_DIR$/Alore/Program.cs" />
+        <option value="$PROJECT_DIR$/Alore/Handshake/HandshakeService.cs" />
+        <option value="$PROJECT_DIR$/Alore/Landing/LandingService.cs" />
         <option value="$PROJECT_DIR$/Alore/Messenger/MessengerService.cs" />
         <option value="$PROJECT_DIR$/Alore/Navigator/NavigatorService.cs" />
         <option value="$PROJECT_DIR$/Alore/Player/PlayerService.cs" />
-        <option value="$PROJECT_DIR$/Alore/Network/Handler.cs" />
-        <option value="$PROJECT_DIR$/Alore/Room/Models/Room.cs" />
-        <option value="$PROJECT_DIR$/Alore.API/Room/Models/IRoom.cs" />
+        <option value="$PROJECT_DIR$/Alore/Room/RoomService.cs" />
       </list>
     </option>
   </component>
@@ -218,43 +200,6 @@
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="Alore (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="Alore" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="Alore (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Alore" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Player" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="Alore (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Alore" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Room" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="Alore (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Alore" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Room" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Models" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="Alore (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Alore.API" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="Alore (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Alore.API" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Room" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="Alore (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Alore.API" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Room" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Models" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
           </expand>
           <select />
@@ -379,12 +324,13 @@
       <workItem from="1521404055989" duration="442000" />
       <workItem from="1521411368830" duration="37000" />
       <workItem from="1522319126487" duration="1082000" />
-      <workItem from="1522320293347" duration="1733000" />
+      <workItem from="1522320293347" duration="2286000" />
+      <workItem from="1522322643307" duration="698000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5384000" />
+    <option name="totallyTimeSpent" value="6635000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -397,13 +343,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919955" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919955" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -436,18 +381,33 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/GetUserFlatCatsMessageEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1522322957498" expanded="true" signature="42:962" ph="{...}" />
+            <marker date="1522322957498" expanded="true" signature="55:278" ph="..." />
+            <marker date="1522322957498" expanded="true" signature="341:960" ph="{...}" />
+            <marker date="1522322957498" expanded="true" signature="511:587" ph="{...}" />
+            <marker date="1522322957498" expanded="true" signature="705:954" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/NavigatorSearchMessageEvent.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1522320706643" expanded="true" signature="42:1466" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="55:286" ph="..." />
-            <marker date="1522320706643" expanded="true" signature="349:1464" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="514:1458" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="715:1448" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="1042:1290" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="1118:1272" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="42:1643" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="55:296" ph="..." />
+            <marker date="1522322972229" expanded="true" signature="359:1641" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="521:597" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="708:1635" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="909:1625" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="1219:1467" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="1295:1449" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -463,7 +423,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-          <folding />
+          <folding>
+            <marker date="1522322893136" expanded="true" signature="39:2249" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="52:231" ph="..." />
+            <marker date="1522322893136" expanded="true" signature="288:2247" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="424:494" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="612:2241" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="797:2231" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1029:1126" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1147:1394" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -478,7 +447,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-          <folding />
+          <folding>
+            <marker date="1522322893136" expanded="true" signature="39:2249" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="52:231" ph="..." />
+            <marker date="1522322893136" expanded="true" signature="288:2247" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="424:494" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="612:2241" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="797:2231" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1029:1126" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1147:1394" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -493,7 +471,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding />
+          <folding>
+            <marker date="1522322893136" expanded="true" signature="39:2249" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="52:231" ph="..." />
+            <marker date="1522322893136" expanded="true" signature="288:2247" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="424:494" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="612:2241" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="797:2231" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1029:1126" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1147:1394" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -508,7 +495,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding />
+          <folding>
+            <marker date="1522322893136" expanded="true" signature="39:2249" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="52:231" ph="..." />
+            <marker date="1522322893136" expanded="true" signature="288:2247" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="424:494" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="612:2241" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="797:2231" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1029:1126" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1147:1394" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -575,22 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Handshake/Packets/Incoming/UniqueIdMessageEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/SSOTicketMessageEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Alore/Player/PlayerDao.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -605,107 +585,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/GetNavigatorFlatsMessageEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/GetUserFlatCatsMessageEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/InitializeNewNavigatorMessageEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/NavigatorSearchMessageEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-          <folding>
-            <marker date="1522320706643" expanded="true" signature="42:1466" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="55:286" ph="..." />
-            <marker date="1522320706643" expanded="true" signature="349:1464" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="514:1458" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="715:1448" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="1042:1290" ph="{...}" />
-            <marker date="1522320706643" expanded="true" signature="1118:1272" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/GetCreditsInfoMessageEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding>
-            <marker date="1522320706653" expanded="true" signature="39:687" ph="{...}" />
-            <marker date="1522320706653" expanded="true" signature="52:195" ph="..." />
-            <marker date="1522320706653" expanded="true" signature="257:685" ph="{...}" />
-            <marker date="1522320706653" expanded="true" signature="422:679" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/InfoRetrieveMessageEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="31" column="1" lean-forward="false" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-          <folding>
-            <marker date="1522320706663" expanded="true" signature="39:1121" ph="{...}" />
-            <marker date="1522320706663" expanded="true" signature="52:224" ph="..." />
-            <marker date="1522320706663" expanded="true" signature="284:1119" ph="{...}" />
-            <marker date="1522320706663" expanded="true" signature="449:1113" ph="{...}" />
-            <marker date="1522320706663" expanded="true" signature="636:876" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore.API/Network/IAsyncPacket.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <marker date="1522320707862" expanded="true" signature="27:260" ph="{...}" />
-            <marker date="1522320707862" expanded="false" signature="40:101" ph="..." />
-            <marker date="1522320707862" expanded="true" signature="136:258" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/ScrGetUserInfoMessageEvent.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding>
-            <marker date="1522320707911" expanded="true" signature="39:527" ph="{...}" />
-            <marker date="1522320707911" expanded="true" signature="52:195" ph="..." />
-            <marker date="1522320707911" expanded="true" signature="257:525" ph="{...}" />
-            <marker date="1522320707911" expanded="true" signature="422:519" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Alore/ControllerContext.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-          <folding>
-            <marker date="1522319303376" expanded="true" signature="15:552" ph="{...}" />
-            <marker date="1522319303376" expanded="true" signature="28:147" ph="..." />
-            <marker date="1522319303376" expanded="true" signature="204:550" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -713,59 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <marker date="1522320744559" expanded="true" signature="19:185" ph="{...}" />
-            <marker date="1522320744559" expanded="true" signature="32:78" ph="..." />
-            <marker date="1522320744559" expanded="true" signature="115:183" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding>
-            <marker date="1522320772443" expanded="true" signature="15:2310" ph="{...}" />
-            <marker date="1522320772443" expanded="true" signature="28:334" ph="..." />
-            <marker date="1522320772443" expanded="true" signature="353:2141" ph="{...}" />
-            <marker date="1522320772443" expanded="true" signature="443:1458" ph="{...}" />
-            <marker date="1522320772443" expanded="true" signature="700:944" ph="{...}" />
-            <marker date="1522320772443" expanded="true" signature="997:1130" ph="{...}" />
-            <marker date="1522320772443" expanded="true" signature="1274:1448" ph="{...}" />
-            <marker date="1522320772443" expanded="true" signature="1356:1434" ph="{...}" />
-            <marker date="1522320772443" expanded="true" signature="1508:1943" ph="{...}" />
-            <marker date="1522320772443" expanded="true" signature="1993:2135" ph="{...}" />
-            <marker date="1522320772443" expanded="true" signature="2192:2308" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Handshake/HandshakeService.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding>
-            <marker date="1522319826299" expanded="true" signature="25:364" ph="{...}" />
-            <marker date="1522319826299" expanded="false" signature="38:70" ph="..." />
-            <marker date="1522319826299" expanded="true" signature="118:362" ph="{...}" />
-            <marker date="1522319826299" expanded="true" signature="183:203" ph="{...}" />
-            <marker date="1522319826299" expanded="true" signature="264:356" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Landing/LandingService.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-          <folding>
-            <marker date="1522320794295" expanded="true" signature="23:473" ph="{...}" />
-            <marker date="1522320794295" expanded="true" signature="36:68" ph="..." />
-            <marker date="1522320794295" expanded="true" signature="114:471" ph="{...}" />
-            <marker date="1522320794295" expanded="true" signature="180:281" ph="{...}" />
-            <marker date="1522320794295" expanded="true" signature="341:465" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -773,122 +603,359 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore.API/Room/Models/IRoom.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Room/RoomRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Room/RoomController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Room/RoomDao.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Room/Models/Room.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore.API/Network/IAsyncPacket.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
           <folding>
-            <marker date="1522018621014" expanded="true" signature="30:533" ph="{...}" />
-            <marker date="1522018621014" expanded="false" signature="43:93" ph="..." />
-            <marker date="1522018621014" expanded="true" signature="152:531" ph="{...}" />
+            <marker date="1522322874525" expanded="true" signature="27:222" ph="{...}" />
+            <marker date="1522322874525" expanded="true" signature="40:101" ph="..." />
+            <marker date="1522322874525" expanded="true" signature="136:220" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Landing/Packets/Incoming/LandingLoadWidgetMessageEvent.cs">
+    <entry file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/SSOTicketMessageEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding>
+            <marker date="1522322893136" expanded="true" signature="39:2249" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="52:231" ph="..." />
+            <marker date="1522322893136" expanded="true" signature="288:2247" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="424:494" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="612:2241" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="797:2231" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1029:1126" ph="{...}" />
+            <marker date="1522322893136" expanded="true" signature="1147:1394" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/ScrGetUserInfoMessageEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding>
+            <marker date="1522322889868" expanded="true" signature="39:462" ph="{...}" />
+            <marker date="1522322889868" expanded="true" signature="52:180" ph="..." />
+            <marker date="1522322889868" expanded="true" signature="242:460" ph="{...}" />
+            <marker date="1522322889868" expanded="true" signature="357:454" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/InfoRetrieveMessageEvent.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding>
-            <marker date="1522320804778" expanded="true" signature="40:1262" ph="{...}" />
-            <marker date="1522320804778" expanded="true" signature="53:264" ph="..." />
-            <marker date="1522320804778" expanded="true" signature="329:1260" ph="{...}" />
-            <marker date="1522320804778" expanded="true" signature="494:1254" ph="{...}" />
-            <marker date="1522320804778" expanded="true" signature="788:1012" ph="{...}" />
+            <marker date="1522322904174" expanded="true" signature="39:1239" ph="{...}" />
+            <marker date="1522322904174" expanded="true" signature="52:231" ph="..." />
+            <marker date="1522322904174" expanded="true" signature="291:1237" ph="{...}" />
+            <marker date="1522322904174" expanded="true" signature="438:508" ph="{...}" />
+            <marker date="1522322904174" expanded="true" signature="618:1231" ph="{...}" />
+            <marker date="1522322904174" expanded="true" signature="788:994" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Player/Packets/Incoming/GetCreditsInfoMessageEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding>
+            <marker date="1522322914528" expanded="true" signature="39:622" ph="{...}" />
+            <marker date="1522322914528" expanded="true" signature="52:180" ph="..." />
+            <marker date="1522322914528" expanded="true" signature="242:620" ph="{...}" />
+            <marker date="1522322914528" expanded="true" signature="357:614" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/GetNavigatorFlatsMessageEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="33" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding>
+            <marker date="1522322950125" expanded="true" signature="42:979" ph="{...}" />
+            <marker date="1522322950125" expanded="true" signature="55:278" ph="..." />
+            <marker date="1522322950125" expanded="true" signature="343:977" ph="{...}" />
+            <marker date="1522322950125" expanded="true" signature="507:583" ph="{...}" />
+            <marker date="1522322950125" expanded="true" signature="693:971" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/GetUserFlatCatsMessageEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <marker date="1522322957498" expanded="true" signature="42:962" ph="{...}" />
+            <marker date="1522322957498" expanded="true" signature="55:278" ph="..." />
+            <marker date="1522322957498" expanded="true" signature="341:960" ph="{...}" />
+            <marker date="1522322957498" expanded="true" signature="511:587" ph="{...}" />
+            <marker date="1522322957498" expanded="true" signature="705:954" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/InitializeNewNavigatorMessageEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding>
+            <marker date="1522322964804" expanded="true" signature="42:757" ph="{...}" />
+            <marker date="1522322964804" expanded="true" signature="55:183" ph="..." />
+            <marker date="1522322964804" expanded="true" signature="253:755" ph="{...}" />
+            <marker date="1522322964804" expanded="true" signature="368:749" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Navigator/Packets/Incoming/NavigatorSearchMessageEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding>
+            <marker date="1522322972229" expanded="true" signature="42:1643" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="55:296" ph="..." />
+            <marker date="1522322972229" expanded="true" signature="359:1641" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="521:597" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="708:1635" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="909:1625" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="1219:1467" ph="{...}" />
+            <marker date="1522322972229" expanded="true" signature="1295:1449" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Alore/Messenger/Packets/Incoming/MessengerInitMessageEvent.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <marker date="1522320706547" expanded="true" signature="42:565" ph="{...}" />
-            <marker date="1522320706547" expanded="false" signature="55:198" ph="..." />
-            <marker date="1522320706547" expanded="true" signature="259:563" ph="{...}" />
-            <marker date="1522320706547" expanded="true" signature="424:557" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Messenger/MessengerService.cs">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
-          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
           <folding>
-            <marker date="1522320821051" expanded="true" signature="25:369" ph="{...}" />
-            <marker date="1522320821051" expanded="true" signature="38:70" ph="..." />
-            <marker date="1522320821051" expanded="true" signature="118:367" ph="{...}" />
-            <marker date="1522320821051" expanded="true" signature="183:203" ph="{...}" />
-            <marker date="1522320821051" expanded="true" signature="264:361" ph="{...}" />
+            <marker date="1522322984338" expanded="true" signature="42:500" ph="{...}" />
+            <marker date="1522322984338" expanded="true" signature="55:183" ph="..." />
+            <marker date="1522322984338" expanded="true" signature="244:498" ph="{...}" />
+            <marker date="1522322984338" expanded="true" signature="359:492" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Navigator/NavigatorService.cs">
+    <entry file="file://$PROJECT_DIR$/Alore/Landing/Packets/Incoming/LandingLoadWidgetMessageEvent.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="120">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
           <folding>
-            <marker date="1522320849417" expanded="true" signature="25:728" ph="{...}" />
-            <marker date="1522320849417" expanded="true" signature="38:70" ph="..." />
-            <marker date="1522320849417" expanded="true" signature="118:726" ph="{...}" />
-            <marker date="1522320849417" expanded="true" signature="184:528" ph="{...}" />
-            <marker date="1522320849417" expanded="true" signature="588:720" ph="{...}" />
+            <marker date="1522322995659" expanded="true" signature="40:1426" ph="{...}" />
+            <marker date="1522322995659" expanded="true" signature="53:272" ph="..." />
+            <marker date="1522322995659" expanded="true" signature="337:1424" ph="{...}" />
+            <marker date="1522322995659" expanded="true" signature="493:565" ph="{...}" />
+            <marker date="1522322995659" expanded="true" signature="675:1418" ph="{...}" />
+            <marker date="1522322995659" expanded="true" signature="952:1176" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Player/PlayerService.cs">
+    <entry file="file://$PROJECT_DIR$/Alore/Handshake/Packets/Incoming/UniqueIdMessageEvent.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
           <folding>
-            <marker date="1522320922283" expanded="true" signature="22:691" ph="{...}" />
-            <marker date="1522320922283" expanded="true" signature="35:67" ph="..." />
-            <marker date="1522320922283" expanded="true" signature="112:689" ph="{...}" />
-            <marker date="1522320922283" expanded="true" signature="177:297" ph="{...}" />
-            <marker date="1522320922283" expanded="true" signature="358:683" ph="{...}" />
+            <marker date="1522323008663" expanded="true" signature="42:559" ph="{...}" />
+            <marker date="1522323008663" expanded="true" signature="55:183" ph="..." />
+            <marker date="1522323008663" expanded="true" signature="237:557" ph="{...}" />
+            <marker date="1522323008663" expanded="true" signature="352:551" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Network/Listener.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <marker date="1522323115008" expanded="true" signature="23:2135" ph="{...}" />
+            <marker date="1522323115008" expanded="true" signature="36:271" ph="..." />
+            <marker date="1522323115008" expanded="true" signature="298:2133" ph="{...}" />
+            <marker date="1522323115008" expanded="true" signature="512:1951" ph="{...}" />
+            <marker date="1522323115008" expanded="true" signature="1722:1819" ph="{...}" />
+            <marker date="1522323115008" expanded="true" signature="1836:1941" ph="{...}" />
+            <marker date="1522323115008" expanded="true" signature="1993:2127" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Alore/Network/Handler.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="47" selection-end-column="17" />
+        <state relative-caret-position="48">
+          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
           <folding>
-            <marker date="1522320973453" expanded="true" signature="23:1714" ph="{...}" />
-            <marker date="1522320973453" expanded="true" signature="36:227" ph="..." />
-            <marker date="1522320973453" expanded="true" signature="297:1712" ph="{...}" />
-            <marker date="1522320973453" expanded="true" signature="588:763" ph="{...}" />
-            <marker date="1522320973453" expanded="true" signature="839:920" ph="{...}" />
-            <marker date="1522320973453" expanded="true" signature="998:1064" ph="{...}" />
-            <marker date="1522320973453" expanded="true" signature="1162:1706" ph="{...}" />
-            <marker date="1522320973453" expanded="true" signature="1249:1696" ph="{...}" />
-            <marker date="1522320973453" expanded="true" signature="1341:1555" ph="{...}" />
-            <marker date="1522320973453" expanded="true" signature="1576:1682" ph="{...}" />
+            <marker date="1522322937125" expanded="true" signature="23:1554" ph="{...}" />
+            <marker date="1522322937125" expanded="true" signature="36:227" ph="..." />
+            <marker date="1522322937125" expanded="true" signature="297:1552" ph="{...}" />
+            <marker date="1522322937125" expanded="true" signature="494:623" ph="{...}" />
+            <marker date="1522322937125" expanded="true" signature="699:780" ph="{...}" />
+            <marker date="1522322937125" expanded="true" signature="858:924" ph="{...}" />
+            <marker date="1522322937125" expanded="true" signature="1022:1546" ph="{...}" />
+            <marker date="1522322937125" expanded="true" signature="1109:1536" ph="{...}" />
+            <marker date="1522322937125" expanded="true" signature="1201:1395" ph="{...}" />
+            <marker date="1522322937125" expanded="true" signature="1416:1522" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Alore.API/Room/Models/IRoom.cs">
+    <entry file="file://$PROJECT_DIR$/Alore.API/IService.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        <state relative-caret-position="24">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="8" selection-end-column="1" />
           <folding>
-            <marker date="1522322023789" expanded="true" signature="31:182" ph="{...}" />
-            <marker date="1522322023789" expanded="true" signature="60:180" ph="{...}" />
-            <marker date="1522322023789" expanded="true" signature="75:144" ph="/// The rooms unique id. ... " />
+            <marker date="1522323131867" expanded="true" signature="19:211" ph="{...}" />
+            <marker date="1522323131867" expanded="true" signature="51:209" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Alore/Room/Models/Room.cs">
+    <entry file="file://$PROJECT_DIR$/Alore/Program.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="408">
+          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
           <folding>
-            <marker date="1522322008032" expanded="true" signature="27:203" ph="{...}" />
-            <marker date="1522322008032" expanded="true" signature="40:75" ph="..." />
-            <marker date="1522322008032" expanded="true" signature="124:201" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="15:2483" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="28:334" ph="..." />
+            <marker date="1522323198627" expanded="true" signature="367:2314" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="457:1631" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="715:959" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="1012:1095" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="1147:1244" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="1388:1562" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="1470:1548" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="1681:2116" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="2166:2308" ph="{...}" />
+            <marker date="1522323198627" expanded="true" signature="2365:2481" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Handshake/HandshakeService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <folding>
+            <marker date="1522323208977" expanded="true" signature="25:392" ph="{...}" />
+            <marker date="1522323208977" expanded="true" signature="38:70" ph="..." />
+            <marker date="1522323208977" expanded="true" signature="118:390" ph="{...}" />
+            <marker date="1522323208977" expanded="true" signature="183:203" ph="{...}" />
+            <marker date="1522323208977" expanded="true" signature="292:384" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Landing/LandingService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <folding>
+            <marker date="1522323232267" expanded="true" signature="23:526" ph="{...}" />
+            <marker date="1522323232267" expanded="true" signature="36:68" ph="..." />
+            <marker date="1522323232267" expanded="true" signature="114:524" ph="{...}" />
+            <marker date="1522323232267" expanded="true" signature="208:334" ph="{...}" />
+            <marker date="1522323232267" expanded="true" signature="394:518" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Messenger/MessengerService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="86" lean-forward="false" selection-start-line="11" selection-start-column="86" selection-end-line="11" selection-end-column="86" />
+          <folding>
+            <marker date="1522323247616" expanded="true" signature="25:397" ph="{...}" />
+            <marker date="1522323247616" expanded="true" signature="38:70" ph="..." />
+            <marker date="1522323247616" expanded="true" signature="118:395" ph="{...}" />
+            <marker date="1522323247616" expanded="true" signature="183:203" ph="{...}" />
+            <marker date="1522323247616" expanded="true" signature="292:389" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Navigator/NavigatorService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <folding>
+            <marker date="1522323270458" expanded="true" signature="25:837" ph="{...}" />
+            <marker date="1522323270458" expanded="true" signature="38:70" ph="..." />
+            <marker date="1522323270458" expanded="true" signature="118:835" ph="{...}" />
+            <marker date="1522323270458" expanded="true" signature="212:637" ph="{...}" />
+            <marker date="1522323270458" expanded="true" signature="697:829" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Player/PlayerService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding>
+            <marker date="1522323290783" expanded="true" signature="22:767" ph="{...}" />
+            <marker date="1522323290783" expanded="true" signature="35:67" ph="..." />
+            <marker date="1522323290783" expanded="true" signature="112:765" ph="{...}" />
+            <marker date="1522323290783" expanded="true" signature="177:297" ph="{...}" />
+            <marker date="1522323290783" expanded="true" signature="386:759" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alore/Room/RoomService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="8" selection-end-column="9" />
+          <folding>
+            <marker date="1522323299152" expanded="true" signature="20:374" ph="{...}" />
+            <marker date="1522323299152" expanded="true" signature="80:372" ph="{...}" />
+            <marker date="1522323299152" expanded="true" signature="174:194" ph="{...}" />
+            <marker date="1522323299152" expanded="true" signature="254:366" ph="{...}" />
           </folding>
         </state>
       </provider>

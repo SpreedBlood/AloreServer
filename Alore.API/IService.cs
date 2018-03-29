@@ -4,6 +4,6 @@
     {
         void Initialize(IControllerContext context);
 
-        void AddEvents(IEventProvider eventProvider);
+        void AddEvents(IEventProvider eventProvider, IControllerContext controllerContext);
     }
 }

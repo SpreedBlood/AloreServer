@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using API;
+    using API.Landing;
     using API.Landing.Models;
     using API.Network;
     using API.Network.Clients;
@@ -11,14 +11,20 @@
 
     internal class LandingLoadWidgetMessageEvent : IAsyncPacket
     {
+        private readonly ILandingController _landingController;
+
+        internal LandingLoadWidgetMessageEvent(ILandingController landingController)
+        {
+            _landingController = landingController;
+        }
+
         public async Task HandleAsync(
             ISession session,
-            IClientPacket clientPacket,
-            IControllerContext controllerContext)
+            IClientPacket clientPacket)
         {
             string text = clientPacket.ReadString();
             string[] splitText = text.Split(',');
-            List<IHallOfFamer> hallOfFamers = await controllerContext.LandingController.GetHallOfFamersAsync();
+            List<IHallOfFamer> hallOfFamers = await _landingController.GetHallOfFamersAsync();
 
             if (string.IsNullOrEmpty(text) || splitText.Length < 2)
             {

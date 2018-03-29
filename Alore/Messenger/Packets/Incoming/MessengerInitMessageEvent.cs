@@ -1,7 +1,6 @@
 ﻿namespace Alore.Messenger.Packets.Incoming
 {
     using System.Threading.Tasks;
-    using API;
     using API.Network;
     using API.Network.Clients;
     using API.Network.Packets;
@@ -11,8 +10,7 @@
     {
         public async Task HandleAsync(
             ISession session,
-            IClientPacket clientPacket,
-            IControllerContext controllerContext)
+            IClientPacket clientPacket)
         {
             await session.WriteAndFlushAsync(new MessengerInitComposer());
             //TODO: Make friends.    

@@ -7,5 +7,8 @@
     {
         [AloreColumn("id")]
         public uint Id { get; set; }
+        
+        [AloreColumn("name")]
+        public string Name { get; set; }
     }
 }

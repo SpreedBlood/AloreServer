@@ -5,9 +5,9 @@
 
     internal class LandingService : IService
     {
-        public void AddEvents(IEventProvider eventProvider)
+        public void AddEvents(IEventProvider eventProvider, IControllerContext context)
         {
-            eventProvider.Events.Add(1579, new LandingLoadWidgetMessageEvent());
+            eventProvider.Events.Add(1579, new LandingLoadWidgetMessageEvent(context.LandingController));
         }
 
         public void Initialize(IControllerContext context)

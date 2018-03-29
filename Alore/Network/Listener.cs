@@ -14,7 +14,7 @@
         private IEventLoopGroup _workerGroup;
         private IEventLoopGroup _bossGroup;
 
-        public async Task Listen(int port, ControllerContext gameContext,
+        public async Task Listen(int port, IControllerContext gameContext,
             IEventProvider eventProvider)
         {
             _workerGroup = new MultithreadEventLoopGroup(10);
@@ -27,7 +27,7 @@
                     channel.Pipeline
                         .AddLast("Encoder", new Encoder())
                         .AddLast("Decoder", new Decoder())
-                        .AddLast("ClientHandler", new Handler(gameContext, eventProvider))
+                        .AddLast("ClientHandler", new Handler(eventProvider))
                 ))
                 .ChildOption(ChannelOption.TcpNodelay, true)
                 .ChildOption(ChannelOption.SoKeepalive, true)

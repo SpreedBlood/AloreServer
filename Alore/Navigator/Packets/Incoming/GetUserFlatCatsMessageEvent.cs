@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using API;
+    using API.Navigator;
     using API.Navigator.Models;
     using API.Network;
     using API.Network.Clients;
@@ -11,13 +11,19 @@
 
     internal class GetUserFlatCatsMessageEvent : IAsyncPacket
     {
+        private readonly INavigatorController _navigatorController;
+        
+        internal GetUserFlatCatsMessageEvent(INavigatorController navigatorController)
+        {
+            _navigatorController = navigatorController;
+        }
+        
         public async Task HandleAsync(
             ISession session,
-            IClientPacket clientPacket,
-            IControllerContext controllerContext)
+            IClientPacket clientPacket)
         {
             List<INavigatorCategory> categories =
-                await controllerContext.NavigatorController.GetNavigatorCategoriesAsync();
+                await _navigatorController.GetNavigatorCategoriesAsync();
             await session.WriteAndFlushAsync(new UserFlatCatsComposer(categories, session.Player.Rank));
         }
     }

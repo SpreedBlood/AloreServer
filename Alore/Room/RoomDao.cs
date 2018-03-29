@@ -1,6 +1,6 @@
 ﻿namespace Alore.Room
 {
-    using Alore.API.Sql;
+    using API.Sql;
 
     internal class RoomDao : AloreDao
     {

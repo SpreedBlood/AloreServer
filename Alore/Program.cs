@@ -15,7 +15,7 @@
     using Player;
     using Room;
 
-    class Program
+    public static class Program
     {
         private static Listener _listener;
 
@@ -24,7 +24,7 @@
             //await TestAloreSql();
 
             IEventProvider eventProvider = new EventProvider();
-            ControllerContext controllerContext = new ControllerContext();
+            IControllerContext controllerContext = new ControllerContext();
 
             List<IService> services = new List<IService>
             {
@@ -39,7 +39,11 @@
             foreach (IService service in services)
             {
                 service.Initialize(controllerContext);
-                service.AddEvents(eventProvider);
+            }
+
+            foreach (IService service in services)
+            {
+                service.AddEvents(eventProvider, controllerContext);
             }
 
             _listener = new Listener();
@@ -52,6 +56,7 @@
                     await DisposeAsync();
                 }
             }
+            // ReSharper disable once FunctionNeverReturns
         }
 
         private static async Task TestAloreSql()

@@ -1,27 +1,33 @@
 ﻿namespace Alore.Player.Packets.Incoming
 {
     using System.Threading.Tasks;
-    using API;
     using API.Network;
     using API.Network.Clients;
     using API.Network.Packets;
+    using API.Player;
     using API.Player.Models;
     using Outgoing;
 
-    public class SsoTicketMessageEvent : IAsyncPacket
+    internal class SsoTicketMessageEvent : IAsyncPacket
     {
+        internal IPlayerController _playerController;
+
+        internal SsoTicketMessageEvent(IPlayerController playerController)
+        {
+            _playerController = playerController;
+        }
+        
         public async Task HandleAsync(
             ISession session,
-            IClientPacket clientPacket,
-            IControllerContext controllerContext)
+            IClientPacket clientPacket)
         {
             string ssoTicket = clientPacket.ReadString();
-            IPlayer player = await controllerContext.PlayerController.GetPlayerBySsoAsync(ssoTicket);
+            IPlayer player = await _playerController.GetPlayerBySsoAsync(ssoTicket);
             if (player != null)
             {
                 session.Player = player;
                 IPlayerSettings playerSettings =
-                    await controllerContext.PlayerController.GetPlayerSettingsByIdAsync(player.Id);
+                    await _playerController.GetPlayerSettingsByIdAsync(player.Id);
 
                 if (playerSettings != null)
                 {
@@ -29,9 +35,9 @@
                 }
                 else
                 {
-                    await controllerContext.PlayerController.AddPlayerSettingsAsync(player.Id);
+                    await _playerController.AddPlayerSettingsAsync(player.Id);
                     session.PlayerSettings =
-                        await controllerContext.PlayerController.GetPlayerSettingsByIdAsync(player.Id);
+                        await _playerController.GetPlayerSettingsByIdAsync(player.Id);
                 }
 
                 await session.WriteAndFlushAsync(new AuthenticationOkComposer());

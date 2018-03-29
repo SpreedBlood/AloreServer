@@ -6,6 +6,6 @@
 
     public interface IAsyncPacket
     {
-        Task HandleAsync(ISession session, IClientPacket clientPacket, IControllerContext controllerContext);
+        Task HandleAsync(ISession session, IClientPacket clientPacket);
     }
 }

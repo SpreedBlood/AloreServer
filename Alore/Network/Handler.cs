@@ -11,13 +11,11 @@
 
     public class Handler : SimpleChannelInboundHandler<ClientPacket>
     {
-        private readonly ControllerContext _controllerContext;
         private readonly Dictionary<short, IAsyncPacket> _events;
         private readonly Dictionary<IChannelId, ISession> _sessions;
 
-        internal Handler(ControllerContext gameContext, IEventProvider eventProvider)
+        internal Handler(IEventProvider eventProvider)
         {
-            _controllerContext = gameContext;
             _events = eventProvider.Events;
 
             _sessions = new Dictionary<IChannelId, ISession>();
@@ -39,7 +37,7 @@
             {
                 if (_events.TryGetValue(msg.Header, out IAsyncPacket packet))
                 {
-                    await packet.HandleAsync(session, msg, _controllerContext);
+                    await packet.HandleAsync(session, msg);
                     Console.WriteLine($"Handled packet: {msg.Header} : {packet.GetType().Name}");
                 }
                 else

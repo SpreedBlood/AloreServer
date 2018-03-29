@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using API;
+    using API.Navigator;
     using API.Navigator.Models;
     using API.Network;
     using API.Network.Clients;
@@ -12,10 +12,17 @@
 
     internal class NavigatorSearchMessageEvent : IAsyncPacket
     {
+        private readonly INavigatorController _navigatorController;
+
+        internal NavigatorSearchMessageEvent(INavigatorController navigatorController)
+        {
+            _navigatorController = navigatorController;
+        }
+
+
         public async Task HandleAsync(
             ISession session,
-            IClientPacket clientPacket,
-            IControllerContext controllerContext)
+            IClientPacket clientPacket)
         {
             string category = clientPacket.ReadString();
             string data = clientPacket.ReadString();
@@ -24,7 +31,7 @@
             if (string.IsNullOrEmpty(data))
             {
                 List<INavigatorCategory> categories =
-                    await controllerContext.NavigatorController.GetNavigatorCategoriesAsync();
+                    await _navigatorController.GetNavigatorCategoriesAsync();
                 List<INavigatorCategory> categoriesToSend = new List<INavigatorCategory>();
 
                 foreach (INavigatorCategory navCategory in categories)
