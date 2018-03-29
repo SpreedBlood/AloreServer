@@ -1,25 +1,28 @@
 ﻿namespace Alore.Player.Packets.Incoming
 {
     using System.Threading.Tasks;
-    using Alore.API.Player.Models;
+    using API.Player.Models;
     using API;
+    using API.Network;
     using API.Network.Clients;
     using API.Network.Packets;
     using Outgoing;
 
-    public static class InfoRetrieveMessageEvent
+    internal class InfoRetrieveMessageEvent : IAsyncPacket
     {
-        public static async Task Execute(
+        public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket,
             IControllerContext controllerContext)
         {
-            IPlayerStats playerStats = await controllerContext.PlayerController.GetPlayerStatsByIdAsync(session.Player.Id);
+            IPlayerStats playerStats =
+                await controllerContext.PlayerController.GetPlayerStatsByIdAsync(session.Player.Id);
             if (playerStats == null)
             {
                 await controllerContext.PlayerController.AddPlayerStatsAsync(session.Player.Id);
                 playerStats = await controllerContext.PlayerController.GetPlayerStatsByIdAsync(session.Player.Id);
             }
+
             session.PlayerStats = playerStats;
 
             await session.WriteAndFlushAsync(new UserObjectComposer(session.Player, session.PlayerStats));

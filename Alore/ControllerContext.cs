@@ -1,10 +1,11 @@
 ﻿namespace Alore
 {
-    using Alore.API.Landing;
-    using Alore.API.Navigator;
+    using API.Landing;
+    using API.Navigator;
     using API;
     using API.Messenger;
     using API.Player;
+    using API.Room;
 
     public class ControllerContext : IControllerContext
     {
@@ -15,5 +16,7 @@
         public INavigatorController NavigatorController { get; set; }
 
         public ILandingController LandingController { get; set; }
+
+        public IRoomController RoomController { get; set; }
     }
 }

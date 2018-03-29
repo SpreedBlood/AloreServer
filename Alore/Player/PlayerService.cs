@@ -12,10 +12,10 @@
 
         public void AddEvents(IEventProvider eventProvider)
         {
-            eventProvider.Events.Add(1930, SsoTicketMessageEvent.Execute);
-            eventProvider.Events.Add(3092, InfoRetrieveMessageEvent.Execute);
-            eventProvider.Events.Add(2109, GetCreditsInfoMessageEvent.Execute);
-            eventProvider.Events.Add(3796, ScrGetUserInfoMessageEvent.Execute);
+            eventProvider.Events.Add(1930, new SsoTicketMessageEvent());
+            eventProvider.Events.Add(3092, new InfoRetrieveMessageEvent());
+            eventProvider.Events.Add(2109, new GetCreditsInfoMessageEvent());
+            eventProvider.Events.Add(3796, new ScrGetUserInfoMessageEvent());
         }
     }
 }

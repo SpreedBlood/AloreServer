@@ -1,20 +1,21 @@
 ﻿namespace Alore.Messenger.Packets.Incoming
 {
-    using Alore.API;
-    using Alore.API.Network.Clients;
-    using Alore.API.Network.Packets;
-    using Alore.Messenger.Packets.Outgoing;
     using System.Threading.Tasks;
+    using API;
+    using API.Network;
+    using API.Network.Clients;
+    using API.Network.Packets;
+    using Outgoing;
 
-    internal static class MessengerInitMessageEvent
+    internal class MessengerInitMessageEvent : IAsyncPacket
     {
-        internal static async Task Execute(
+        public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket,
             IControllerContext controllerContext)
         {
             await session.WriteAndFlushAsync(new MessengerInitComposer());
-            //TODO: Make friends.
+            //TODO: Make friends.    
         }
     }
 }

@@ -2,13 +2,14 @@
 {
     using System.Threading.Tasks;
     using API;
+    using API.Network;
     using API.Network.Clients;
     using API.Network.Packets;
     using Outgoing;
 
-    public static class UniqueIdMessageEvent
+    public class UniqueIdMessageEvent : IAsyncPacket
     {
-        public static async Task Execute(
+        public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket,
             IControllerContext controllerContext)

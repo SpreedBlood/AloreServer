@@ -1,54 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/app.config.transform">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/app.config.transform" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlCommand.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlCommand.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlCommandBuilder.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlCommandBuilder.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlConnection.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlConnection.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlConnectionStringBuilder.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlConnectionStringBuilder.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlDataAdapter.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlDataAdapter.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlDataReader.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlDataReader.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlException.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlException.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlHelper.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlHelper.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlParameter.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlParameter.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlParameterCollection.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlParameterCollection.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlTransaction.xml">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlTransaction.xml" isTestSource="false" />
-    </content>
-    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/web.config.transform">
-      <sourceFolder url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/web.config.transform" isTestSource="false" />
-    </content>
-    <content url="file://$MODULE_DIR$/../..">
-      <sourceFolder url="file://$MODULE_DIR$/../../Alore" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../Alore.API" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/../../Alore.API/bin" />
-      <excludeFolder url="file://$MODULE_DIR$/../../Alore.API/obj" />
-      <excludeFolder url="file://$MODULE_DIR$/../../Alore/bin" />
-      <excludeFolder url="file://$MODULE_DIR$/../../Alore/obj" />
-      <excludeFolder url="file://$MODULE_DIR$/../../packages" />
-    </content>
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/app.config.transform" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlCommand.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlCommandBuilder.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlConnection.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlConnectionStringBuilder.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlDataAdapter.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlDataReader.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlException.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlHelper.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlParameter.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlParameterCollection.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/docs/MySqlTransaction.xml" />
+    <content url="file://$USER_HOME$/.nuget/packages/MySql.Data/6.10.6/contentFiles/any/netcoreapp2.0/web.config.transform" />
+    <content url="file://$MODULE_DIR$/../.." />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

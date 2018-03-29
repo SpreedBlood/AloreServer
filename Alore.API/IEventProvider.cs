@@ -1,13 +1,10 @@
 ﻿namespace Alore.API
 {
-    using System;
     using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using Network.Clients;
-    using Network.Packets;
+    using Network;
 
     public interface IEventProvider
     {
-        Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>> Events { get; }
+        Dictionary<short, IAsyncPacket> Events { get; }
     }
 }

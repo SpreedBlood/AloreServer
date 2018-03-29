@@ -2,11 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Threading.Tasks;
     using API;
     using API.Network;
     using API.Network.Clients;
-    using API.Network.Packets;
     using Clients;
     using DotNetty.Transport.Channels;
     using Packets;
@@ -14,7 +12,7 @@
     public class Handler : SimpleChannelInboundHandler<ClientPacket>
     {
         private readonly ControllerContext _controllerContext;
-        private readonly Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>> _events;
+        private readonly Dictionary<short, IAsyncPacket> _events;
         private readonly Dictionary<IChannelId, ISession> _sessions;
 
         internal Handler(ControllerContext gameContext, IEventProvider eventProvider)
@@ -39,10 +37,10 @@
         {
             if (_sessions.TryGetValue(ctx.Channel.Id, out ISession session))
             {
-                if (_events.TryGetValue(msg.Header, out Func<ISession, IClientPacket, IControllerContext, Task> action))
+                if (_events.TryGetValue(msg.Header, out IAsyncPacket packet))
                 {
-                    await action(session, msg, _controllerContext);
-                    Console.WriteLine($"Handled packet: {msg.Header}");
+                    await packet.HandleAsync(session, msg, _controllerContext);
+                    Console.WriteLine($"Handled packet: {msg.Header} : {packet.GetType().Name}");
                 }
                 else
                 {

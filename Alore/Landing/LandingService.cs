@@ -1,13 +1,13 @@
 ﻿namespace Alore.Landing
 {
-    using Alore.API;
-    using Alore.Landing.Packets.Incoming;
+    using API;
+    using Packets.Incoming;
 
     internal class LandingService : IService
     {
         public void AddEvents(IEventProvider eventProvider)
         {
-            eventProvider.Events.Add(1579, LandingLoadWidgetMessageEvent.Execute);
+            eventProvider.Events.Add(1579, new LandingLoadWidgetMessageEvent());
         }
 
         public void Initialize(IControllerContext context)

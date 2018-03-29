@@ -1,16 +1,17 @@
 ﻿namespace Alore.Landing.Packets.Incoming
 {
-    using Alore.API;
-    using Alore.API.Landing.Models;
-    using Alore.API.Network.Clients;
-    using Alore.API.Network.Packets;
-    using Alore.Landing.Packets.Outgoing;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using API;
+    using API.Landing.Models;
+    using API.Network;
+    using API.Network.Clients;
+    using API.Network.Packets;
+    using Outgoing;
 
-    public static class LandingLoadWidgetMessageEvent
+    internal class LandingLoadWidgetMessageEvent : IAsyncPacket
     {
-        public static async Task Execute(
+        public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket,
             IControllerContext controllerContext)

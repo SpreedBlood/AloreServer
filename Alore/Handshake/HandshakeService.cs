@@ -11,7 +11,7 @@
 
         public void AddEvents(IEventProvider eventProvider)
         {
-            eventProvider.Events.Add(3465, UniqueIdMessageEvent.Execute);
+            eventProvider.Events.Add(3465, new UniqueIdMessageEvent());
         }
     }
 }

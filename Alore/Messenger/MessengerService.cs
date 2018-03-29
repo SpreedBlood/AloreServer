@@ -1,6 +1,6 @@
 ﻿namespace Alore.Messenger
 {
-    using Alore.Messenger.Packets.Incoming;
+    using Packets.Incoming;
     using API;
 
     internal class MessengerService : IService
@@ -11,7 +11,7 @@
 
         public void AddEvents(IEventProvider eventProvider)
         {
-            eventProvider.Events.Add(1405, MessengerInitMessageEvent.Execute);
+            eventProvider.Events.Add(1405, new MessengerInitMessageEvent());
         }
     }
 }

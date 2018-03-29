@@ -1,17 +1,18 @@
 ﻿namespace Alore.Navigator.Packets.Incoming
 {
-    using Alore.API;
-    using Alore.API.Navigator.Models;
-    using Alore.API.Network.Clients;
-    using Alore.API.Network.Packets;
-    using Alore.Navigator.Packets.Outgoing;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using API;
+    using API.Navigator.Models;
+    using API.Network;
+    using API.Network.Clients;
+    using API.Network.Packets;
+    using Outgoing;
 
-    internal static class NavigatorSearchMessageEvent
+    internal class NavigatorSearchMessageEvent : IAsyncPacket
     {
-        internal static async Task Execute(
+        public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket,
             IControllerContext controllerContext)
@@ -22,9 +23,10 @@
             //Send the categories..
             if (string.IsNullOrEmpty(data))
             {
-                List<INavigatorCategory> categories = await controllerContext.NavigatorController.GetNavigatorCategoriesAsync();
+                List<INavigatorCategory> categories =
+                    await controllerContext.NavigatorController.GetNavigatorCategoriesAsync();
                 List<INavigatorCategory> categoriesToSend = new List<INavigatorCategory>();
-                
+
                 foreach (INavigatorCategory navCategory in categories)
                 {
                     if (navCategory.Category == category)
@@ -33,11 +35,9 @@
                         Console.WriteLine("Ayee");
                     }
                 }
-                await session.WriteAndFlushAsync(new NavigatorSearchResultSetComposer(category, data, categoriesToSend));
-            }
-            else //This is a search...
-            {
 
+                await session.WriteAndFlushAsync(
+                    new NavigatorSearchResultSetComposer(category, data, categoriesToSend));
             }
         }
     }

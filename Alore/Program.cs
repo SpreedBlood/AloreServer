@@ -4,17 +4,16 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Threading.Tasks;
-    using Alore.Landing;
-    using Alore.Navigator;
-    using Alore.Room;
     using API;
-    using API.Network.Clients;
-    using API.Network.Packets;
+    using API.Network;
     using API.Sql.Test;
     using Handshake;
+    using Landing;
     using Messenger;
+    using Navigator;
     using Network;
     using Player;
+    using Room;
 
     class Program
     {
@@ -79,6 +78,6 @@
 
     internal class EventProvider : IEventProvider
     {
-        public Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>> Events { get; } = new Dictionary<short, Func<ISession, IClientPacket, IControllerContext, Task>>();
+        public Dictionary<short, IAsyncPacket> Events { get; } = new Dictionary<short, IAsyncPacket>();
     }
 }

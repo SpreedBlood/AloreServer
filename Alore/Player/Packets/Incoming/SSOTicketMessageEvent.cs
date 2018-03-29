@@ -1,16 +1,16 @@
 ﻿namespace Alore.Player.Packets.Incoming
 {
-    using System;
     using System.Threading.Tasks;
     using API;
+    using API.Network;
     using API.Network.Clients;
     using API.Network.Packets;
     using API.Player.Models;
     using Outgoing;
 
-    public static class SsoTicketMessageEvent
+    public class SsoTicketMessageEvent : IAsyncPacket
     {
-        public static async Task Execute(
+        public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket,
             IControllerContext controllerContext)
@@ -20,7 +20,8 @@
             if (player != null)
             {
                 session.Player = player;
-                IPlayerSettings playerSettings = await controllerContext.PlayerController.GetPlayerSettingsByIdAsync(player.Id);
+                IPlayerSettings playerSettings =
+                    await controllerContext.PlayerController.GetPlayerSettingsByIdAsync(player.Id);
 
                 if (playerSettings != null)
                 {
@@ -29,7 +30,8 @@
                 else
                 {
                     await controllerContext.PlayerController.AddPlayerSettingsAsync(player.Id);
-                    session.PlayerSettings = await controllerContext.PlayerController.GetPlayerSettingsByIdAsync(player.Id);
+                    session.PlayerSettings =
+                        await controllerContext.PlayerController.GetPlayerSettingsByIdAsync(player.Id);
                 }
 
                 await session.WriteAndFlushAsync(new AuthenticationOkComposer());
