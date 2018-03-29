@@ -9,9 +9,10 @@
     {
         private readonly LandingRepository _landingRepository;
 
-        internal LandingController(LandingRepository landingRepository)
+        public LandingController()
         {
-            _landingRepository = landingRepository;
+            // TODO: See PlayerController comment
+            _landingRepository = new LandingRepository(new LandingDao());
         }
 
         public async Task<List<IHallOfFamer>> GetHallOfFamersAsync() =>

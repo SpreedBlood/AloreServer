@@ -6,6 +6,8 @@
 
     public interface IAsyncPacket
     {
+        short Header { get; }
+
         Task HandleAsync(ISession session, IClientPacket clientPacket);
     }
 }

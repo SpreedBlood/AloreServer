@@ -11,9 +11,11 @@
 
     internal class LandingLoadWidgetMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 1579;
+
         private readonly ILandingController _landingController;
 
-        internal LandingLoadWidgetMessageEvent(ILandingController landingController)
+        public LandingLoadWidgetMessageEvent(ILandingController landingController)
         {
             _landingController = landingController;
         }

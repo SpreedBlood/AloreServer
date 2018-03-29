@@ -8,6 +8,8 @@
 
     internal class GetCreditsInfoMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 2109;
+
         public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket)

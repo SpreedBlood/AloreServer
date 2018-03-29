@@ -14,7 +14,7 @@
         private IEventLoopGroup _workerGroup;
         private IEventLoopGroup _bossGroup;
 
-        public async Task Listen(int port, IControllerContext gameContext,
+        /*public async Task Listen(int port, IControllerContext gameContext,
             IEventProvider eventProvider)
         {
             _workerGroup = new MultithreadEventLoopGroup(10);
@@ -45,7 +45,7 @@
             {
                 Logger<Listener>.Error($"Failed to listen on port: {port}");
             }
-        }
+        }*/
 
         public async Task DisposeAsync()
         {

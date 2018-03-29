@@ -8,6 +8,8 @@
 
     public class UniqueIdMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 3465;
+
         public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket)

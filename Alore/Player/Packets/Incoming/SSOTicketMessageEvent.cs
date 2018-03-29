@@ -10,9 +10,11 @@
 
     internal class SsoTicketMessageEvent : IAsyncPacket
     {
-        internal IPlayerController _playerController;
+        public short Header { get; } = 1930;
 
-        internal SsoTicketMessageEvent(IPlayerController playerController)
+        private readonly IPlayerController _playerController;
+
+        public SsoTicketMessageEvent(IPlayerController playerController)
         {
             _playerController = playerController;
         }

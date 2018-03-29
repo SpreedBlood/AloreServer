@@ -1,11 +1,15 @@
-﻿namespace Alore
+﻿using Alore.Helpers;
+using Alore.Network.Packets;
+using DotNetty.Buffers;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Alore
 {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Threading.Tasks;
     using API;
-    using API.Network;
     using API.Sql.Test;
     using Handshake;
     using Landing;
@@ -23,10 +27,19 @@
         {
             //await TestAloreSql();
 
-            IEventProvider eventProvider = new EventProvider();
-            IControllerContext controllerContext = new ControllerContext();
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddLogging();
 
-            List<IService> services = new List<IService>
+            ControllerDiHelper.ConfigureServices(serviceCollection);
+            ClientPacketDiHelper.ConfigureServices(serviceCollection);
+            
+            serviceCollection.AddSingleton<IEventProvider, EventProvider>();
+
+            var sp = serviceCollection.BuildServiceProvider();
+
+            var test = sp.GetService<IEventProvider>();
+            var ddd = true;
+            /*List<IService> services = new List<IService>
             {
                 new PlayerService(),
                 new MessengerService(),
@@ -55,7 +68,7 @@
                 {
                     await DisposeAsync();
                 }
-            }
+            }*/
             // ReSharper disable once FunctionNeverReturns
         }
 
@@ -79,10 +92,5 @@
             Console.WriteLine("Finished!");
             Environment.Exit(0);
         }
-    }
-
-    internal class EventProvider : IEventProvider
-    {
-        public Dictionary<short, IAsyncPacket> Events { get; } = new Dictionary<short, IAsyncPacket>();
     }
 }

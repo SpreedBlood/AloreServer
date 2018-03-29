@@ -8,6 +8,8 @@
 
     internal class MessengerInitMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 1405;
+
         public async Task HandleAsync(
             ISession session,
             IClientPacket clientPacket)

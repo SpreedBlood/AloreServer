@@ -8,9 +8,10 @@
     {
         private readonly PlayerRepostiory _playerRepostiory;
 
-        internal PlayerController(PlayerRepostiory playerRepostiory)
+        public PlayerController()
         {
-            _playerRepostiory = playerRepostiory;
+            // TODO: Make this injectable via the servicecollection. Also need an interface!
+            _playerRepostiory = new PlayerRepostiory(new PlayerDao());
         }
 
         public async Task AddPlayerSettingsAsync(uint id) =>

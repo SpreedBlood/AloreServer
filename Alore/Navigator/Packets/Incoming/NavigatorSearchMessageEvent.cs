@@ -12,9 +12,11 @@
 
     internal class NavigatorSearchMessageEvent : IAsyncPacket
     {
+        public short Header { get; } = 3612;
+
         private readonly INavigatorController _navigatorController;
 
-        internal NavigatorSearchMessageEvent(INavigatorController navigatorController)
+        public NavigatorSearchMessageEvent(INavigatorController navigatorController)
         {
             _navigatorController = navigatorController;
         }

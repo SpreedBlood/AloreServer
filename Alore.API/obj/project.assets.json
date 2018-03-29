@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "DotNetty.Buffers/0.4.7": {
@@ -2635,7 +2635,7 @@
       ]
     },
     "System.Runtime.CompilerServices.Unsafe/4.4.0": {
-      "sha512": "DqT6/io7GP4VMBvjeCuwmDwXntnMrqbTCPBWa0gGbv0CdQrAFQECl+zufk7H16IazsdS/XXyJZmtlbMiOOUWqw==",
+      "sha512": "9dLLuBxr5GNmOfl2jSMcsHuteEg32BEfUotmmUkmZjpR3RpVHE8YQwt0ow3p6prwA1ME8WqDVZqrr8z6H8G+Kw==",
       "type": "package",
       "path": "system.runtime.compilerservices.unsafe/4.4.0",
       "files": [
@@ -3345,42 +3345,69 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SpreedBlood\\.nuget\\packages\\": {}
+    "C:\\Users\\j.piek\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore.API\\Alore.API.csproj",
+      "projectUniqueName": "C:\\Users\\j.piek\\source\\repos\\AloreServer\\Alore.API\\Alore.API.csproj",
       "projectName": "Alore.API",
-      "projectPath": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore.API\\Alore.API.csproj",
-      "outputPath": "C:\\Users\\SpreedBlood\\Documents\\GitHub\\AloreServer\\Alore.API\\obj\\",
+      "projectPath": "C:\\Users\\j.piek\\source\\repos\\AloreServer\\Alore.API\\Alore.API.csproj",
+      "packagesPath": "C:\\Users\\j.piek\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\j.piek\\source\\repos\\AloreServer\\Alore.API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\j.piek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "DotNetty.Buffers": {
+            "target": "Package",
+            "version": "[0.4.7, )"
+          },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0"
-          },
-          "DotNetty.Buffers": {
-            "target": "Package",
-            "version": "0.4.7"
+            "version": "[2.0.0, )",
+            "autoReferenced": true
           },
           "MySql.Data": {
             "target": "Package",
-            "version": "6.10.6"
+            "version": "[6.10.6, )"
           }
-        }
+        },
+        "imports": [
+          "net461"
+        ],
+        "assetTargetFallback": true,
+        "warn": true
       }
     }
   }
