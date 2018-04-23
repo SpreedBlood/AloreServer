@@ -1,14 +1,19 @@
 ﻿namespace Alore.Room.Models
 {
+    using System;
     using API.Room.Models;
-    using API.Sql;
-    
-    internal class Room : AloreModel, IRoom
+
+    internal class Room : IRoom, IDisposable
     {
-        [AloreColumn("id")]
-        public uint Id { get; set; }
+        public IRoomData RoomData { get; set; }
         
-        [AloreColumn("name")]
-        public string Name { get; set; }
+        internal Room(IRoomData roomData)
+        {
+            RoomData = roomData;
+        }
+
+        public void Dispose()
+        {
+        }
     }
 }

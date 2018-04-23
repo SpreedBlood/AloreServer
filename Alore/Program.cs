@@ -1,39 +1,53 @@
-﻿using Alore.Helpers;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-
-namespace Alore
+﻿namespace Alore
 {
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
     using System.Threading.Tasks;
     using API;
     using API.Sql.Test;
+    using Handshake;
+    using Landing;
+    using Messenger;
+    using Navigator;
     using Network;
+    using Player;
+    using Room;
 
-    public static class Program
+    public class Program
     {
-        private static Listener _listener;
+        private Listener _listener;
 
-        public static async Task Main()
+        private async Task Run()
         {
-            //await TestAloreSql();
+            List<IService> services = new List<IService>
+            {
+                new HandshakeService(),
+                new LandingService(),
+                new MessengerService(),
+                new NavigatorService(),
+                new PlayerService(),
+                new RoomService()
+            };
 
             // TODO: construct the Program class instead of having things staticly.
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddLogging(builder => builder.AddConsole());
-            
-            ControllerDiHelper.ConfigureServices(serviceCollection);
-            ClientPacketDiHelper.ConfigureServices(serviceCollection);
-            
+
+            foreach (IService service in services)
+            {
+                service.ConfigureServices(serviceCollection);
+            }
+
             serviceCollection.AddSingleton<IEventProvider, EventProvider>();
 
             serviceCollection.AddScoped<Listener>();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
-
             _listener = serviceProvider.GetService<Listener>();
-            
+
             await _listener.Listen(30000);
 
             while (true)
@@ -43,6 +57,21 @@ namespace Alore
                     await DisposeAsync();
                 }
             }
+            // ReSharper disable once FunctionNeverReturns
+        }
+        
+        private async Task DisposeAsync()
+        {
+            await _listener.DisposeAsync();
+
+            Environment.Exit(0);
+        }
+
+        public static async Task Main()
+        {
+            await new Program().Run();
+            
+            //await TestAloreSql();
             // ReSharper disable once FunctionNeverReturns
         }
 
@@ -57,14 +86,6 @@ namespace Alore
             stopWatch.Stop();
 
             Console.WriteLine("Alore MySQL benchmark done!");
-        }
-
-        private static async Task DisposeAsync()
-        {
-            await _listener.DisposeAsync();
-
-            Console.WriteLine("Finished!");
-            Environment.Exit(0);
         }
     }
 }

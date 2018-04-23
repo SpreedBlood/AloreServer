@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Alore.API;
-using Alore.API.Network;
-using Alore.API.Network.Clients;
-using Alore.API.Network.Packets;
-using Microsoft.Extensions.Logging;
-
-namespace Alore
+﻿namespace Alore
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using API;
+    using API.Network;
+    using API.Network.Clients;
+    using API.Network.Packets;
+    using Microsoft.Extensions.Logging;
+
     public class EventProvider : IEventProvider
     {
         private readonly ILogger<EventProvider> _logger;
@@ -26,12 +25,12 @@ namespace Alore
         {
             if (_events.TryGetValue(clientPacket.Header, out var eventHandler))
             {
-                _logger.LogDebug($"Executing {eventHandler.GetType().Name} for header: {clientPacket.Header}.");
+                _logger.LogInformation($"Executing {eventHandler.GetType().Name} for header: {clientPacket.Header}.");
                 await eventHandler.HandleAsync(session, clientPacket);
             }
             else
             {
-                _logger.LogWarning($"Unable to handle packet: {clientPacket.Header}.");
+                _logger.LogError($"Unable to handle packet: {clientPacket.Header}.");
             }
         }
     }

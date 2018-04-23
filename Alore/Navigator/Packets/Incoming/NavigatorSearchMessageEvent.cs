@@ -41,7 +41,6 @@
                     if (navCategory.Category == category)
                     {
                         categoriesToSend.Add(navCategory);
-                        Console.WriteLine("Ayee");
                     }
                 }
 

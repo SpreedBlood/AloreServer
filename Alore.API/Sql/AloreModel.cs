@@ -7,7 +7,7 @@
 
     public abstract class AloreModel
     {
-        protected readonly Dictionary<string, PropertyInfo> _dbNameToProperty;
+        private readonly Dictionary<string, PropertyInfo> _dbNameToProperty;
 
         protected AloreModel()
         {
