@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Deprecated!
+    /// </summary>
     public class AloreColumnAttribute : Attribute
     {
         public string ColumnName { get; }

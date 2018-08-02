@@ -15,10 +15,9 @@
                 {
                     if (await reader.ReadAsync())
                     {
-                        player = new Player();
-                        player.SetPropertyValues(reader);
+                        player = new Player(reader);
                     }
-                }, "SELECT id, credits, duckets, diamonds, username, auth_ticket, figure, gender, motto FROM players WHERE id = @0 LIMIT 1;", id);
+                }, "SELECT id, credits, duckets, diamonds, rank, username, auth_ticket, figure, gender, motto FROM players WHERE id = @0 LIMIT 1;", id);
             });
             return player;
         }
@@ -32,10 +31,9 @@
                 {
                     if (await reader.ReadAsync())
                     {
-                        player = new Player();
-                        player.SetPropertyValues(reader);
+                        player = new Player(reader);
                     }
-                }, "SELECT id, credits, duckets, diamonds, username, auth_ticket, figure, gender, motto FROM players WHERE auth_ticket = @0 LIMIT 1;", sso);
+                }, "SELECT id, credits, duckets, diamonds, rank, username, auth_ticket, figure, gender, motto FROM players WHERE auth_ticket = @0 LIMIT 1;", sso);
             });
             return player;
         }
@@ -49,8 +47,7 @@
                 {
                     if (await reader.ReadAsync())
                     {
-                        playerSettings = new PlayerSettings();
-                        playerSettings.SetPropertyValues(reader);
+                        playerSettings = new PlayerSettings(reader);
                     }
                 }, "SELECT navi_x, navi_y, navi_width, navi_height, navi_hide_searches FROM player_settings WHERE player_id = @0 LIMIT 1;", id);
             });
@@ -75,8 +72,7 @@
                 {
                     if (await reader.ReadAsync())
                     {
-                        playerStats = new PlayerStats();
-                        playerStats.SetPropertyValues(reader);
+                        playerStats = new PlayerStats(reader);
                     }
                 }, "SELECT respect, daily_respect, daily_pet_points FROM player_stats WHERE player_id = @0 LIMIT 1;", id);
             });

@@ -18,10 +18,10 @@
             _navigatorRepository = navigatorRepository;
         }
 
-        public async Task<List<INavigatorCategory>> GetNavigatorCategoriesAsync() =>
+        public async Task<IList<INavigatorCategory>> GetNavigatorCategoriesAsync() =>
             await _navigatorRepository.GetNavigatorCategoriesAsync();
 
-        public async Task<List<INavigatorCategory>> GetEventCategoriesAsync() =>
+        public async Task<IList<INavigatorCategory>> GetEventCategoriesAsync() =>
             await _navigatorRepository.GetPromotionNavigatorCategoriesAsync();
     }
 }

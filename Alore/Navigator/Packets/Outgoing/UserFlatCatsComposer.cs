@@ -6,7 +6,7 @@
 
     public class UserFlatCatsComposer : ServerPacket
     {
-        public UserFlatCatsComposer(List<INavigatorCategory> categories, int playerRank)
+        public UserFlatCatsComposer(IList<INavigatorCategory> categories, int playerRank)
             : base(Headers.UserFlatCatsMessageComposer)
         {
             WriteInt(categories.Count);

@@ -1,23 +1,23 @@
 ﻿namespace Alore.Landing.Models
 {
     using Alore.API.Landing.Models;
-    using Alore.API.Sql;
+    using System.Data.Common;
 
-    internal class HallOfFamer : AloreModel, IHallOfFamer
+    internal class HallOfFamer : IHallOfFamer
     {
-        [AloreColumn("id")]
+        internal HallOfFamer(DbDataReader reader)
+        {
+            Id = (uint)reader["id"];
+            Rank = (int)reader["rank"];
+            Diamonds = (int)reader["diamonds"];
+            Username = (string)reader["username"];
+            Figure = (string)reader["figure"];
+        }
+
         public uint Id { get; set; }
-
-        [AloreColumn("rank")]
         public int Rank { get; set; }
-
-        [AloreColumn("diamonds")]
         public int Diamonds { get; set; }
-
-        [AloreColumn("username")]
         public string Username { get; set; }
-
-        [AloreColumn("figure")]
         public string Figure { get; set; }
     }
 }

@@ -4,11 +4,11 @@ namespace Alore.Player.Packets.Outgoing
 {
     public class HomeRoomComposer : ServerPacket
     {
-        public HomeRoomComposer()
+        public HomeRoomComposer(int roomId)
             : base(Headers.HomeRoomMessageComposer)
         {
-            WriteInt(0);
-            WriteInt(0);
+            WriteInt(roomId);
+            WriteInt(roomId);
         }
     }
 }

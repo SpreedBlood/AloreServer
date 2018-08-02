@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
+    using Alore.API.Room.Models;
     using Packets;
     using Player.Models;
 
@@ -24,6 +25,12 @@
         /// The lpayer stats are set after the info retrieve.
         /// </summary>
         IPlayerStats PlayerStats { get; set; }
+
+        /// <summary>
+        /// The current room that the session is located in. If the session isn't
+        /// in a room then this is null.
+        /// </summary>
+        IRoom CurrentRoom { get; set; }
 
         /// <summary>
         /// The unique id from where the session is connected.

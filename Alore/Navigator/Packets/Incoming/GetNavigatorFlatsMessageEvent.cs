@@ -24,7 +24,7 @@
             ISession session,
             IClientPacket clientPacket)
         {
-            List<INavigatorCategory> eventCategories =
+            IList<INavigatorCategory> eventCategories =
                 await _navigatorController.GetEventCategoriesAsync();
 
             await session.WriteAndFlushAsync(new NavigatorFlatCatsComposer(

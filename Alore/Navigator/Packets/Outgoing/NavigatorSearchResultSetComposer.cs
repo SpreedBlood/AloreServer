@@ -6,7 +6,7 @@
 
     public class NavigatorSearchResultSetComposer : ServerPacket
     {
-        public NavigatorSearchResultSetComposer(string category, string data, List<INavigatorCategory> categories)
+        public NavigatorSearchResultSetComposer(string category, string data, IList<INavigatorCategory> categories)
             : base(Headers.NavigatorSearchResultSetMessageComposer)
         {
             WriteString(category);

@@ -24,7 +24,7 @@
             ISession session,
             IClientPacket clientPacket)
         {
-            List<INavigatorCategory> categories =
+            IList<INavigatorCategory> categories =
                 await _navigatorController.GetNavigatorCategoriesAsync();
             await session.WriteAndFlushAsync(new UserFlatCatsComposer(categories, session.Player.Rank));
         }

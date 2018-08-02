@@ -12,11 +12,13 @@
             RoomData roomData = null;
             await CreateTransaction(async transaction =>
             {
-                await Select(transaction, reader =>
+                await Select(transaction, async reader =>
                 {
-                    roomData = new RoomData();
-                    roomData.SetPropertyValues(reader);
-                }, "SELECT id, name FROM rooms WHERE id = @0 LIMIT 1", id);
+                    if (await reader.ReadAsync())
+                    {
+                        roomData = new RoomData(reader);
+                    }
+                }, "SELECT id, name, password FROM rooms WHERE id = @0 LIMIT 1", id);
             });
             
             return roomData;

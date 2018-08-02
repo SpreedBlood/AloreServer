@@ -28,9 +28,14 @@
 
             //Initialize the new room & cache it.
             IRoomData roomData = await _roomDao.GetRoomData(id);
-            room = new Room(roomData);
-            _rooms.Add(id, room);
-            return room;
+            if (roomData != null)
+            {
+                room = new Room(roomData);
+                _rooms.Add(id, room);
+                return room;
+            }
+
+            return null;
         }
     }
 }

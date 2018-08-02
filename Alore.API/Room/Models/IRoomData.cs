@@ -11,5 +11,15 @@
         /// The name of the room.
         /// </summary>
         string Name { get; set; }
+
+        /// <summary>
+        /// The password of the room.
+        /// </summary>
+        string Password { get; set; }
+
+        /// <summary>
+        /// The model name of the room.
+        /// </summary>
+        string ModelName { get; set; }
     }
 }

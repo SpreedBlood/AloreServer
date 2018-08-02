@@ -10,6 +10,6 @@ namespace Alore.API.Landing
         /// Get the top 10 players with highest diamonds.
         /// </summary>
         /// <returns>the top 10 players upon task completion.</returns>
-        Task<List<IHallOfFamer>> GetHallOfFamersAsync();
+        Task<IList<IHallOfFamer>> GetHallOfFamersAsync();
     }
 }

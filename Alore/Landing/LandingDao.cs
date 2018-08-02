@@ -17,9 +17,7 @@
                 {
                     while (await reader.ReadAsync())
                     {
-                        HallOfFamer hallOfFamer = new HallOfFamer();
-                        hallOfFamer.SetPropertyValues(reader);
-                        hallOfFamers.Add(hallOfFamer);
+                        hallOfFamers.Add(new HallOfFamer(reader));
                     }
                 }, "SELECT id, rank, diamonds, username, figure FROM players ORDER BY diamonds LIMIT 10;");
             });

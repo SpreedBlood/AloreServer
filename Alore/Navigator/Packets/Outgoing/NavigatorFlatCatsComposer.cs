@@ -6,7 +6,7 @@ namespace Alore.Navigator.Packets.Outgoing
 {
     public class NavigatorFlatCatsComposer : ServerPacket
     {
-        public NavigatorFlatCatsComposer(List<INavigatorCategory> categories, int minRank)
+        public NavigatorFlatCatsComposer(IList<INavigatorCategory> categories, int minRank)
             : base(Headers.NavigatorFlatCatsMessageComposer)
         {
             WriteInt(categories.Count);

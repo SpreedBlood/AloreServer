@@ -43,7 +43,7 @@
                 }
 
                 await session.WriteAndFlushAsync(new AuthenticationOkComposer());
-                await session.WriteAndFlushAsync(new HomeRoomComposer());
+                await session.WriteAndFlushAsync(new HomeRoomComposer(1));
                 await session.WriteAndFlushAsync(new FavouriteRoomsComposer());
                 await session.WriteAndFlushAsync(new FigureSetIdsComposer());
                 await session.WriteAndFlushAsync(new UserRightsComposer(session.Player.Rank));

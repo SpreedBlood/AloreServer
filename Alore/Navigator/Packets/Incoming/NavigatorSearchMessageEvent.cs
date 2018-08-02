@@ -32,9 +32,9 @@
             //Send the categories..
             if (string.IsNullOrEmpty(data))
             {
-                List<INavigatorCategory> categories =
+                IList<INavigatorCategory> categories =
                     await _navigatorController.GetNavigatorCategoriesAsync();
-                List<INavigatorCategory> categoriesToSend = new List<INavigatorCategory>();
+                IList<INavigatorCategory> categoriesToSend = new List<INavigatorCategory>();
 
                 foreach (INavigatorCategory navCategory in categories)
                 {

@@ -5,6 +5,9 @@
     using System.Data.Common;
     using System.Reflection;
 
+    /// <summary>
+    /// Deprecated!
+    /// </summary>
     public abstract class AloreModel
     {
         private readonly Dictionary<string, PropertyInfo> _dbNameToProperty;

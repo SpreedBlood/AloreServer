@@ -6,7 +6,7 @@
 
     public class HallOfFameComposer : ServerPacket
     {
-        public HallOfFameComposer(List<IHallOfFamer> hallOfFamers, string key)
+        public HallOfFameComposer(IList<IHallOfFamer> hallOfFamers, string key)
             : base(Headers.HallOfFameMessageComposer)
         {
             WriteString(key);

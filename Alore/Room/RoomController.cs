@@ -15,5 +15,19 @@
 
         public Task<IRoom> GetRoomByIdAsync(int id) =>
             _roomRepository.GetRoomByIdAsync(id);
+
+        public async Task<IRoom> GetRoomByIdAndPassword(int id, string password)
+        {
+            IRoom room = await GetRoomByIdAsync(id);
+            if (room != null)
+            {
+                if (room.RoomData.Password == password)
+                {
+                    return room;
+                }
+            }
+
+            return null;
+        }
     }
 }

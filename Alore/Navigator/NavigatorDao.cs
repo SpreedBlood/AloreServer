@@ -18,9 +18,7 @@
                 {
                     while (await reader.ReadAsync())
                     {
-                        NavigatorCategory category = new NavigatorCategory();
-                        category.SetPropertyValues(reader);
-                        categories.Add(category);
+                        categories.Add(new NavigatorCategory(reader));
                     }
                 }, "SELECT id, min_rank, public_name, category_type, identifier, category FROM navigator_categories ORDER BY id;");
             });

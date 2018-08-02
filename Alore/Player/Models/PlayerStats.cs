@@ -1,17 +1,19 @@
 ﻿namespace Alore.Player.Models
 {
     using Alore.API.Player.Models;
-    using Alore.API.Sql;
+    using System.Data.Common;
 
-    internal class PlayerStats : AloreModel, IPlayerStats
+    internal class PlayerStats : IPlayerStats
     {
-        [AloreColumn("respect")]
+        internal PlayerStats(DbDataReader reader)
+        {
+            Respect = (int)reader["respect"];
+            DailyRespect = (int)reader["daily_respect"];
+            DailyPetPoints = (int)reader["daily_pet_points"];
+        }
+        
         public int Respect { get; set; }
-
-        [AloreColumn("daily_respect")]
         public int DailyRespect { get; set; }
-
-        [AloreColumn("daily_pet_points")]
         public int DailyPetPoints { get; set; }
     }
 }

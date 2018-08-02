@@ -18,7 +18,7 @@
             _landingRepository = landingRepository;
         }
 
-        public async Task<List<IHallOfFamer>> GetHallOfFamersAsync() =>
+        public async Task<IList<IHallOfFamer>> GetHallOfFamersAsync() =>
             await _landingRepository.GetHallOfFamersAsync();
     }
 }

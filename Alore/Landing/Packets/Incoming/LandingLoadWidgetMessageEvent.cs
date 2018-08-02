@@ -26,7 +26,7 @@
         {
             string text = clientPacket.ReadString();
             string[] splitText = text.Split(',');
-            List<IHallOfFamer> hallOfFamers = await _landingController.GetHallOfFamersAsync();
+            IList<IHallOfFamer> hallOfFamers = await _landingController.GetHallOfFamersAsync();
 
             if (string.IsNullOrEmpty(text) || splitText.Length < 2)
             {
