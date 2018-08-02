@@ -8,6 +8,11 @@
         uint Id { get; set; }
         
         /// <summary>
+        /// The score of the room.
+        /// </summary>
+        int Score { get; set; }
+
+        /// <summary>
         /// The name of the room.
         /// </summary>
         string Name { get; set; }

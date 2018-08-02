@@ -1,5 +1,6 @@
 ﻿namespace Alore.Room.Packets.Incoming
 {
+    using System;
     using System.Threading.Tasks;
     using Alore.API.Network;
     using Alore.API.Network.Clients;
@@ -29,6 +30,7 @@
             {
                 await session.WriteAndFlushAsync(new OpenConnectionComposer());
                 await session.WriteAndFlushAsync(new RoomReadyComposer(room.RoomData.ModelName, room.RoomData.Id));
+                await session.WriteAndFlushAsync(new RoomRatingComposer(room.RoomData.Score));
                 session.CurrentRoom = room;
             }
             else

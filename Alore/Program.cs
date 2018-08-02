@@ -15,6 +15,7 @@
     using Network;
     using Player;
     using Room;
+    using Alore.Util;
 
     public class Program
     {
@@ -41,9 +42,12 @@
                 service.ConfigureServices(serviceCollection);
             }
 
+            //Loops over all the types and registers all the packets!
+            serviceCollection.RegisterAllPackets();
+
             serviceCollection.AddSingleton<IEventProvider, EventProvider>();
 
-            serviceCollection.AddScoped<Listener>();
+            serviceCollection.AddSingleton<Listener>();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
             _listener = serviceProvider.GetService<Listener>();
