@@ -9,10 +9,13 @@
     {
         private readonly NavigatorRepository _navigatorRepository;
 
-        public NavigatorController()
+        /// <summary>
+        /// The navigator controller is used to serve data without manipulating.
+        /// </summary>
+        /// <param name="landingRepository">The navigator repository(singleton)</param>
+        public NavigatorController(NavigatorRepository navigatorRepository)
         {
-            // TODO: See PlayerController comment
-            _navigatorRepository = new NavigatorRepository(new NavigatorDao());
+            _navigatorRepository = navigatorRepository;
         }
 
         public async Task<List<INavigatorCategory>> GetNavigatorCategoriesAsync() =>

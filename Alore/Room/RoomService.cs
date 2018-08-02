@@ -8,7 +8,9 @@
     {
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<IRoomController, RoomController>();
+            serviceCollection.AddSingleton<RoomDao>();
+            serviceCollection.AddSingleton<RoomRepository>();
+            serviceCollection.AddSingleton<IRoomController, RoomController>();
         }
     }
 }

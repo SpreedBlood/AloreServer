@@ -4,7 +4,7 @@
     using API.Sql;
     using Models;
 
-    public class PlayerDao : AloreDao
+    internal class PlayerDao : AloreDao
     {
         internal async Task<Player> GetPlayerById(uint id)
         {

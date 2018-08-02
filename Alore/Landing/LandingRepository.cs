@@ -9,7 +9,7 @@
         private readonly LandingDao _landingDao;
         private List<IHallOfFamer> _hallOfFamers;
 
-        internal LandingRepository(LandingDao dao)
+        public LandingRepository(LandingDao dao)
         {
             _landingDao = dao;
         }

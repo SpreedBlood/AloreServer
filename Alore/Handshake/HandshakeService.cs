@@ -5,6 +5,9 @@
     using Microsoft.Extensions.DependencyInjection;
     using Packets.Incoming;
 
+    /// <summary>
+    /// The handshake service initializes the required services.
+    /// </summary>
     internal class HandshakeService : IService
     {
         public void ConfigureServices(IServiceCollection serviceCollection)

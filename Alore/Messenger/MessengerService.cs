@@ -10,7 +10,7 @@
     {
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<IMessengerController, MessengerController>();
+            serviceCollection.AddSingleton<IMessengerController, MessengerController>();
             AddPackets(serviceCollection);
         }
         

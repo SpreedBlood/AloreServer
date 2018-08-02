@@ -10,7 +10,9 @@
     {
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<ILandingController, LandingController>();
+            serviceCollection.AddSingleton<LandingDao>();
+            serviceCollection.AddSingleton<LandingRepository>();
+            serviceCollection.AddSingleton<ILandingController, LandingController>();
             AddPackets(serviceCollection);
         }
         

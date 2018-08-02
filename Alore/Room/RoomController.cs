@@ -8,9 +8,9 @@
     {
         private readonly RoomRepository _roomRepository;
 
-        public RoomController()
+        public RoomController(RoomRepository roomRepository)
         {
-            _roomRepository = new RoomRepository(new RoomDao());
+            _roomRepository = roomRepository;
         }
 
         public Task<IRoom> GetRoomByIdAsync(int id) =>

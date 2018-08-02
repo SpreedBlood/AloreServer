@@ -13,7 +13,7 @@
         private List<INavigatorCategory> _categories;
         private List<INavigatorCategory> _promotionCategories;
 
-        internal NavigatorRepository(NavigatorDao navigatorDao)
+        public NavigatorRepository(NavigatorDao navigatorDao)
         {
             _navigatorDao = navigatorDao;
         }

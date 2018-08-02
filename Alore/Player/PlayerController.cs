@@ -8,10 +8,13 @@
     {
         private readonly PlayerRepostiory _playerRepostiory;
 
-        public PlayerController()
+        /// <summary>
+        /// The player controller is used to serve data without manipulating.
+        /// </summary>
+        /// <param name="playerRepostiory">The player repository(singleton)</param>
+        public PlayerController(PlayerRepostiory playerRepostiory)
         {
-            // TODO: Make this injectable via the servicecollection. Also need an interface!
-            _playerRepostiory = new PlayerRepostiory(new PlayerDao());
+            _playerRepostiory = playerRepostiory;
         }
 
         public async Task AddPlayerSettingsAsync(uint id) =>

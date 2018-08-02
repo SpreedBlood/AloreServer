@@ -10,7 +10,9 @@
     {
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<INavigatorController, NavigatorController>();
+            serviceCollection.AddSingleton<NavigatorDao>();
+            serviceCollection.AddSingleton<NavigatorRepository>();
+            serviceCollection.AddSingleton<INavigatorController, NavigatorController>();
             AddPackets(serviceCollection);
         }
         

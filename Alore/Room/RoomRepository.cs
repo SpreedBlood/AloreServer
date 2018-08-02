@@ -11,7 +11,7 @@
 
         private Dictionary<int, IRoom> _rooms;
         
-        internal RoomRepository(RoomDao roomDao)
+        public RoomRepository(RoomDao roomDao)
         {
             _roomDao = roomDao;
             

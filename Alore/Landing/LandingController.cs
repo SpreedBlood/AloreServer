@@ -9,10 +9,13 @@
     {
         private readonly LandingRepository _landingRepository;
 
-        public LandingController()
+        /// <summary>
+        /// The landing controller is used to serve data without manipulating.
+        /// </summary>
+        /// <param name="landingRepository">The landing repository(singleton)</param>
+        public LandingController(LandingRepository landingRepository)
         {
-            // TODO: See PlayerController comment
-            _landingRepository = new LandingRepository(new LandingDao());
+            _landingRepository = landingRepository;
         }
 
         public async Task<List<IHallOfFamer>> GetHallOfFamersAsync() =>

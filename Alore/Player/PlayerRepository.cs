@@ -4,7 +4,7 @@
     using System.Threading.Tasks;
     using Models;
 
-    public class PlayerRepostiory
+    internal class PlayerRepostiory
     {
         private readonly PlayerDao _playerDao;
         private readonly Dictionary<uint, Player> _players;

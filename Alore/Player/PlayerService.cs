@@ -10,7 +10,9 @@
     {
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<IPlayerController, PlayerController>();
+            serviceCollection.AddSingleton<PlayerDao>();
+            serviceCollection.AddSingleton<PlayerRepostiory>();
+            serviceCollection.AddSingleton<IPlayerController, PlayerController>();
             AddPackets(serviceCollection);
         }
 
