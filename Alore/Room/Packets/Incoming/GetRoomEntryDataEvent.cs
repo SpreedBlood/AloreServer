@@ -24,6 +24,7 @@
             IRoom room = session.CurrentRoom;
 
             await session.WriteAndFlushAsync(new HeightMapComposer(room.RoomModel));
+            await session.WriteAndFlushAsync(new FloorHeightMapComposer(-1, room.RoomModel.RelativeHeightMap));
         }
     }
 }

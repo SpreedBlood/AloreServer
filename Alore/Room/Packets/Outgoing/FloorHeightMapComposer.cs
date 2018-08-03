@@ -8,7 +8,8 @@
             : base(Headers.FloorHeightMapMessageComposer)
         {
             WriteBoolean(false);
-            WriteInt()
+            WriteInt(wallHeight); //TODO: Wallheight, once Floor Map is being done.
+            WriteString(map);
         }
     }
 }

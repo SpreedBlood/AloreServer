@@ -1,5 +1,6 @@
 ﻿namespace Alore.Navigator
 {
+    using Alore.API.Config;
     using Alore.API.Navigator.Models;
     using Alore.API.Sql;
     using Alore.Navigator.Models;
@@ -8,6 +9,10 @@
 
     internal class NavigatorDao : AloreDao
     {
+        public NavigatorDao(IConfigController configController) : base(configController)
+        {
+        }
+
         internal async Task<List<INavigatorCategory>> GetNavigatorCategoriesAsync()
         {
             List<INavigatorCategory> categories = new List<INavigatorCategory>();

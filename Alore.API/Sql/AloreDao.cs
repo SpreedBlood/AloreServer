@@ -1,24 +1,25 @@
 ﻿namespace Alore.API.Sql
 {
     using System;
-    using System.Collections.Generic;
     using System.Data.Common;
     using System.Threading.Tasks;
+    using Alore.API.Config;
     using MySql.Data.MySqlClient;
 
     public abstract class AloreDao
     {
         private readonly string _connectionString;
 
-        protected AloreDao()
+        protected AloreDao(IConfigController configController)
         {
+            DatabaseConfig config = configController.Get<DatabaseConfig>("database");
             MySqlConnectionStringBuilder stringBuilder = new MySqlConnectionStringBuilder
             {
-                UserID = "root",
-                Server = "localhost",
-                Database = "alore",
-                Port = 3306,
-                Password = ""
+                UserID = config.User,
+                Server = config.Host,
+                Database = config.Database,
+                Port = uint.Parse(config.Port),
+                Password = config.Password
             };
             _connectionString = stringBuilder.ToString();
         }

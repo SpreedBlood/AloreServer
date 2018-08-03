@@ -21,5 +21,10 @@
         /// The raw height map of the room model.
         /// </summary>
         string HeightMap { get; set; }
+
+        /// <summary>
+        /// The relative height map of the room model.
+        /// </summary>
+        string RelativeHeightMap { get; set; }
     }
 }

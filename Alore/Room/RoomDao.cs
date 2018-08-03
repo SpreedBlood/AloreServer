@@ -2,12 +2,17 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Alore.API.Config;
     using API.Room.Models;
     using API.Sql;
     using Models;
 
     internal class RoomDao : AloreDao
     {
+        public RoomDao(IConfigController configController) : base(configController)
+        {
+        }
+
         internal async Task<IRoomData> GetRoomData(int id)
         {
             RoomData roomData = null;

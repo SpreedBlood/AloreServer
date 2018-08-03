@@ -1,9 +1,10 @@
 ﻿namespace Alore.API.Sql.Test
 {
     using System.Threading.Tasks;
-
+    using Alore.API.Config;
     public class SqlTest
     {
+        /*
         public async Task<TestModel> TestSql()
         {
             TestDao testDao = new TestDao();
@@ -14,11 +15,15 @@
         {
             TestDao testDao = new TestDao();
             await testDao.TestInsert();
-        }
+        }*/
     }
 
     public class TestDao : AloreDao
     {
+        protected TestDao(IConfigController configController) : base(configController)
+        {
+        }
+
         public async Task<TestModel> GetModelById(int id)
         {
             TestModel testModel = null;

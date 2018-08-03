@@ -1,11 +1,16 @@
 ﻿namespace Alore.Player
 {
     using System.Threading.Tasks;
+    using Alore.API.Config;
     using API.Sql;
     using Models;
 
     internal class PlayerDao : AloreDao
     {
+        public PlayerDao(IConfigController configController) : base(configController)
+        {
+        }
+
         internal async Task<Player> GetPlayerById(uint id)
         {
             Player player = null;

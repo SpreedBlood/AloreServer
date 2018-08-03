@@ -4,10 +4,8 @@
     using Microsoft.Extensions.Logging;
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Threading.Tasks;
     using API;
-    using API.Sql.Test;
     using Handshake;
     using Landing;
     using Messenger;
@@ -16,6 +14,7 @@
     using Player;
     using Room;
     using Alore.Util;
+    using Alore.Config;
 
     public class Program
     {
@@ -30,7 +29,8 @@
                 new MessengerService(),
                 new NavigatorService(),
                 new PlayerService(),
-                new RoomService()
+                new RoomService(),
+                new ConfigService()
             };
 
             // TODO: construct the Program class instead of having things staticly.
@@ -50,6 +50,7 @@
             serviceCollection.AddSingleton<Listener>();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
+
             _listener = serviceProvider.GetService<Listener>();
 
             await _listener.Listen(30000);
@@ -79,6 +80,7 @@
             // ReSharper disable once FunctionNeverReturns
         }
 
+        /*
         private static async Task TestAloreSql()
         {
             SqlTest testSql = new SqlTest();
@@ -90,6 +92,6 @@
             stopWatch.Stop();
 
             Console.WriteLine("Alore MySQL benchmark done!");
-        }
+        }*/
     }
 }

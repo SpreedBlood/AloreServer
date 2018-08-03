@@ -1,5 +1,6 @@
 ﻿namespace Alore.Landing
 {
+    using Alore.API.Config;
     using Alore.API.Landing.Models;
     using Alore.API.Sql;
     using Alore.Landing.Models;
@@ -8,6 +9,10 @@
 
     internal class LandingDao : AloreDao
     {
+        public LandingDao(IConfigController configController) : base(configController)
+        {
+        }
+
         internal async Task<List<IHallOfFamer>> GetHallOfFamers()
         {
             List<IHallOfFamer> hallOfFamers = new List<IHallOfFamer>();
