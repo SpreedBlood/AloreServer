@@ -1,5 +1,6 @@
 ﻿namespace Alore.Room
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using API.Room.Models;
     using API.Sql;
@@ -22,6 +23,24 @@
             });
             
             return roomData;
+        }
+
+        internal async Task<IEnumerable<IRoomModel>> GetRoomModels()
+        {
+            List<RoomModel> roomModels = new List<RoomModel>();
+
+            await CreateTransaction(async transaction =>
+            {
+                await Select(transaction, async reader =>
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        roomModels.Add(new RoomModel(reader));
+                    }
+                }, "SELECT id, heightmap FROM room_models");
+            });
+
+            return roomModels;
         }
     }
 }

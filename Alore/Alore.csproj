@@ -7,6 +7,9 @@
     <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Room\RoomController.cs~RF4e8e8bc.TMP" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="DotNetty.Codecs" Version="0.4.7" />
     <PackageReference Include="DotNetty.Common" Version="0.4.7" />
     <PackageReference Include="DotNetty.Handlers" Version="0.4.7" />

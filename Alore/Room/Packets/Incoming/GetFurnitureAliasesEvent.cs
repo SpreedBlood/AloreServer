@@ -4,6 +4,7 @@
     using Alore.API.Network;
     using Alore.API.Network.Clients;
     using Alore.API.Network.Packets;
+    using Alore.Room.Packets.Outgoing;
 
     internal class GetFurnitureAliasesEvent : IAsyncPacket
     {
@@ -11,6 +12,7 @@
 
         public async Task HandleAsync(ISession session, IClientPacket clientPacket)
         {
+            await session.WriteAndFlushAsync(new FurnitureAliasesComposer());
         }
     }
 }

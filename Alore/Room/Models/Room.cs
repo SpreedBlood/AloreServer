@@ -7,9 +7,12 @@
     {
         public IRoomData RoomData { get; set; }
         
-        internal Room(IRoomData roomData)
+        public IRoomModel RoomModel { get; set; }
+
+        internal Room(IRoomData roomData, IRoomModel model)
         {
             RoomData = roomData;
+            RoomModel = model;
         }
 
         public void Dispose()
