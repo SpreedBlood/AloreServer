@@ -42,7 +42,7 @@
                     {
                         roomModels.Add(new RoomModel(reader));
                     }
-                }, "SELECT id, heightmap FROM room_models");
+                }, "SELECT id, door_x, door_y, heightmap FROM room_models");
             });
 
             return roomModels;

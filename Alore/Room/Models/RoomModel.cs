@@ -1,17 +1,24 @@
 ﻿namespace Alore.Room.Models
 {
     using Alore.API.Room.Models;
+    using Alore.Room.Utils;
+    using System;
     using System.Data.Common;
     using System.Text;
 
     internal class RoomModel : IRoomModel
     {
+        private double[,] floorHeightMap;
+        private bool[,] tileStateMap;
+
         internal RoomModel(DbDataReader reader)
         {
             Id = (string)reader["id"];
             HeightMap = (string)reader["heightmap"];
+            DoorX = (int)reader["door_x"];
+            DoorY = (int)reader["door_Y"];
             ParseHeightMap();
-            ParseRelativeHeightMap();
+            ParseRelativeMap();
         }
 
         public int MapSizeX { get; set; }
@@ -22,140 +29,83 @@
         public string Id { get; set; }
         public string HeightMap { get; set; }
         public string RelativeHeightMap { get; set; }
-        private double[,] floorHeightMap;
+
+        public double GetHeight(int x, int y) =>
+            floorHeightMap[x, y];
+
+        public bool GetTileState(int x, int y) =>
+            tileStateMap[x, y];
 
         private void ParseHeightMap()
         {
-            string[] splitHeightMap = HeightMap.Split(13.ToString());
+            string[] splitHeightMap = HeightMap.Split('\r');
             MapSizeX = splitHeightMap[0].Length;
             MapSizeY = splitHeightMap.Length;
             floorHeightMap = new double[MapSizeX, MapSizeY];
+            tileStateMap = new bool[MapSizeX, MapSizeY];
 
             for (int y = 0; y < MapSizeY; y++)
             {
-                string line = splitHeightMap[y];
-                line = line.Replace("\r", "");
-                line = line.Replace("\n", "");
+                char[] line = splitHeightMap[y].Replace("\r", "").Replace("\n", "").ToCharArray();
 
                 int x = 0;
                 foreach (char square in line)
                 {
+                    if (x > MapSizeX)
+                    {
+                        throw new FormatException($"Invalid room model! Model Id: {Id}");
+                    }
+
                     if (square == 'x')
                     {
                         //Square is blocked!
+                        tileStateMap[x, y] = false;
                     }
                     else
                     {
-                        floorHeightMap[x, y] = Parse(square);
+                        tileStateMap[x, y] = true;
+                        floorHeightMap[x, y] = square.Parse();
                     }
+
                     x++;
                 }
             }
+
+            DoorZ = floorHeightMap[DoorX, DoorY];
         }
 
-        private void ParseRelativeHeightMap()
+        private void ParseRelativeMap()
         {
-            StringBuilder relativeHeightMap = new StringBuilder();
+            StringBuilder relativeMap = new StringBuilder();
             for (int y = 0; y < MapSizeY; y++)
             {
                 for (int x = 0; x < MapSizeX; x++)
                 {
                     if (x == DoorX && y == DoorY)
                     {
-                        relativeHeightMap.Append(DoorZ > 9 ? (87 + DoorZ).ToString() : DoorZ.ToString());
+                        relativeMap.Append(DoorZ > 9 ? ((char)(87 + DoorZ)).ToString() : DoorZ.ToString());
                         continue;
                     }
 
-                    double height = GetHeight(x, y);
-                    relativeHeightMap.Append(height > 9 ? (87 + height).ToString() : height.ToString());
+                    if (tileStateMap[x, y])
+                    {
+                        double Height = floorHeightMap[x, y];
+                        string Val = Height > 9 ? ((char)(87 + Height)).ToString() : Height.ToString();
+                        relativeMap.Append(Val);
+                    }
+                    else
+                    {
+                        relativeMap.Append("x");
+                        continue;
+                    }
+
+
                 }
 
-                relativeHeightMap.Append(13.ToString());
+                relativeMap.Append((char)13);
             }
 
-            RelativeHeightMap = relativeHeightMap.ToString();
-        }
-
-        public double GetHeight(int x, int y) =>
-            floorHeightMap[x, y];
-
-        #region Parse Method
-        private static short Parse(char input)
-        {
-
-            switch (input)
-            {
-                case '0':
-                    return 0;
-                case '1':
-                    return 1;
-                case '2':
-                    return 2;
-                case '3':
-                    return 3;
-                case '4':
-                    return 4;
-                case '5':
-                    return 5;
-                case '6':
-                    return 6;
-                case '7':
-                    return 7;
-                case '8':
-                    return 8;
-                case '9':
-                    return 9;
-                case 'a':
-                    return 10;
-                case 'b':
-                    return 11;
-                case 'c':
-                    return 12;
-                case 'd':
-                    return 13;
-                case 'e':
-                    return 14;
-                case 'f':
-                    return 15;
-                case 'g':
-                    return 16;
-                case 'h':
-                    return 17;
-                case 'i':
-                    return 18;
-                case 'j':
-                    return 19;
-                case 'k':
-                    return 20;
-                case 'l':
-                    return 21;
-                case 'm':
-                    return 22;
-                case 'n':
-                    return 23;
-                case 'o':
-                    return 24;
-                case 'p':
-                    return 25;
-                case 'q':
-                    return 26;
-                case 'r':
-                    return 27;
-                case 's':
-                    return 28;
-                case 't':
-                    return 29;
-                case 'u':
-                    return 30;
-                case 'v':
-                    return 31;
-                case 'w':
-                    return 32;
-
-                default:
-                    return 0;
-            }
-            #endregion
+            RelativeHeightMap = relativeMap.ToString();
         }
     }
 }

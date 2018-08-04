@@ -26,5 +26,21 @@
         /// The relative height map of the room model.
         /// </summary>
         string RelativeHeightMap { get; set; }
+
+        /// <summary>
+        /// Gets the height of the tile at the given coordinates.
+        /// </summary>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <returns>The z-index.</returns>
+        double GetHeight(int x, int y);
+
+        /// <summary>
+        /// Get's the state of the tile.
+        /// </summary>
+        /// <param name="x">The x coordinate.</param>
+        /// <param name="y">The y coordinate.</param>
+        /// <returns>The state of the tile. false = invalid, true = valid.</returns>
+        bool GetTileState(int x, int y);
     }
 }
