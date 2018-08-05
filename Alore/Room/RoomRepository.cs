@@ -8,14 +8,14 @@
     internal class RoomRepository
     {
         private readonly RoomDao _roomDao;
-
+        
         private readonly IDictionary<int, IRoom> _rooms;
         private readonly IDictionary<string, IRoomModel> _roomModels;
 
         public RoomRepository(RoomDao roomDao)
         {
             _roomDao = roomDao;
-
+            
             _rooms = new Dictionary<int, IRoom>();
             _roomModels = new Dictionary<string, IRoomModel>();
             LoadRoomModels();

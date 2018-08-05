@@ -1,10 +1,20 @@
 ﻿namespace Alore.API.Room
 {
     using System.Threading.Tasks;
+    using Alore.API.Network.Clients;
+    using Alore.API.Room.Entities;
     using Models;
 
     public interface IRoomController
     {
+        /// <summary>
+        /// Add's a user entity to the room.
+        /// </summary>
+        /// <param name="room">The room that is being entered.</param>
+        /// <param name="session">The session associated with the user. (Pets and bots won't have a session).</param>
+        /// <returns>The added user entity.</returns>
+        BaseEntity AddUserToRoom(IRoom room, ISession session);
+
         /// <summary>
         /// Gets the room instance by id upon task completion.
         /// </summary>

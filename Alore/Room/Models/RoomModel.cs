@@ -17,12 +17,14 @@
             HeightMap = (string)reader["heightmap"];
             DoorX = (int)reader["door_x"];
             DoorY = (int)reader["door_Y"];
+            DoorDir = (int)reader["door_dir"];
             ParseHeightMap();
             ParseRelativeMap();
         }
 
         public int MapSizeX { get; set; }
         public int MapSizeY { get; set; }
+        public int DoorDir { get; set; }
         public int DoorX { get; set; }
         public int DoorY { get; set; }
         public double DoorZ { get; set; }

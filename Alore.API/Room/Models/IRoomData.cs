@@ -13,6 +13,11 @@
         int Score { get; set; }
 
         /// <summary>
+        /// Gets the owner of the current rooms player id.
+        /// </summary>
+        int OwnerId { get; set; }
+
+        /// <summary>
         /// The name of the room.
         /// </summary>
         string Name { get; set; }

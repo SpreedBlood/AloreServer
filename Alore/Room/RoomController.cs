@@ -1,6 +1,9 @@
 ﻿namespace Alore.Room
 {
     using System.Threading.Tasks;
+    using Alore.API.Network.Clients;
+    using Alore.API.Room.Entities;
+    using Alore.Room.Models.Entities;
     using API.Room;
     using API.Room.Models;
 
@@ -11,6 +14,15 @@
         public RoomController(RoomRepository roomRepository)
         {
             _roomRepository = roomRepository;
+        }
+
+        public BaseEntity AddUserToRoom(IRoom room, ISession session)
+        {
+            IRoomModel roomModel = room.RoomModel;
+            UserEntity userEntity = new UserEntity(room.Entities.Count + 1, roomModel.DoorX, roomModel.DoorY, roomModel.DoorDir, session);
+            room.AddEntity(userEntity);
+
+            return userEntity;
         }
 
         public Task<IRoom> GetRoomByIdAsync(int id) =>

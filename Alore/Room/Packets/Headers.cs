@@ -9,5 +9,9 @@
         internal const short FurnitureAliasesMessageComposer = 2958;
         internal const short HeightMapMessageComposer = 322;
         internal const short FloorHeightMapMessageComposer = 1909;
+        internal const short EntitiesMessageComposer = 633;
+        internal const short EntityUpdateMessageComposer = 3902;
+        internal const short RoomEntryInfoMessageComposer = 521;
+        internal const short RoomVisualizationSettingsComposer = 2244;
     }
 }

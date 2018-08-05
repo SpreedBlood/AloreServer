@@ -24,7 +24,7 @@
                     {
                         roomData = new RoomData(reader);
                     }
-                }, "SELECT id, score, name, password, model_name FROM rooms WHERE id = @0 LIMIT 1", id);
+                }, "SELECT id, score, owner, name, password, model_name FROM rooms WHERE id = @0 LIMIT 1", id);
             });
             
             return roomData;
@@ -42,7 +42,7 @@
                     {
                         roomModels.Add(new RoomModel(reader));
                     }
-                }, "SELECT id, door_x, door_y, heightmap FROM room_models");
+                }, "SELECT id, door_x, door_y, door_dir, heightmap FROM room_models");
             });
 
             return roomModels;

@@ -17,22 +17,25 @@
         public bool HasLength =>
             ByteBuffer.GetInt(0) > -1;
 
-        protected void WriteInt(int i) =>
+        public void WriteInt(int i) =>
             ByteBuffer.WriteInt(i);
 
-        protected void WriteInt(uint i) =>
+        public void WriteInt(uint i) =>
             ByteBuffer.WriteInt((int)i);
 
-        protected void WriteShort(short s) =>
+        public void WriteShort(short s) =>
             ByteBuffer.WriteShort(s);
 
-        protected void WriteBoolean(bool b) =>
+        public void WriteBoolean(bool b) =>
             ByteBuffer.WriteByte(b ? 1 : 0);
 
-        protected void WriteString(string s)
+        public void WriteString(string s)
         {
             ByteBuffer.WriteShort(s.Length);
             ByteBuffer.WriteBytes(Encoding.UTF8.GetBytes(s));
         }
+
+        public void WriteDouble(double d) =>
+            ByteBuffer.WriteDouble(d);
     }
 }
