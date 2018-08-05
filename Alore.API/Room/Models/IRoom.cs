@@ -1,6 +1,7 @@
 ﻿using Alore.API.Network.Packets;
 using Alore.API.Room.Entities;
 using Alore.API.Room.Rights;
+using Alore.API.Tasks;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -42,5 +43,21 @@ namespace Alore.API.Room.Models
         /// <param name="entityId">The id of the entity.</param>
         /// <returns>The room right that the entity has.</returns>
         RoomRight GetRoomRight(uint entityId);
+
+        /// <summary>
+        /// Gets the state of the cancellation token. If a cancellation is requested or not.
+        /// </summary>
+        bool CycleActive { get; }
+
+        /// <summary>
+        /// Starts a cycle with 500ms delay. To stop only cancel the cancellation token.
+        /// </summary>
+        /// <param name="taskHandler">The task handler to start the task.</param>
+        void SetupRoomCycle(TaskHandler taskHandler);
+
+        /// <summary>
+        /// Stops the room cycle by cancelling the cancelation token.
+        /// </summary>
+        void StopRoomCycle();
     }
 }

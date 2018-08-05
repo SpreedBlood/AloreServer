@@ -27,19 +27,15 @@
             serverPacket.WriteInt(Id);
             serverPacket.WriteInt(Position.X);
             serverPacket.WriteInt(Position.Y);
-            serverPacket.WriteDouble(Position.Z);
-
-            serverPacket.WriteInt(0);//2 for user, 4 for bot.
-            serverPacket.WriteInt(1);//1 for user, 2 for pet, 3 for bot.
+            serverPacket.WriteString(Position.Z.ToString());
+            serverPacket.WriteInt(0);
+            serverPacket.WriteInt(1);
             serverPacket.WriteString(Player.Gender.ToLower());
-
-            serverPacket.WriteInt(0); //Group id
-            serverPacket.WriteInt(0); //I don't know yet!
-            serverPacket.WriteString(""); //Group name
-
-            serverPacket.WriteString("");//TODO: Figure out what this is.
-            serverPacket.WriteInt(0);//Achievement points
-            serverPacket.WriteBoolean(false);//TODO: Figure out what this is.
+            serverPacket.WriteInt(-1);
+            serverPacket.WriteInt(-1);
+            serverPacket.WriteInt(0);
+            serverPacket.WriteInt(1337); // achievement points
+            serverPacket.WriteBoolean(false);
         }
     }
 }

@@ -7,7 +7,7 @@
     {
         public static void SetupAPI(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<TaskFactory>();
+            serviceCollection.AddSingleton<TaskHandler>();
         }
     }
 }

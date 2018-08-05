@@ -45,6 +45,9 @@
             //Loops over all the types and registers all the packets!
             serviceCollection.RegisterAllPackets();
 
+            //Sets up the services that the api offers.
+            serviceCollection.SetupAPI();
+
             serviceCollection.AddSingleton<IEventProvider, EventProvider>();
 
             serviceCollection.AddSingleton<Listener>();

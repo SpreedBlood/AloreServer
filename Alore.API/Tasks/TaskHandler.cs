@@ -5,7 +5,7 @@
     using System.Threading.Tasks;
     using System.Threading.Tasks.Dataflow;
 
-    public class TaskFactory
+    public class TaskHandler
     {
         /// <summary>
         /// Submit a task to run asynchronously.
@@ -37,7 +37,7 @@
         /// <param name="cancellationToken">The cancellation token to stop the loop.</param>
         /// <param name="delay">The delay between each execution (milliseconds)</param>
         /// <returns>The target action block.</returns>
-        ITargetBlock<DateTimeOffset> PeriodicTaskWithDelay(
+        public ActionBlock<DateTimeOffset> PeriodicTaskWithDelay(
             Action<DateTimeOffset> action, CancellationToken cancellationToken, int delay)
         {
             ActionBlock<DateTimeOffset> block = null;
