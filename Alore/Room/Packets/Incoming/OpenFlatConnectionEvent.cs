@@ -6,20 +6,15 @@
     using Alore.API.Network.Packets;
     using Alore.API.Room;
     using Alore.API.Room.Models;
-    using Alore.API.Tasks;
     using Alore.Room.Packets.Outgoing;
 
     internal class OpenFlatConnectionEvent : IAsyncPacket
     {
         private readonly IRoomController _roomController;
-        private readonly TaskHandler _taskHandler;
 
-        public OpenFlatConnectionEvent(
-            IRoomController roomController,
-            TaskHandler taskHandler)
+        public OpenFlatConnectionEvent(IRoomController roomController)
         {
             _roomController = roomController;
-            _taskHandler = taskHandler;
         }
 
         public short Header => 3464;
@@ -38,7 +33,7 @@
 
                 if (!room.CycleActive)
                 {
-                    room.SetupRoomCycle(_taskHandler);
+                    room.SetupRoomCycle();
                 }
 
                 session.CurrentRoom = room;

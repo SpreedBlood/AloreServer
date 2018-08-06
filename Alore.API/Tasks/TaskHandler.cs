@@ -5,14 +5,14 @@
     using System.Threading.Tasks;
     using System.Threading.Tasks.Dataflow;
 
-    public class TaskHandler
+    public static class TaskHandler
     {
         /// <summary>
         /// Submit a task to run asynchronously.
         /// </summary>
         /// <param name="task">The task operation.</param>
         /// <returns>The task upon completion.</returns>
-        public async Task RunTaskAsync(ITask task) => await Task.Run(() => task.Run());
+        public static async Task RunTaskAsync(ITask task) => await Task.Run(() => task.Run());
 
         /// <summary>
         /// Submit a task to run asynchronously with a delay.
@@ -20,7 +20,7 @@
         /// <param name="task">The task operation.</param>
         /// <param name="delay">The delay until execution (milliseconds).</param>
         /// <returns>The task upon completion.</returns>
-        public async Task RunTaskAsyncWithDelay(ITask task, int delay)
+        public static async Task RunTaskAsyncWithDelay(ITask task, int delay)
         {
             await Task.Run(async delegate
             {
@@ -37,7 +37,7 @@
         /// <param name="cancellationToken">The cancellation token to stop the loop.</param>
         /// <param name="delay">The delay between each execution (milliseconds)</param>
         /// <returns>The target action block.</returns>
-        public ActionBlock<DateTimeOffset> PeriodicTaskWithDelay(
+        public static ActionBlock<DateTimeOffset> PeriodicTaskWithDelay(
             Action<DateTimeOffset> action, CancellationToken cancellationToken, int delay)
         {
             ActionBlock<DateTimeOffset> block = null;

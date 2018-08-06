@@ -54,7 +54,7 @@ namespace Alore.API.Room.Models
         /// Starts a cycle with 500ms delay. To stop only cancel the cancellation token.
         /// </summary>
         /// <param name="taskHandler">The task handler to start the task.</param>
-        void SetupRoomCycle(TaskHandler taskHandler);
+        void SetupRoomCycle();
 
         /// <summary>
         /// Stops the room cycle by cancelling the cancelation token.

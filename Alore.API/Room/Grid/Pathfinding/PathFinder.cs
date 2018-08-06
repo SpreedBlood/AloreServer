@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Runtime.CompilerServices;
 
-    public class PathFinder
+    public static class PathFinder
     {
         private static AstarPosition[] DIAG = new AstarPosition[]
         {

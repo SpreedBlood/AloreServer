@@ -53,9 +53,9 @@
             }
         }
 
-        public void SetupRoomCycle(TaskHandler taskHandler)
+        public void SetupRoomCycle()
         {
-            task = taskHandler.PeriodicTaskWithDelay(time => Cycle(time), _cancellationToken.Token, 500);
+            task = TaskHandler.PeriodicTaskWithDelay(time => Cycle(time), _cancellationToken.Token, 500);
             task.Post(DateTimeOffset.Now);
         }
 
