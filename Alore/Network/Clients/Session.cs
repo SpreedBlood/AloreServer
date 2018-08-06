@@ -1,6 +1,7 @@
 ﻿namespace Alore.Network.Clients
 {
     using System.Threading.Tasks;
+    using Alore.API.Room.Entities;
     using Alore.API.Room.Models;
     using API.Network.Clients;
     using API.Network.Packets;
@@ -23,6 +24,8 @@
         public IPlayerStats PlayerStats { get; set; }
 
         public IRoom CurrentRoom { get; set; }
+
+        public BaseEntity Entity { get; set; }
 
         public string UniqueId { get; set; }
 

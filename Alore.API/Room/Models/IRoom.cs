@@ -1,4 +1,5 @@
-﻿using Alore.API.Network.Packets;
+﻿using Alore.API.Network.Clients;
+using Alore.API.Network.Packets;
 using Alore.API.Room.Entities;
 using Alore.API.Room.Rights;
 using Alore.API.Tasks;
@@ -59,5 +60,11 @@ namespace Alore.API.Room.Models
         /// Stops the room cycle by cancelling the cancelation token.
         /// </summary>
         void StopRoomCycle();
+
+        /// <summary>
+        /// Makes the session leave the current room.
+        /// </summary>
+        /// <param name="session">The session that's trying to leave the room.</param>
+        void LeaveRoom(ISession session);
     }
 }

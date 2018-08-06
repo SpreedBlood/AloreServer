@@ -31,6 +31,7 @@
             serverPacket.WriteInt(0);
             serverPacket.WriteInt(1);
             serverPacket.WriteString(Player.Gender.ToLower());
+
             serverPacket.WriteInt(-1);
             serverPacket.WriteInt(-1);
             serverPacket.WriteInt(0);

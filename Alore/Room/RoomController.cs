@@ -21,6 +21,7 @@
             IRoomModel roomModel = room.RoomModel;
             UserEntity userEntity = new UserEntity(room.Entities.Count + 1, roomModel.DoorX, roomModel.DoorY, roomModel.DoorDir, session);
             room.AddEntity(userEntity);
+            session.Entity = userEntity;
 
             return userEntity;
         }

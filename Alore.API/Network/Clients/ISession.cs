@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
+    using Alore.API.Room.Entities;
     using Alore.API.Room.Models;
     using Packets;
     using Player.Models;
@@ -31,6 +32,12 @@
         /// in a room then this is null.
         /// </summary>
         IRoom CurrentRoom { get; set; }
+
+        /// <summary>
+        /// The base entity that's associated with the session. If the session isn't
+        /// in a room then this is null.
+        /// </summary>
+        BaseEntity Entity { get; set; }
 
         /// <summary>
         /// The unique id from where the session is connected.
