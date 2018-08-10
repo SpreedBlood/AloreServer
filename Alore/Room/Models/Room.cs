@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Threading.Tasks.Dataflow;
@@ -17,37 +16,33 @@
 
     internal class Room : IRoom, IDisposable
     {
+        private readonly EntityHandler _entityHandler;
         private readonly CancellationTokenSource _cancellationToken;
         private ActionBlock<DateTimeOffset> task;
-
-        private RoomGrid roomGrid;
-
-        public IRoomData RoomData { get; set; }
-        public IRoomModel RoomModel { get; set; }
-
-        public IDictionary<int, BaseEntity> Entities { get; private set; }
-        public bool CycleActive => _cancellationToken.IsCancellationRequested;
 
         internal Room(IRoomData roomData, IRoomModel model)
         {
             RoomData = roomData;
             RoomModel = model;
 
-            Entities = new Dictionary<int, BaseEntity>();
             _cancellationToken = new CancellationTokenSource();
-            roomGrid = new RoomGrid(RoomModel);
+            RoomGrid = new RoomGrid(RoomModel);
+            _entityHandler = new EntityHandler(this);
         }
+
+        public RoomGrid RoomGrid { get; }
+        public IRoomData RoomData { get; set; }
+        public IRoomModel RoomModel { get; set; }
+        public IDictionary<int, BaseEntity> Entities => _entityHandler.Entities;
+        public bool CycleActive => _cancellationToken.IsCancellationRequested;
 
         public void LeaveRoom(ISession session)
         {
             int entityId = session.Entity.Id;
-            if (Entities.ContainsKey(entityId))
-            {
-                Entities.Remove(entityId);
-            }
-
+            _entityHandler.RemoveEntity(entityId);
             session.Entity = null;
-            if (!Entities.Where(x => x.Value is UserEntity).Any())
+
+            if (!_entityHandler.HasUserEntities)
             {
                 StopRoomCycle();
             }
@@ -71,7 +66,7 @@
 
         private void Cycle(DateTimeOffset timeOffset)
         {
-            Console.WriteLine(timeOffset.Second);
+            _entityHandler.Cycle(timeOffset);
         }
 
         public RoomRight GetRoomRight(uint entityId)
@@ -84,24 +79,14 @@
             return RoomRight.REGULAR;
         }
 
-        public async Task SendAsync(ServerPacket serverPacket)
-        {
-            foreach (BaseEntity entity in Entities.Values)
-            {
-                if (entity is UserEntity userEntity)
-                {
-                    await userEntity.Session.WriteAndFlushAsync(serverPacket);
-                }
-            }
-        }
+        public Task SendAsync(ServerPacket serverPacket) => _entityHandler.SendAsync(serverPacket);
 
-        public void AddEntity(BaseEntity entity) => Entities.Add(entity.Id, entity);
+        public void AddEntity(BaseEntity entity) => _entityHandler.AddEntity(entity);
 
         public void Dispose()
         {
             StopRoomCycle();
-            Entities.Clear();
-            Entities = null;
+            _entityHandler.Dispose();
         }
     }
 }

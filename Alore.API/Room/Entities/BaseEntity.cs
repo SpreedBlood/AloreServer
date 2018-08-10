@@ -11,6 +11,7 @@ namespace Alore.API.Room.Entities
             Id = id;
             BodyRotation = rotation;
             Position = new Position(x, y, 0);
+            NextPosition = new Position(x, y, 0);
             Name = name;
             Figure = figure;
 
@@ -31,6 +32,16 @@ namespace Alore.API.Room.Entities
         /// The position of the entity.
         /// </summary>
         public Position Position { get; set; }
+
+        /// <summary>
+        /// Gets the position this entity is trying to walk to. If it's null the user is standing still.
+        /// </summary>
+        public Position NextPosition { get; set; }
+
+        /// <summary>
+        /// Gets the path that the entity is trying to walk. If null there's no path.
+        /// </summary>
+        public IList<Position> PathToWalk { get; set; }
 
         /// <summary>
         /// Gets the name of the entity.

@@ -1,8 +1,8 @@
 ﻿using Alore.API.Network.Clients;
 using Alore.API.Network.Packets;
 using Alore.API.Room.Entities;
+using Alore.API.Room.Grid;
 using Alore.API.Room.Rights;
-using Alore.API.Tasks;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,6 +10,12 @@ namespace Alore.API.Room.Models
 {
     public interface IRoom
     {
+        /// <summary>
+        /// Gets the grid of the current room. Responsible for mapping items and entities
+        /// on the grid.
+        /// </summary>
+        RoomGrid RoomGrid { get; }
+
         /// <summary>
         /// The room data associated with the current room instance.
         /// </summary>
@@ -21,7 +27,7 @@ namespace Alore.API.Room.Models
         IRoomModel RoomModel { get; set; }
 
         /// <summary>
-        /// Gets the current active entities in the room.
+        /// Gets all the entities of the room (Bots, pets, users).
         /// </summary>
         IDictionary<int, BaseEntity> Entities { get; }
 

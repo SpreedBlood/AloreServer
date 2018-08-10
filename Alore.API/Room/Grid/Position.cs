@@ -63,5 +63,37 @@ namespace Alore.API.Room.Grid
                 return (X * 397) ^ Y;
             }
         }
+
+        public static int CalculateDirection(Position oldPos, Position newPos) =>
+            CalculateDirection(oldPos.X, oldPos.Y, newPos.X, newPos.Y);
+
+        public static int CalculateDirection(int x, int y, int x2, int y2)
+        {
+            if (x > x2)
+            {
+                if (y == y2)
+                    return 6;
+                else if (y < y2)
+                    return 5;
+                else
+                    return 7;
+            }
+            else if (x < x2)
+            {
+                if (y == y2)
+                    return 2;
+                else if (y < y2)
+                    return 3;
+                else
+                    return 1;
+            }
+            else
+            {
+                if (y < y2)
+                    return 4;
+                else
+                    return 0;
+            }
+        }
     }
 }

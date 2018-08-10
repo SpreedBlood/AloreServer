@@ -39,24 +39,35 @@
                 {
                     return BuildPath(start, end, walkedPath, roomGrid.MapSizeX);
                 }
-
                 float cost = currentCost[curr.Position.X, curr.Position.Y];
                 foreach (AstarPosition option in DIAG)
                 {
-                    Position position = curr.Position + option;
-                    if (!roomGrid.WalkableGrid[position.X, position.Y])
-                        continue;
-                    
-                    float newCost = cost + option.Cost;
-                    float oldCost = currentCost[position.X, position.Y];
-                    if (!(oldCost <= 0) && !(newCost < oldCost))
-                        continue;
+                    //The reason of this try&catch is because the position is incremented on every
+                    //side of the current position so if you're next to the edge it will
+                    //increment one above the grid. The reason this is possible is because
+                    //everytime an exception is caught it's an invalid tile so it doesn't matter.
+                    //TODO: Maybe make an if checking wether or not the tile is invalid? :thinking:
+                    try
+                    {
+                        Position position = curr.Position + option;
 
-                    currentCost[position.X, position.Y] = newCost;
-                    walkedPath[position.X, position.Y] = curr.Position;
+                        if (!roomGrid.WalkableGrid[position.X, position.Y])
+                            continue;
 
-                    float expCost = newCost + ManhattanDistance(position, end);
-                    openHeap.Add(new HeapNode(position, expCost));
+                        float newCost = cost + option.Cost;
+                        float oldCost = currentCost[position.X, position.Y];
+                        if (!(oldCost <= 0) && !(newCost < oldCost))
+                            continue;
+
+                        currentCost[position.X, position.Y] = newCost;
+                        walkedPath[position.X, position.Y] = curr.Position;
+
+                        float expCost = newCost + ManhattanDistance(position, end);
+                        openHeap.Add(new HeapNode(position, expCost));
+                    }
+                    catch
+                    {
+                    }
                 }
             }
 
