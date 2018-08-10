@@ -17,5 +17,6 @@
         internal const short FigureSetIdsMessageComposer = 2187;
         internal const short BuildersClubMembershipMessageComposer = 1059;
         internal const short BadgeDefinitionsMessageComposer = 1775;
+        internal const short FurniListMessageComposer = 826;
     }
 }

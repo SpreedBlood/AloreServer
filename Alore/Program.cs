@@ -15,6 +15,7 @@
     using Room;
     using Alore.Util;
     using Alore.Config;
+    using Alore.Item;
 
     public class Program
     {
@@ -30,7 +31,8 @@
                 new NavigatorService(),
                 new PlayerService(),
                 new RoomService(),
-                new ConfigService()
+                new ConfigService(),
+                new ItemService()
             };
 
             // TODO: construct the Program class instead of having things staticly.

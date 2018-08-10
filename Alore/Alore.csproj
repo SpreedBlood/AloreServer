@@ -21,4 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Alore.API\Alore.API.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Player\Models\Inventory\" />
+  </ItemGroup>
 </Project>
