@@ -1,6 +1,7 @@
 ﻿namespace Alore.Network.Clients
 {
     using System.Threading.Tasks;
+    using Alore.API.Item.Models;
     using Alore.API.Room.Entities;
     using Alore.API.Room.Models;
     using API.Network.Clients;
@@ -26,6 +27,8 @@
         public IRoom CurrentRoom { get; set; }
 
         public BaseEntity Entity { get; set; }
+
+        public IInventory Inventory { get; set; }
 
         public string UniqueId { get; set; }
 

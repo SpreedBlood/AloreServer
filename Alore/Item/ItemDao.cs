@@ -4,17 +4,18 @@
     using Alore.API.Item.Models;
     using Alore.API.Sql;
     using Alore.Item.Models;
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
     internal class ItemDao : AloreDao
     {
-        protected ItemDao(IConfigController configController)
+        public ItemDao(IConfigController configController)
             : base(configController)
         {
         }
 
-        internal async Task<IItem> GetItemAsync(int id)
+        internal async Task<IItem> GetItemAsync(uint id)
         {
             IItem item = null;
 
@@ -32,7 +33,7 @@
             return item;
         }
 
-        internal async Task<ICollection<IItem>> GetItemsForPlayerAsync(int userId)
+        internal async Task<ICollection<IItem>> GetItemsForPlayerAsync(uint playerId)
         {
             ICollection<IItem> items = new List<IItem>();
 
@@ -40,11 +41,11 @@
             {
                 await Select(transaction, async reader =>
                 {
-                    if (await reader.ReadAsync())
+                    while (await reader.ReadAsync())
                     {
                         items.Add(new Item(new ItemData(reader)));
                     }
-                }, "SELECT id, x, y, z FROM items WHERE user_id = @0", userId);
+                }, "SELECT id, x, y, z FROM items WHERE player_id = @0", playerId);
             });
 
             return items;

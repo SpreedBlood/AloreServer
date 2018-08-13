@@ -5,6 +5,8 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using System.Linq;
+    using Alore.API.Network.Clients;
+    using Alore.Item.Models.Inventory;
 
     internal class ItemController : IItemController
     {
@@ -15,13 +17,19 @@
             _itemRepository = itemRepository;
         }
 
-        public async Task<IDictionary<uint, IItem>> GetItemsForPlayerAsync(int playerId)
+        public async Task<IDictionary<uint, IItem>> GetItemsForPlayerAsync(uint playerId)
         {
             IEnumerable<IItem> items = await _itemRepository.GetItemsForPlayer(playerId);
             return items.ToDictionary(item => item.ItemData.Id, item => item);
         }
 
-        public void CacheItems(int playerId, ICollection<IItem> items) =>
+        //TODO: Make the users items cached upon disconnection.
+        public void CacheItems(uint playerId, ICollection<IItem> items) =>
             _itemRepository.CacheItems(playerId, items);
+
+        public void InitializeInventoryForSession(ISession session, IDictionary<uint, IItem> items)
+        {
+            session.Inventory = new Inventory(items);
+        }
     }
 }

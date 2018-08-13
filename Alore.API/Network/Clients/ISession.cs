@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
+    using Alore.API.Item.Models;
     using Alore.API.Room.Entities;
     using Alore.API.Room.Models;
     using Packets;
@@ -38,6 +39,11 @@
         /// in a room then this is null.
         /// </summary>
         BaseEntity Entity { get; set; }
+
+        /// <summary>
+        /// The inventory of the session. This gets initialized when opening the inventory.
+        /// </summary>
+        IInventory Inventory { get; set; }
 
         /// <summary>
         /// The unique id from where the session is connected.
