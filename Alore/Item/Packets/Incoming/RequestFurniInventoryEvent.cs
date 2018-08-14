@@ -22,12 +22,15 @@
 
         public async Task HandleAsync(ISession session, IClientPacket clientPacket)
         {
-            IDictionary<uint, IItem> items = await _itemController.GetItemsForPlayerAsync(session.Player.Id);
+            IDictionary<uint, IItem> items;
             //Initializes the inventory 
             if (session.Inventory == null)
             {
+                items = await _itemController.GetItemsForPlayerAsync(session.Player.Id);
                 _itemController.InitializeInventoryForSession(session, items);
             }
+
+            items = session.Inventory.Items;
 
             await session.WriteAndFlushAsync(new FurniListComposer(items.Values));
         }

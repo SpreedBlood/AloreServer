@@ -1,17 +1,18 @@
 ﻿namespace Alore.Player.Models
 {
     using Alore.API.Player.Models;
+    using Alore.API.Sql;
     using System.Data.Common;
 
     internal class PlayerSettings : IPlayerSettings
     {
         internal PlayerSettings(DbDataReader reader)
         {
-            NaviX = (int)reader["navi_x"];
-            NaviY = (int)reader["navi_y"];
-            NaviWidth = (int)reader["navi_width"];
-            NaviHeight = (int)reader["navi_height"];
-            NaviHideSearches = (bool)reader["navi_hide_searches"];
+            NaviX = reader.Read<int>("navi_x");
+            NaviY = reader.Read<int>("navi_y");
+            NaviWidth = reader.Read<int>("navi_width");
+            NaviHeight = reader.Read<int>("navi_height");
+            NaviHideSearches = reader.Read<bool>("navi_hide_searches");
         }
         
         public int NaviX { get; set; }

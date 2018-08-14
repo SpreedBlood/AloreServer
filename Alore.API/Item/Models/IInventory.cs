@@ -1,7 +1,14 @@
 ﻿namespace Alore.API.Item.Models
 {
+    using System.Collections.Generic;
+
     public interface IInventory
     {
+        /// <summary>
+        /// Get all the items from the inventory.
+        /// </summary>
+        IDictionary<uint, IItem> Items { get; }
+
         /// <summary>
         /// Checks if the cache contains the item.
         /// </summary>

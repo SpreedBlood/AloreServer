@@ -8,11 +8,11 @@
     {
         internal HallOfFamer(DbDataReader reader)
         {
-            Id = reader.ReadUint("id");
-            Rank = reader.ReadInt("rank");
-            Diamonds = reader.ReadInt("diamonds");
-            Username = reader.ReadString("username");
-            Figure = reader.ReadString("figure");
+            Id = reader.Read<uint>("id");
+            Rank = reader.Read<int>("rank");
+            Diamonds = reader.Read<int>("diamonds");
+            Username = reader.Read<string>("username");
+            Figure = reader.Read<string>("figure");
         }
 
         public uint Id { get; set; }

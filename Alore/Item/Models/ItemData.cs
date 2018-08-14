@@ -9,8 +9,11 @@
     {
         internal ItemData(DbDataReader reader)
         {
-            Id = reader.ReadUint("id");
-            Position = new Position(reader.ReadInt("x"), reader.ReadInt("y"), reader.ReadDouble("z"));
+            Id = reader.Read<uint>("id");
+            Position = new Position(
+                reader.Read<int>("x"),
+                reader.Read<int>("y"),
+                reader.Read<double>("z"));
         }
 
         public uint Id { get; }

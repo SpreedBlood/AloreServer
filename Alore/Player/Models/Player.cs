@@ -1,22 +1,23 @@
 ﻿namespace Alore.Player.Models
 {
     using API.Player.Models;
+    using API.Sql;
     using System.Data.Common;
 
     internal class Player : IPlayer
     {
         internal Player(DbDataReader reader)
         {
-            Id = (uint)reader["id"];
-            Credits = (int)reader["credits"];
-            Duckets = (int)reader["duckets"];
-            Diamonds = (int)reader["diamonds"];
-            Rank = (int)reader["rank"];
-            Username = (string)reader["username"];
-            SsoTicket = (string)reader["auth_ticket"];
-            Figure = (string)reader["figure"];
-            Gender = (string)reader["gender"];
-            Motto = (string)reader["motto"];
+            Id = reader.Read<uint>("id");
+            Credits = reader.Read<int>("credits");
+            Duckets = reader.Read<int>("duckets");
+            Diamonds = reader.Read<int>("diamonds");
+            Rank = reader.Read<int>("rank");
+            Username = reader.Read<string>("username");
+            SsoTicket = reader.Read<string>("auth_ticket");
+            Figure = reader.Read<string>("figure");
+            Gender = reader.Read<string>("gender");
+            Motto = reader.Read<string>("motto");
         }
 
         public uint Id { get; set; }

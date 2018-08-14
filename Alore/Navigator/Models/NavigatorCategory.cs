@@ -1,6 +1,7 @@
 ﻿namespace Alore.Navigator.Models
 {
     using Alore.API.Navigator.Models;
+    using Alore.API.Sql;
     using System;
     using System.Data.Common;
 
@@ -8,12 +9,12 @@
     {
         internal NavigatorCategory(DbDataReader reader)
         {
-            Id = (uint)reader["id"];
-            MinRank = (int)reader["min_rank"];
-            PublicName = (string)reader["public_name"];
-            Identifier = (string)reader["identifier"];
-            Category = (string)reader["category"];
-            CategoryType = Enum.Parse<CategoryType>((string)reader["category_type"]);
+            Id = reader.Read<uint>("id");
+            MinRank = reader.Read<int>("min_rank");
+            PublicName = reader.Read<string>("public_name");
+            Identifier = reader.Read<string>("identifier");
+            Category = reader.Read<string>("category");
+            CategoryType = Enum.Parse<CategoryType>(reader.Read<string>("category_type"));
         }
         
         public uint Id { get; set; }

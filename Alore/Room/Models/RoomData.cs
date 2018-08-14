@@ -1,18 +1,19 @@
 ﻿namespace Alore.Room.Models
 {
     using API.Room.Models;
+    using API.Sql;
     using System.Data.Common;
 
     internal class RoomData : IRoomData
     {
         internal RoomData(DbDataReader reader)
         {
-            Id = (uint)reader["id"];
-            Name = (string)reader["name"];
-            Password = (string)reader["password"];
-            ModelName = (string)reader["model_name"];
-            Score = (int)reader["score"];
-            OwnerId = (int)reader["owner"];
+            Id = reader.Read<uint>("id");
+            Score = reader.Read<int>("score");
+            OwnerId = reader.Read<int>("owner");
+            Name = reader.Read<string>("name");
+            Password = reader.Read<string>("password");
+            ModelName = reader.Read<string>("model_name");
         }
         
         public uint Id { get; set; }

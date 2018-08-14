@@ -5,17 +5,17 @@
 
     internal class Inventory : IInventory
     {
-        private IDictionary<uint, IItem> _items;
+        public IDictionary<uint, IItem> Items { get; }
 
         internal Inventory(IDictionary<uint, IItem> items)
         {
-            _items = items;
+            Items = items;
         }
         
-        public bool ContainsItem(uint id) => _items.ContainsKey(id);
+        public bool ContainsItem(uint id) => Items.ContainsKey(id);
 
-        public IItem GetItem(uint id) => _items[id];
+        public IItem GetItem(uint id) => Items[id];
 
-        public bool TryGetItem(uint id, out IItem item) => _items.TryGetValue(id, out item);
+        public bool TryGetItem(uint id, out IItem item) => Items.TryGetValue(id, out item);
     }
 }
