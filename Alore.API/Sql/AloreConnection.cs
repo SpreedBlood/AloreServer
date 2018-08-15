@@ -25,6 +25,8 @@
 
         public IDbTransaction BeginTransaction(IsolationLevel il) => _connection.BeginTransaction(il);
 
+        public Task<MySqlTransaction> BeginTransactionAsync() => _connection.BeginTransactionAsync();
+
         public void ChangeDatabase(string databaseName) => _connection.ChangeDatabase(databaseName);
 
         public void Close() => _connection.Close();

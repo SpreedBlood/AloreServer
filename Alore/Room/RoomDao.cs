@@ -15,7 +15,7 @@
 
         internal async Task<IRoomData> GetRoomData(int id)
         {
-            RoomData roomData = null;
+            IRoomData roomData = null;
             await CreateTransaction(async transaction =>
             {
                 await Select(transaction, async reader =>
@@ -32,7 +32,7 @@
 
         internal async Task<IEnumerable<IRoomModel>> GetRoomModels()
         {
-            List<RoomModel> roomModels = new List<RoomModel>();
+            IList<IRoomModel> roomModels = new List<IRoomModel>();
 
             await CreateTransaction(async transaction =>
             {

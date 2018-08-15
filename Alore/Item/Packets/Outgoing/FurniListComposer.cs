@@ -16,14 +16,14 @@
             WriteInt(items.Count);
             foreach (IItem item in items)
             {
-                WriteInt(item.ItemData.Id); //Item id
-                WriteString("s"); //Item type S, I, B etc.
-                WriteInt(item.ItemData.Id); //Item id
-                WriteInt(1619); //Sprite id
+                WriteInt(item.ItemData.Id);
+                WriteString(item.ItemTemplate.Type.ToUpper());
+                WriteInt(item.ItemData.Id);
+                WriteInt(item.ItemTemplate.SpriteId);
 
                 WriteInt(1);
                 WriteInt(0);
-                WriteString(""); //Extradata
+                WriteString(item.ItemData.ExtraData);
 
                 WriteBoolean(false); //Allow ecotron.
                 WriteBoolean(true); //Allow trade
@@ -34,8 +34,11 @@
                 WriteBoolean(false);
                 WriteInt(-1);
 
-                WriteString("");
-                WriteInt(0);
+                if (item.ItemTemplate.Type != "i")
+                {
+                    WriteString("");
+                    WriteInt(0);
+                }
             }
         }
     }

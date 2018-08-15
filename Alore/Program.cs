@@ -23,7 +23,7 @@
 
         private async Task Run()
         {
-            List<IService> services = new List<IService>
+            IList<IService> services = new List<IService>
             {
                 new HandshakeService(),
                 new LandingService(),
@@ -34,9 +34,8 @@
                 new ConfigService(),
                 new ItemService()
             };
-
-            // TODO: construct the Program class instead of having things staticly.
-            var serviceCollection = new ServiceCollection();
+            
+            IServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.AddLogging(builder => builder.AddConsole());
 
             foreach (IService service in services)
@@ -51,7 +50,7 @@
 
             serviceCollection.AddSingleton<Listener>();
 
-            var serviceProvider = serviceCollection.BuildServiceProvider();
+            IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
 
             _listener = serviceProvider.GetService<Listener>();
 

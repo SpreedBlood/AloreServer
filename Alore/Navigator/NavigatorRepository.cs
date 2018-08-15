@@ -8,22 +8,22 @@
     {
         private readonly NavigatorDao _navigatorDao;
 
-        private List<INavigatorCategory> _unorderedCategories;
+        private IList<INavigatorCategory> _unorderedCategories;
 
-        private List<INavigatorCategory> _categories;
-        private List<INavigatorCategory> _promotionCategories;
+        private IList<INavigatorCategory> _categories;
+        private IList<INavigatorCategory> _promotionCategories;
 
         public NavigatorRepository(NavigatorDao navigatorDao)
         {
             _navigatorDao = navigatorDao;
         }
 
-        internal async Task<List<INavigatorCategory>> GetNavigatorCategoriesAsync()
+        internal async Task<IList<INavigatorCategory>> GetNavigatorCategoriesAsync()
         {
             if (_categories != null) return _categories;
             await GetCategoriesIfNullAsync();
 
-            List<INavigatorCategory> categories = new List<INavigatorCategory>();
+            IList<INavigatorCategory> categories = new List<INavigatorCategory>();
             
             foreach (INavigatorCategory navigatorCategory in _unorderedCategories)
             {
@@ -35,12 +35,12 @@
             return _categories;
         }
 
-        internal async Task<List<INavigatorCategory>> GetPromotionNavigatorCategoriesAsync()
+        internal async Task<IList<INavigatorCategory>> GetPromotionNavigatorCategoriesAsync()
         {
             if (_promotionCategories != null) return _promotionCategories;
             await GetCategoriesIfNullAsync();
 
-            List<INavigatorCategory> categories = new List<INavigatorCategory>();
+            IList<INavigatorCategory> categories = new List<INavigatorCategory>();
 
             foreach (INavigatorCategory navigatorCategory in _unorderedCategories)
             {

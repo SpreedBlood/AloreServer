@@ -10,7 +10,7 @@
         /// Begins an async transation.
         /// </summary>
         /// <returns>The transaction upon task completion.</returns>
-        Task<IDbTransaction> BeginTransactionAsync();
+        Task<MySql.Data.MySqlClient.MySqlTransaction> BeginTransactionAsync();
 
         /// <summary>
         /// Open the connection asynchronously.

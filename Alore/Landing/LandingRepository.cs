@@ -7,14 +7,14 @@
     internal class LandingRepository
     {
         private readonly LandingDao _landingDao;
-        private List<IHallOfFamer> _hallOfFamers;
+        private IList<IHallOfFamer> _hallOfFamers;
 
         public LandingRepository(LandingDao dao)
         {
             _landingDao = dao;
         }
 
-        internal async Task<List<IHallOfFamer>> GetHallOfFamersAsync()
+        internal async Task<IList<IHallOfFamer>> GetHallOfFamersAsync()
         {
             if (_hallOfFamers != null) return _hallOfFamers;
 

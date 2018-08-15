@@ -14,6 +14,24 @@
         {
         }
 
+        internal async Task<IEnumerable<IItemTemplate>> GetItemTemplates()
+        {
+            IList<IItemTemplate> items = new List<IItemTemplate>();
+
+            await CreateTransaction(async transaction =>
+            {
+                await Select(transaction, async reader =>
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        items.Add(new ItemTemplate(reader));
+                    }
+                }, "SELECT * FROM furnidata");
+            });
+
+            return items;
+        }
+
         internal async Task<IItem> GetItemAsync(uint id)
         {
             IItem item = null;
@@ -44,7 +62,7 @@
                     {
                         items.Add(new Item(new ItemData(reader)));
                     }
-                }, "SELECT id, x, y, z FROM items WHERE player_id = @0", playerId);
+                }, "SELECT id, sprite_id, player_id, extradata, x, y, z, rot FROM items WHERE player_id = @0", playerId);
             });
 
             return items;

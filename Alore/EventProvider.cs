@@ -13,7 +13,7 @@
     {
         private readonly ILogger<EventProvider> _logger;
 
-        private readonly Dictionary<short, IAsyncPacket> _events;
+        private readonly IDictionary<short, IAsyncPacket> _events;
 
         public EventProvider(ILogger<EventProvider> logger, IEnumerable<IAsyncPacket> events)
         {
@@ -23,7 +23,7 @@
 
         public async Task TriggerEvent(ISession session, IClientPacket clientPacket)
         {
-            if (_events.TryGetValue(clientPacket.Header, out var eventHandler))
+            if (_events.TryGetValue(clientPacket.Header, out IAsyncPacket eventHandler))
             {
                 _logger.LogInformation($"Executing {eventHandler.GetType().Name} for header: {clientPacket.Header}.");
                 await eventHandler.HandleAsync(session, clientPacket);

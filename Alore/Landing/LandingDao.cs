@@ -13,9 +13,9 @@
         {
         }
 
-        internal async Task<List<IHallOfFamer>> GetHallOfFamers()
+        internal async Task<IList<IHallOfFamer>> GetHallOfFamers()
         {
-            List<IHallOfFamer> hallOfFamers = new List<IHallOfFamer>();
+            IList<IHallOfFamer> hallOfFamers = new List<IHallOfFamer>();
             await CreateTransaction(async transaction =>
             {
                 await Select(transaction, async reader =>

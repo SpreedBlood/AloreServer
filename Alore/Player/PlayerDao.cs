@@ -2,6 +2,7 @@
 {
     using System.Threading.Tasks;
     using Alore.API.Config;
+    using Alore.API.Player.Models;
     using API.Sql;
     using Models;
 
@@ -11,9 +12,9 @@
         {
         }
 
-        internal async Task<Player> GetPlayerById(uint id)
+        internal async Task<IPlayer> GetPlayerById(uint id)
         {
-            Player player = null;
+            IPlayer player = null;
             await CreateTransaction(async transaction =>
             {
                 await Select(transaction, async reader =>
@@ -27,9 +28,9 @@
             return player;
         }
 
-        internal async Task<Player> GetPlayerBySso(string sso)
+        internal async Task<IPlayer> GetPlayerBySso(string sso)
         {
-            Player player = null;
+            IPlayer player = null;
             await CreateTransaction(async transaction =>
             {
                 await Select(transaction, async reader =>
@@ -43,9 +44,9 @@
             return player;
         }
 
-        internal async Task<PlayerSettings> GetPlayerSettingsById(uint id)
+        internal async Task<IPlayerSettings> GetPlayerSettingsById(uint id)
         {
-            PlayerSettings playerSettings = null;
+            IPlayerSettings playerSettings = null;
             await CreateTransaction(async transaction =>
             {
                 await Select(transaction, async reader =>
@@ -68,9 +69,9 @@
             });
         }
 
-        internal async Task<PlayerStats> GetPlayerStatsById(uint id)
+        internal async Task<IPlayerStats> GetPlayerStatsById(uint id)
         {
-            PlayerStats playerStats = null;
+            IPlayerStats playerStats = null;
             await CreateTransaction(async transaction =>
             {
                 await Select(transaction, async reader =>

@@ -13,9 +13,9 @@
         {
         }
 
-        internal async Task<List<INavigatorCategory>> GetNavigatorCategoriesAsync()
+        internal async Task<IList<INavigatorCategory>> GetNavigatorCategoriesAsync()
         {
-            List<INavigatorCategory> categories = new List<INavigatorCategory>();
+            IList<INavigatorCategory> categories = new List<INavigatorCategory>();
 
             await CreateTransaction(async transaction =>
             {
