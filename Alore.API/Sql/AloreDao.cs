@@ -1,6 +1,7 @@
 ﻿namespace Alore.API.Sql
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Common;
     using System.Threading.Tasks;
     using Alore.API.Config;
@@ -9,6 +10,7 @@
     public abstract class AloreDao
     {
         private readonly string _connectionString;
+         private readonly IList<KeyValuePair<string, object[]>> _insertQueries;
 
         protected AloreDao(IConfigController configController)
         {
@@ -22,6 +24,7 @@
                 Password = config.Password
             };
             _connectionString = stringBuilder.ToString();
+            _insertQueries = new List<KeyValuePair<string, object[]>>();
         }
 
         protected async Task CreateTransaction(Action<MySqlTransaction> transaction)
@@ -36,6 +39,22 @@
                 }
 
                 await connection.CloseAsync();
+            }
+        }
+
+        protected async Task QueueInsert(string commandText, params object[] parameters)
+        {
+            _insertQueries.Add(new KeyValuePair<string, object[]>(commandText, parameters));
+
+            if (_insertQueries.Count == 10)
+            {
+                await CreateTransaction(async transaction =>
+                {
+                    foreach (KeyValuePair<string, object[]> insertQuery in _insertQueries)
+                    {
+                        await Insert(transaction, insertQuery.Key, insertQuery.Value);
+                    }
+                });
             }
         }
 

@@ -45,9 +45,7 @@
 
             //Loops over all the types and registers all the packets!
             serviceCollection.RegisterAllPackets();
-
             serviceCollection.AddSingleton<IEventProvider, EventProvider>();
-
             serviceCollection.AddSingleton<Listener>();
 
             IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
@@ -63,7 +61,6 @@
                     await DisposeAsync();
                 }
             }
-            // ReSharper disable once FunctionNeverReturns
         }
         
         private async Task DisposeAsync()
@@ -76,23 +73,6 @@
         public static async Task Main()
         {
             await new Program().Run();
-            
-            //await TestAloreSql();
-            // ReSharper disable once FunctionNeverReturns
         }
-
-        /*
-        private static async Task TestAloreSql()
-        {
-            SqlTest testSql = new SqlTest();
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-            Console.WriteLine(stopWatch.Elapsed.TotalMilliseconds);
-            TestModel testModel = await testSql.TestSql();
-            Console.WriteLine(stopWatch.Elapsed.TotalMilliseconds);
-            stopWatch.Stop();
-
-            Console.WriteLine("Alore MySQL benchmark done!");
-        }*/
     }
 }
