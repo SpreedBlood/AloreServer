@@ -13,69 +13,22 @@
 
     internal class EntityHandler : IDisposable
     {
-        private readonly IRoom _room;
-
         internal IDictionary<int, BaseEntity> Entities { get; private set; }
         internal bool HasUserEntities => Entities.Where(x => x.Value is UserEntity).Any();
 
-        private readonly StringBuilder _moveStatus;
+        private readonly EntityCycler _entityCycler;
 
         internal EntityHandler(IRoom room)
         {
-            _room = room;
-
             Entities = new Dictionary<int, BaseEntity>();
-
-            _moveStatus = new StringBuilder();
+            _entityCycler = new EntityCycler(room);
         }
 
         internal async void Cycle(DateTimeOffset timeOffset)
         {
             foreach (BaseEntity entity in Entities.Values)
             {
-                if (entity.NextPosition != entity.Position)
-                {
-                    entity.Position = entity.NextPosition;
-                }
-
-                if (entity.PathToWalk != null)
-                {
-                    //Finished walking or found no path.
-                    if (entity.PathToWalk.Count == 0)
-                    {
-                        entity.ActiveStatuses.Remove("mv");
-                        entity.PathToWalk = null;
-                        return;
-                    }
-
-                    entity.ActiveStatuses.Remove("mv");
-
-                    int reversedIndex = entity.PathToWalk.Count - 1;
-                    Position nextStep = entity.PathToWalk[reversedIndex];
-                    entity.PathToWalk.RemoveAt(reversedIndex);
-
-                    int newDir = Position.CalculateDirection(entity.Position, nextStep);
-
-                    entity.NextPosition.X = nextStep.X;
-                    entity.NextPosition.Y = nextStep.Y;
-                    entity.BodyRotation = newDir;
-
-                    _moveStatus
-                        .Clear()
-                        .Append(nextStep.X)
-                        .Append(",")
-                        .Append(nextStep.Y)
-                        .Append(",")
-                        .Append("0.00");
-                    entity.ActiveStatuses.Add("mv", _moveStatus.ToString());
-                }
-                else
-                {
-                    if (entity.ActiveStatuses.ContainsKey("mv"))
-                    {
-                        entity.ActiveStatuses.Remove("mv");
-                    }
-                }
+                _entityCycler.Cycle(entity);
             }
 
             await SendAsync(new EntityUpdateComposer(Entities.Values));

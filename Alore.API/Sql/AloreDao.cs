@@ -7,7 +7,7 @@
     using Alore.API.Config;
     using MySql.Data.MySqlClient;
 
-    public abstract class AloreDao
+    public abstract class AloreDao : IDisposable
     {
         private readonly string _connectionString;
          private readonly IList<KeyValuePair<string, object[]>> _insertQueries;
@@ -142,6 +142,17 @@
             {
                 command.Parameters.AddWithValue($"@{i}", parameters[i]);
             }
+        }
+
+        public async void Dispose()
+        {
+            await CreateTransaction(async transaction =>
+            {
+                foreach (KeyValuePair<string, object[]> insertQuery in _insertQueries)
+                {
+                    await Insert(transaction, insertQuery.Key, insertQuery.Value);
+                }
+            });
         }
     }
 }

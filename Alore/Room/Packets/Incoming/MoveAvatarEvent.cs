@@ -19,6 +19,7 @@
             IList<Position> walkingPath = PathFinder.FindPath(
                 session.CurrentRoom.RoomGrid,
                 session.Entity.Position, new Position(x, y, 0));
+            walkingPath.RemoveAt(walkingPath.Count - 1);
             session.Entity.PathToWalk = walkingPath;
             return Task.CompletedTask;
         }

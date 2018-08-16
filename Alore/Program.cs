@@ -17,6 +17,8 @@
     using Alore.Config;
     using Alore.Item;
 
+    //TODO: Loop all the dao's & call the dispose method to make sure all
+    //of the insert queries are being executed before closing the application.
     public class Program
     {
         private Listener _listener;
