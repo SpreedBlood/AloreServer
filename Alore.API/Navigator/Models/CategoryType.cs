@@ -11,6 +11,7 @@
         MyRights,
         MyRooms,
         MyFavorites,
+        Public,
         Popular,
         PromotionCategory,
         Query,

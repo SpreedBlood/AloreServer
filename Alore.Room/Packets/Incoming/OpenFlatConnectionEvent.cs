@@ -1,4 +1,6 @@
-﻿namespace Alore.Room.Packets.Incoming
+﻿using Alore.Room.Packets.Incoming.Args;
+
+namespace Alore.Room.Packets.Incoming
 {
     using System.Threading.Tasks;
     using Alore.API.Network;
@@ -8,7 +10,7 @@
     using Alore.API.Room.Models;
     using Alore.Room.Packets.Outgoing;
 
-    internal class OpenFlatConnectionEvent : IAsyncPacket
+    internal class OpenFlatConnectionEvent : AbstractAsyncPacket<FlatConnectionArgs>
     {
         private readonly IRoomController _roomController;
 
@@ -17,14 +19,11 @@
             _roomController = roomController;
         }
 
-        public short Header => 3464;
+        public override short Header => 3464;
 
-        public async Task HandleAsync(ISession session, IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session, FlatConnectionArgs args)
         {
-            int roomId = clientPacket.ReadInt();
-            string password = clientPacket.ReadString();
-
-            IRoom room = await _roomController.GetRoomByIdAndPassword(roomId, password);
+            IRoom room = await _roomController.GetRoomByIdAndPassword(args.RoomId, args.Password);
             if (room != null)
             {
                 await session.WriteAndFlushAsync(new OpenConnectionComposer());

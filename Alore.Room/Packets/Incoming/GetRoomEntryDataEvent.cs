@@ -1,16 +1,15 @@
 ﻿namespace Alore.Room.Packets.Incoming
 {
     using System.Threading.Tasks;
-    using Alore.API.Network;
-    using Alore.API.Network.Clients;
-    using Alore.API.Network.Packets;
+    using API.Network;
+    using API.Network.Clients;
     using Alore.API.Room;
     using Alore.API.Room.Entities;
     using Alore.API.Room.Models;
     using Alore.API.Room.Rights;
-    using Alore.Room.Packets.Outgoing;
+    using Outgoing;
 
-    internal class GetRoomEntryDataEvent : IAsyncPacket
+    internal class GetRoomEntryDataEvent : AbstractAsyncPacket
     {
         private readonly IRoomController _roomController;
 
@@ -19,9 +18,9 @@
             _roomController = roomController;
         }
 
-        public short Header => 1583;
+        public override short Header => 1583;
 
-        public async Task HandleAsync(ISession session, IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session)
         {
             IRoom room = session.CurrentRoom;
 
@@ -30,7 +29,8 @@
 
             BaseEntity userEntity = _roomController.AddUserToRoom(room, session);
 
-            await session.WriteAndFlushAsync(new RoomEntryInfoComposer(room.RoomData.Id, room.GetRoomRight(session.Player.Id) == RoomRight.OWNER));
+            await session.WriteAndFlushAsync(new RoomEntryInfoComposer(room.RoomData.Id,
+                room.GetRoomRight(session.Player.Id) == RoomRight.OWNER));
             await session.WriteAndFlushAsync(new EntitiesComposer(room.Entities.Values));
             await session.WriteAndFlushAsync(new EntityUpdateComposer(room.Entities.Values));
 

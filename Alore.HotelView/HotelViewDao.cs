@@ -24,7 +24,7 @@
                     {
                         hallOfFamers.Add(new HallOfFamer(reader));
                     }
-                }, "SELECT id, rank, diamonds, username, figure FROM players ORDER BY diamonds LIMIT 10;");
+                }, "SELECT id, rank, vip_points as diamonds, username, figure FROM players ORDER BY diamonds LIMIT 10;");
             });
 
             return hallOfFamers;

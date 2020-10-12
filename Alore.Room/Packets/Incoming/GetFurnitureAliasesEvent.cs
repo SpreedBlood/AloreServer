@@ -1,16 +1,15 @@
 ﻿namespace Alore.Room.Packets.Incoming
 {
     using System.Threading.Tasks;
-    using Alore.API.Network;
-    using Alore.API.Network.Clients;
-    using Alore.API.Network.Packets;
-    using Alore.Room.Packets.Outgoing;
+    using API.Network;
+    using API.Network.Clients;
+    using Outgoing;
 
-    internal class GetFurnitureAliasesEvent : IAsyncPacket
+    internal class GetFurnitureAliasesEvent : AbstractAsyncPacket
     {
-        public short Header => 2443;
+        public override short Header => 2443;
 
-        public async Task HandleAsync(ISession session, IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session)
         {
             await session.WriteAndFlushAsync(new FurnitureAliasesComposer());
         }

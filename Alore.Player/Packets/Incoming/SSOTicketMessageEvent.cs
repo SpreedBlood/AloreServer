@@ -1,4 +1,6 @@
-﻿namespace Alore.Player.Packets.Incoming
+﻿using Alore.Player.Packets.Incoming.Args;
+
+namespace Alore.Player.Packets.Incoming
 {
     using System.Threading.Tasks;
     using API.Network;
@@ -8,9 +10,9 @@
     using API.Player.Models;
     using Outgoing;
 
-    internal class SsoTicketMessageEvent : IAsyncPacket
+    internal class SsoTicketMessageEvent : AbstractAsyncPacket<SsoTicketArgs>
     {
-        public short Header { get; } = 1930;
+        public override short Header { get; } = 1930;
 
         private readonly IPlayerController _playerController;
 
@@ -18,13 +20,10 @@
         {
             _playerController = playerController;
         }
-        
-        public async Task HandleAsync(
-            ISession session,
-            IClientPacket clientPacket)
+
+        protected override async Task HandleAsync(ISession session, SsoTicketArgs args)
         {
-            string ssoTicket = clientPacket.ReadString();
-            IPlayer player = await _playerController.GetPlayerBySsoAsync(ssoTicket);
+            IPlayer player = await _playerController.GetPlayerBySsoAsync(args.SsoTicket);
             if (player != null)
             {
                 session.Player = player;

@@ -1,4 +1,6 @@
-﻿namespace Alore.Handshake.Packets.Incoming
+﻿using Alore.Handshake.Packets.Incoming.Args;
+
+namespace Alore.Handshake.Packets.Incoming
 {
     using System.Threading.Tasks;
     using API.Network;
@@ -6,17 +8,14 @@
     using API.Network.Packets;
     using Outgoing;
 
-    public class UniqueIdMessageEvent : IAsyncPacket
+    public class UniqueIdMessageEvent : AbstractAsyncPacket<UniqueIdArgs>
     {
-        public short Header { get; } = 3465;
+        public override short Header { get; } = 3465;
 
-        public async Task HandleAsync(
-            ISession session,
-            IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session, UniqueIdArgs args)
         {
-            string uniqueId = clientPacket.ReadString();
-            session.UniqueId = uniqueId;
-            await session.WriteAndFlushAsync(new SetUniqueIdComposer(uniqueId));
+            session.UniqueId = args.UniqueId;
+            await session.WriteAndFlushAsync(new SetUniqueIdComposer(args.UniqueId));
         }
     }
 }

@@ -24,9 +24,9 @@
                     {
                         roomData = new RoomData(reader);
                     }
-                }, "SELECT id, score, owner, name, password, model_name FROM rooms WHERE id = @0 LIMIT 1", id);
+                }, "SELECT id, score, owner_id as owner, name, password, model as model_name FROM rooms WHERE id = @0 LIMIT 1", id);
             });
-            
+
             return roomData;
         }
 

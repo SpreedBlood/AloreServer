@@ -3,16 +3,13 @@
     using System.Threading.Tasks;
     using API.Network;
     using API.Network.Clients;
-    using API.Network.Packets;
     using Outgoing;
 
-    internal class InitializeNewNavigatorMessageEvent : IAsyncPacket
+    internal class InitializeNewNavigatorMessageEvent : AbstractAsyncPacket
     {
-        public short Header { get; } = 2142;
+        public override short Header { get; } = 2142;
 
-        public async Task HandleAsync(
-            ISession session,
-            IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session)
         {
             await session.WriteAndFlushAsync(new NavigatorMetaDataParserComposer());
             await session.WriteAndFlushAsync(new NavigatorLiftedRoomsComposer());

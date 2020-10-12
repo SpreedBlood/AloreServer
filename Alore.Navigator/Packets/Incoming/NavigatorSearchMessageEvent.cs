@@ -1,18 +1,18 @@
-﻿namespace Alore.Navigator.Packets.Incoming
+﻿using Alore.Navigator.Packets.Incoming.Args;
+
+namespace Alore.Navigator.Packets.Incoming
 {
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using API.Navigator;
     using API.Navigator.Models;
     using API.Network;
     using API.Network.Clients;
-    using API.Network.Packets;
     using Outgoing;
 
-    internal class NavigatorSearchMessageEvent : IAsyncPacket
+    internal class NavigatorSearchMessageEvent : AbstractAsyncPacket<NavigatorSearchArgs>
     {
-        public short Header { get; } = 3612;
+        public override short Header { get; } = 3612;
 
         private readonly INavigatorController _navigatorController;
 
@@ -21,16 +21,10 @@
             _navigatorController = navigatorController;
         }
 
-
-        public async Task HandleAsync(
-            ISession session,
-            IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session, NavigatorSearchArgs args)
         {
-            string category = clientPacket.ReadString();
-            string data = clientPacket.ReadString();
-
             //Send the categories..
-            if (string.IsNullOrEmpty(data))
+            if (string.IsNullOrEmpty(args.Data))
             {
                 IList<INavigatorCategory> categories =
                     await _navigatorController.GetNavigatorCategoriesAsync();
@@ -38,14 +32,14 @@
 
                 foreach (INavigatorCategory navCategory in categories)
                 {
-                    if (navCategory.Category == category)
+                    if (navCategory.Category == args.Category)
                     {
                         categoriesToSend.Add(navCategory);
                     }
                 }
 
                 await session.WriteAndFlushAsync(
-                    new NavigatorSearchResultSetComposer(category, data, categoriesToSend));
+                    new NavigatorSearchResultSetComposer(args.Category, args.Data, categoriesToSend));
             }
         }
     }

@@ -1,24 +1,23 @@
-﻿namespace Alore.Room.Packets.Incoming
+﻿using Alore.Room.Packets.Incoming.Args;
+
+namespace Alore.Room.Packets.Incoming
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Alore.API.Network;
-    using Alore.API.Network.Clients;
-    using Alore.API.Network.Packets;
+    using API.Network;
+    using API.Network.Clients;
     using Alore.API.Room.Grid;
     using Alore.API.Room.Grid.Pathfinding;
 
-    public class MoveAvatarEvent : IAsyncPacket
+    public class MoveAvatarEvent : AbstractAsyncPacket<MoveAvatarArgs>
     {
-        public short Header => 3155;
+        public override short Header => 3155;
 
-        public Task HandleAsync(ISession session, IClientPacket clientPacket)
+        protected override Task HandleAsync(ISession session, MoveAvatarArgs args)
         {
-            int x = clientPacket.ReadInt();
-            int y = clientPacket.ReadInt();
             IList<Position> walkingPath = PathFinder.FindPath(
                 session.CurrentRoom.RoomGrid,
-                session.Entity.Position, new Position(x, y, 0));
+                session.Entity.Position, new Position(args.X, args.Y, 0));
             walkingPath.RemoveAt(walkingPath.Count - 1);
             session.Entity.PathToWalk = walkingPath;
             return Task.CompletedTask;

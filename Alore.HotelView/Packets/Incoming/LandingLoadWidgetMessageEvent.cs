@@ -1,4 +1,6 @@
-﻿namespace Alore.HotelView.Packets.Incoming
+﻿using Alore.HotelView.Packets.Incoming.Args;
+
+namespace Alore.HotelView.Packets.Incoming
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -6,12 +8,11 @@
     using API.Landing.Models;
     using API.Network;
     using API.Network.Clients;
-    using API.Network.Packets;
     using Outgoing;
 
-    internal class LandingLoadWidgetMessageEvent : IAsyncPacket
+    internal class LandingLoadWidgetMessageEvent : AbstractAsyncPacket<LandingArgs>
     {
-        public short Header { get; } = 1579;
+        public override short Header { get; } = 1579;
 
         private readonly ILandingController _landingController;
 
@@ -20,11 +21,9 @@
             _landingController = landingController;
         }
 
-        public async Task HandleAsync(
-            ISession session,
-            IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session, LandingArgs args)
         {
-            string text = clientPacket.ReadString();
+            string text = args.Text;
             string[] splitText = text.Split(',');
             IList<IHallOfFamer> hallOfFamers = await _landingController.GetHallOfFamersAsync();
 

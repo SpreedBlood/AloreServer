@@ -1,16 +1,15 @@
 ﻿namespace Alore.Room.Packets.Incoming
 {
     using System.Threading.Tasks;
-    using Alore.API.Network;
-    using Alore.API.Network.Clients;
-    using Alore.API.Network.Packets;
+    using API.Network;
+    using API.Network.Clients;
     using Alore.API.Room.Models;
 
-    internal class GoToHotelViewEvent : IAsyncPacket
+    internal class GoToHotelViewEvent : AbstractAsyncPacket
     {
-        public short Header => 3119;
+        public override short Header => 3119;
 
-        public Task HandleAsync(ISession session, IClientPacket clientPacket)
+        protected override Task HandleAsync(ISession session)
         {
             IRoom room = session.CurrentRoom;
             if (room != null)

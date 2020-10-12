@@ -12,9 +12,9 @@
             NaviY = reader.Read<int>("navi_y");
             NaviWidth = reader.Read<int>("navi_width");
             NaviHeight = reader.Read<int>("navi_height");
-            NaviHideSearches = reader.Read<bool>("navi_hide_searches");
+            NaviHideSearches = reader.Read<string>("navi_hide_searches").Equals("1");
         }
-        
+
         public int NaviX { get; set; }
         public int NaviY { get; set; }
         public int NaviWidth { get; set; }

@@ -14,7 +14,7 @@
             foreach (Assembly assembly in assemblies)
             foreach (Type type in assembly.GetTypes())
             {
-                if (type.GetInterfaces().Contains(typeof(IAsyncPacket)))
+                if (type.GetInterfaces().Contains(typeof(IAsyncPacket)) && !type.IsAbstract)
                 {
                     serviceCollection.AddSingleton(typeof(IAsyncPacket), type);
                 }

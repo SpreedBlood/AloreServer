@@ -1,18 +1,26 @@
+using System;
 using System.Threading.Tasks;
 using Alore.API.Network;
 using Alore.API.Network.Clients;
-using Alore.API.Network.Packets;
+using Alore.Handshake.Packets.Incoming.Args;
+using Microsoft.Extensions.Logging;
 
 namespace Alore.Handshake.Packets.Incoming
 {
-    public class CheckReleaseMessageEvent : IAsyncPacket
+    public class CheckReleaseMessageEvent : AbstractAsyncPacket<ReleaseArgs>
     {
-        public short Header { get; } = Headers.CheckReleaseEvent;
+        public override short Header { get; } = Headers.CheckReleaseEvent;
 
-        public Task HandleAsync(ISession session, IClientPacket clientPacket)
+        private readonly ILogger<CheckReleaseMessageEvent> _logger;
+
+        public CheckReleaseMessageEvent(ILogger<CheckReleaseMessageEvent> logger)
         {
-            string release = clientPacket.ReadString();
-            
+            _logger = logger;
+        }
+
+        protected override Task HandleAsync(ISession session, ReleaseArgs args)
+        {
+            _logger.LogInformation(args.Release);
             return Task.CompletedTask;
         }
     }

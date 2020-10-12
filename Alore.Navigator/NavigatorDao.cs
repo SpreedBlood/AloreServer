@@ -25,7 +25,7 @@
                     {
                         categories.Add(new NavigatorCategory(reader));
                     }
-                }, "SELECT id, min_rank, public_name, category_type, identifier, category FROM navigator_categories ORDER BY id;");
+                }, "SELECT id, required_rank as min_rank, public_name, category_type, category_identifier as identifier, category FROM navigator_categories ORDER BY id;");
             });
 
             return categories;

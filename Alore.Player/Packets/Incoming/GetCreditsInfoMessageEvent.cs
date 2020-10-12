@@ -3,16 +3,13 @@
     using System.Threading.Tasks;
     using API.Network;
     using API.Network.Clients;
-    using API.Network.Packets;
     using Outgoing;
 
-    internal class GetCreditsInfoMessageEvent : IAsyncPacket
+    internal class GetCreditsInfoMessageEvent : AbstractAsyncPacket
     {
-        public short Header { get; } = 2109;
+        public override short Header { get; } = 2109;
 
-        public async Task HandleAsync(
-            ISession session,
-            IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session)
         {
             await session.WriteAndFlushAsync(new CreditBalanceComposer(session.Player.Credits));
             await session.WriteAndFlushAsync(

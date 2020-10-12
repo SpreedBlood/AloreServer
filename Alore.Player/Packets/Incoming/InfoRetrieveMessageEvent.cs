@@ -4,13 +4,12 @@
     using API.Player.Models;
     using API.Network;
     using API.Network.Clients;
-    using API.Network.Packets;
     using API.Player;
     using Outgoing;
 
-    internal class InfoRetrieveMessageEvent : IAsyncPacket
+    internal class InfoRetrieveMessageEvent : AbstractAsyncPacket
     {
-        public short Header { get; } = 3092;
+        public override short Header { get; } = 3092;
 
         private readonly IPlayerController _playerController;
 
@@ -19,9 +18,7 @@
             _playerController = playerController;
         }
 
-        public async Task HandleAsync(
-            ISession session,
-            IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session)
         {
             IPlayerStats playerStats =
                 await _playerController.GetPlayerStatsByIdAsync(session.Player.Id);

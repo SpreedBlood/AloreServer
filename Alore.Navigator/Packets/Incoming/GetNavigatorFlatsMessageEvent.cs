@@ -6,12 +6,11 @@
     using API.Navigator.Models;
     using API.Network;
     using API.Network.Clients;
-    using API.Network.Packets;
     using Outgoing;
 
-    internal class GetNavigatorFlatsMessageEvent : IAsyncPacket
+    internal class GetNavigatorFlatsMessageEvent : AbstractAsyncPacket
     {
-        public short Header { get; } = 708;
+        public override short Header { get; } = 708;
 
         private readonly INavigatorController _navigatorController;
 
@@ -20,9 +19,7 @@
             _navigatorController = navigatorController;
         }
 
-        public async Task HandleAsync(
-            ISession session,
-            IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session)
         {
             IList<INavigatorCategory> eventCategories =
                 await _navigatorController.GetEventCategoriesAsync();

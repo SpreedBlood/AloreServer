@@ -4,12 +4,11 @@
     using System.Threading.Tasks;
     using Alore.API.Item;
     using Alore.API.Item.Models;
-    using Alore.API.Network;
-    using Alore.API.Network.Clients;
-    using Alore.API.Network.Packets;
+    using API.Network;
+    using API.Network.Clients;
     using Alore.Item.Packets.Outgoing;
 
-    internal class RequestFurniInventoryEvent : IAsyncPacket
+    internal class RequestFurniInventoryEvent : AbstractAsyncPacket
     {
         private readonly IItemController _itemController;
 
@@ -18,9 +17,9 @@
             _itemController = itemController;
         }
 
-        public short Header => 2835;
+        public override short Header => 2835;
 
-        public async Task HandleAsync(ISession session, IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session)
         {
             IDictionary<uint, IItem> items;
             //Initializes the inventory 

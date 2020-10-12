@@ -3,16 +3,13 @@
     using System.Threading.Tasks;
     using API.Network;
     using API.Network.Clients;
-    using API.Network.Packets;
     using Outgoing;
 
-    internal class ScrGetUserInfoMessageEvent : IAsyncPacket
+    internal class ScrGetUserInfoMessageEvent : AbstractAsyncPacket
     {
-        public short Header { get; } = 3796;
+        public override short Header { get; } = 3796;
 
-        public async Task HandleAsync(
-            ISession session,
-            IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session)
         {
             await session.WriteAndFlushAsync(new ScrSendUserInfoComposer());
         }

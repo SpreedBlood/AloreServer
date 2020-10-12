@@ -1,21 +1,21 @@
-﻿namespace Alore.Item.Packets.Incoming
+﻿using Alore.Item.Packets.Incoming.Args;
+
+namespace Alore.Item.Packets.Incoming
 {
     using System.Threading.Tasks;
     using Alore.API.Item.Models;
-    using Alore.API.Network;
-    using Alore.API.Network.Clients;
-    using Alore.API.Network.Packets;
+    using API.Network;
+    using API.Network.Clients;
     using Alore.API.Room.Models;
-    using Alore.Item.Packets.Outgoing;
+    using Outgoing;
 
-    internal class PlaceObjectEvent : IAsyncPacket
+    internal class PlaceObjectEvent : AbstractAsyncPacket<PlaceObjectArgs>
     {
-        public short Header => 2187;
+        public override short Header => 2187;
 
-        public async Task HandleAsync(ISession session, IClientPacket clientPacket)
+        protected override async Task HandleAsync(ISession session, PlaceObjectArgs args)
         {
-            string rawData = clientPacket.ReadString();
-            string[] data = rawData.Split(' ');
+            string[] data = args.RawData.Split(' ');
 
             uint itemId = uint.Parse(data[0]);
 
@@ -38,7 +38,6 @@
                 }
                 else
                 {
-
                 }
             }
         }
